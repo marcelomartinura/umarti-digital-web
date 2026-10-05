@@ -45,16 +45,20 @@ PAGES = [
          description="Método Evolución Digital, automatización con IA, marketing y generación de leads, y gestión de proyectos para empresas de movilidad.",
          h1="Servicios de consultoría para la industria de la movilidad",
          lead="Se contratan por separado o juntos, como un programa de evolución digital completo."),
-    dict(path="/servicios/evolucion-digital/", file=None, nav="servicios", parent="servicios",
-         title="Transformación digital para concesionarias: método Evolución Digital | Umarti Digital",
-         description="Diagnóstico, mapeo de procesos y hoja de ruta de digitalización para concesionarios y grupos automotrices.",
-         h1="Método Evolución Digital",
-         lead="Diagnóstico, mapeo de procesos y una hoja de ruta clara de qué digitalizar primero."),
-    dict(path="/servicios/automatizacion-ia/", file=None, nav="servicios", parent="servicios",
-         title="Automatización de procesos e IA para agencias de autos | Umarti Digital",
-         description="Agentes de IA para WhatsApp, cotizaciones automáticas e integración de CRM, DMS y ERP en concesionarios.",
-         h1="Automatización de procesos e inteligencia artificial",
-         lead="Agentes conversacionales, cotizaciones automáticas e integraciones entre sistemas."),
+    dict(path="/servicios/evolucion-digital/", file="evolucion-digital.html", nav="servicios", parent="servicios",
+         faq="EVOLUCION",
+         title="Plan de transformación digital para concesionarias: método Evolución Digital | Umarti Digital",
+         description="Plan de transformación digital y optimización tecnológica para concesionarios y grupos automotrices: relevamiento de procesos, roadmap, automatización, integración de sistemas e inteligencia de negocio.",
+         h1="Plan de transformación digital: método Evolución Digital",
+         lead="Diseñamos e implementamos procesos digitales que mejoran la eficiencia, ordenan la operación y hacen crecer el negocio, con una hoja de ruta clara de qué hacer primero.",
+         crumb="Método Evolución Digital"),
+    dict(path="/servicios/automatizacion-ia/", file="automatizacion-ia.html", nav="servicios", parent="servicios",
+         faq="IA",
+         title="Agentes conversacionales con IA y automatización de procesos para concesionarios | Umarti Digital",
+         description="Agentes de inteligencia artificial para WhatsApp, web y redes que atienden, califican y dan seguimiento a leads 24/7, más automatización de cotizaciones, campañas e integración con CRM, DMS y ERP.",
+         h1="Agentes conversacionales con IA y automatización de procesos",
+         lead="Atienden, califican y dan seguimiento a tus clientes las 24 horas, en WhatsApp, web y redes, y convierten cada conversación en una acción concreta dentro de tu operación.",
+         crumb="Automatización e IA"),
     dict(path="/servicios/marketing-leads/", file=None, nav="servicios", parent="servicios",
          title="Marketing digital y generación de leads para agencias de autos | Umarti Digital",
          description="Estrategia digital, campañas y canales conectados al CRM para generar y convertir leads en concesionarios.",
@@ -129,6 +133,34 @@ FAQ = [
      "Con una llamada de 20 minutos para entender tu operación, o pidiendo la presentación comercial para ver los servicios y los proyectos en detalle. En ambos casos, sin compromiso."),
 ]
 
+PAGE_FAQ = {
+    "IA": [
+        ("¿Qué diferencia hay entre un agente conversacional con IA y un chatbot?",
+         "Un chatbot tradicional sigue un menú de opciones fijas. Un agente con inteligencia artificial entiende el contexto de la conversación, interpreta lo que la persona necesita, responde en lenguaje natural y además ejecuta acciones: registra el lead en el CRM, agenda una cita, envía una cotización o deriva a un asesor."),
+        ("¿El agente reemplaza al vendedor o al asesor de servicio?",
+         "No. Se ocupa de la primera respuesta, las preguntas repetitivas, la calificación y el seguimiento, y entrega al asesor un prospecto ya calificado y con el contexto de la conversación. El equipo dedica su tiempo a cerrar ventas y atender mejor."),
+        ("¿En qué canales funciona?",
+         "En WhatsApp, el sitio web, redes sociales como Instagram y Facebook, email y plataformas internas. Lo habitual es empezar por el canal donde hoy se pierden más consultas, que en la mayoría de las agencias es WhatsApp."),
+        ("¿Se integra con mi CRM, DMS o ERP?",
+         "Sí. El agente puede conectarse con CRM, ERP, DMS, calendarios, bases de datos y plataformas de marketing para registrar información y ejecutar acciones sin carga manual. En el diagnóstico definimos qué integraciones generan más valor."),
+        ("¿Es difícil de usar para mi equipo?",
+         "No. La interfaz es intuitiva y no requiere conocimientos técnicos. Acompañamos la puesta en marcha y capacitamos al equipo para que pueda revisar conversaciones, ajustar respuestas y medir resultados."),
+        ("¿Qué plataforma de inteligencia artificial usan?",
+         "No dependemos de una única herramienta. Seleccionamos la plataforma más adecuada para cada empresa junto a especialistas tecnológicos, según los canales, el volumen de conversaciones y los sistemas que ya usa."),
+    ],
+    "EVOLUCION": [
+        ("¿Qué es un plan de transformación digital para una concesionaria?",
+         "Es una hoja de ruta que define qué procesos digitalizar, qué automatizar, qué sistemas integrar y en qué orden, a partir de un diagnóstico de cómo trabaja hoy la agencia o el grupo. Cada etapa tiene entregables e indicadores para medir el avance."),
+        ("¿Por dónde conviene empezar?",
+         "Por el diagnóstico. Relevamos los procesos actuales, las herramientas y los resultados, y detectamos dónde se pierden más ventas o más tiempo. Con eso priorizamos las iniciativas de mayor impacto y menor esfuerzo."),
+        ("¿Hay que cambiar todos los sistemas?",
+         "No. Partimos de lo que ya funciona y proponemos cambios solo cuando el diagnóstico lo justifica. Muchas mejoras salen de ordenar procesos e integrar los sistemas existentes."),
+        ("¿Sirve para un grupo con varias sucursales y marcas?",
+         "Sí. Uno de los objetivos más frecuentes es homologar un solo proceso comercial y de posventa en todas las sucursales, con datos comparables entre marcas y puntos de venta."),
+    ],
+}
+
+
 # Temas del Hub. "comunidad" es la categoría equivalente en la Comunidad Umarti.
 HUB = [
     ("Customer Journey y Ventas", "¿Cómo compra hoy un cliente de 0 km?",
@@ -167,10 +199,10 @@ def whatsapp_footer():
     return ""
 
 
-def faq_html():
+def faq_html(items=None):
     return "\n".join(
         f"        <details>\n          <summary>{e(q)}</summary>\n          <p>{e(a)}</p>\n        </details>"
-        for q, a in FAQ)
+        for q, a in (items or FAQ))
 
 
 def hub_cards(n=None):
@@ -295,14 +327,28 @@ def breadcrumb_ld(page):
     }
 
 
-def faq_ld():
+def faq_ld(items=None):
     return {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
-            for q, a in FAQ
+            for q, a in (items or FAQ)
         ],
+    }
+
+
+def service_ld(page):
+    return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": page.get("crumb", page["h1"]),
+        "description": page["description"],
+        "url": f"{BASE}{page['path']}",
+        "serviceType": page.get("crumb", page["h1"]),
+        "provider": {"@id": f"{BASE}/#organizacion"},
+        "areaServed": ["MX", "AR", "Latinoamérica", "ES"],
+        "audience": {"@type": "BusinessAudience", "audienceType": "Concesionarios, grupos automotrices y distribuidores de motos y camiones"},
     }
 
 
@@ -338,7 +384,7 @@ def render(page, layout, content=None):
     content = (content
                .replace("{{page_header}}", page_header(page) if page["path"] != "/" else "")
                .replace("{{cta_band}}", cta_band())
-               .replace("{{faq_html}}", faq_html())
+               .replace("{{faq_html}}", faq_html(PAGE_FAQ.get(page.get("faq"))))
                .replace("{{hub_cards_3}}", hub_cards(3))
                .replace("{{hub_cards_all}}", hub_cards())
                .replace("{{whatsapp_button}}", whatsapp_button())
@@ -351,6 +397,10 @@ def render(page, layout, content=None):
         ld.append(faq_ld())
     else:
         ld.append(breadcrumb_ld(page))
+    if page.get("parent") == "servicios":
+        ld.append(service_ld(page))
+    if page.get("faq"):
+        ld.append(faq_ld(PAGE_FAQ[page["faq"]]))
 
     nav = page.get("nav", "")
     cur = ' aria-current="page"'
