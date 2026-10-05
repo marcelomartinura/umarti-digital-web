@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{robots}}<link rel="canonical" href="{{url}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Umarti Digital">
+<meta property="og:locale" content="es_LA">
+<meta property="og:title" content="{{og_title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:image" content="{{base}}/assets/img/umarti-logo.png">
+<meta name="theme-color" content="#0B1E2F">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css?v={{version}}">
+{{jsonld}}</head>
+<body class="{{body_class}}">
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a href="/" class="topbar__logo" aria-label="Umarti Digital, inicio">
+      <img src="/assets/img/umarti-logo-blanco.webp" alt="Umarti Digital" width="160" height="47">
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <ul class="nav__list">
+        <li class="nav__item nav__item--sub">
+          <a href="/servicios/"{{cur_servicios}}>Servicios</a>
+          <ul class="nav__sub">
+            <li><a href="/servicios/evolucion-digital/">Método Evolución Digital</a></li>
+            <li><a href="/servicios/automatizacion-ia/">Automatización e IA</a></li>
+            <li><a href="/servicios/marketing-leads/">Marketing y generación de leads</a></li>
+            <li><a href="/servicios/gestion-proyectos/">Gestión de proyectos y producto</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--sub">
+          <a href="/automotriz/agencias-de-autos/"{{cur_automotriz}}>Para quién</a>
+          <ul class="nav__sub">
+            <li><a href="/automotriz/agencias-de-autos/">Agencias de autos</a></li>
+            <li><a href="/automotriz/motos/">Distribuidores de motos</a></li>
+            <li><a href="/automotriz/camiones/">Camiones y flotillas</a></li>
+            <li><a href="/automotriz/grupos-automotrices/">Grupos automotrices</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="/hub/"{{cur_hub}}>Hub</a></li>
+        <li class="nav__item"><a href="/sobre-umarti/"{{cur_sobre}}>Sobre Umarti</a></li>
+      </ul>
+      <a href="/contacto/" class="btn btn--small">Agendar una llamada</a>
+      <details class="menu">
+        <summary aria-label="Abrir menú"><span></span><span></span><span></span></summary>
+        <div class="menu__panel">
+          <p class="menu__title">Servicios</p>
+          <a href="/servicios/">Todos los servicios</a>
+          <a href="/servicios/evolucion-digital/">Método Evolución Digital</a>
+          <a href="/servicios/automatizacion-ia/">Automatización e IA</a>
+          <a href="/servicios/marketing-leads/">Marketing y generación de leads</a>
+          <a href="/servicios/gestion-proyectos/">Gestión de proyectos y producto</a>
+          <p class="menu__title">Para quién</p>
+          <a href="/automotriz/agencias-de-autos/">Agencias de autos</a>
+          <a href="/automotriz/motos/">Distribuidores de motos</a>
+          <a href="/automotriz/camiones/">Camiones y flotillas</a>
+          <a href="/automotriz/grupos-automotrices/">Grupos automotrices</a>
+          <p class="menu__title">Umarti</p>
+          <a href="/hub/">Hub</a>
+          <a href="/sobre-umarti/">Sobre Umarti</a>
+          <a href="/contacto/">Contacto</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+{{content}}
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="/assets/img/umarti-logo-blanco.webp" alt="Umarti Digital" width="140" height="41" loading="lazy">
+        <p>Consultoría de evolución digital para la industria de la movilidad en Latinoamérica y España.</p>
+      </div>
+      <div>
+        <p class="footer__title">Servicios</p>
+        <a href="/servicios/evolucion-digital/">Método Evolución Digital</a>
+        <a href="/servicios/automatizacion-ia/">Automatización e IA</a>
+        <a href="/servicios/marketing-leads/">Marketing y leads</a>
+        <a href="/servicios/gestion-proyectos/">Gestión de proyectos</a>
+      </div>
+      <div>
+        <p class="footer__title">Para quién</p>
+        <a href="/automotriz/agencias-de-autos/">Agencias de autos</a>
+        <a href="/automotriz/motos/">Motos</a>
+        <a href="/automotriz/camiones/">Camiones y flotillas</a>
+        <a href="/automotriz/grupos-automotrices/">Grupos automotrices</a>
+      </div>
+      <div>
+        <p class="footer__title">Oficinas</p>
+        <p>Querétaro, MÉXICO</p>
+        <p>Ciudad de Buenos Aires, ARGENTINA</p>
+        <a href="mailto:{{email}}">{{email}}</a>
+        {{whatsapp_footer}}
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© {{year}} Umarti Digital</p>
+      <a href="/privacidad/">Aviso de privacidad</a>
+    </div>
+  </div>
+</footer>
+{{scripts}}
+</body>
+</html>

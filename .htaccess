@@ -1,0 +1,32 @@
+RewriteEngine On
+
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# Redirecciones del sitio anterior (Hostinger Builder) a las URLs nuevas
+Redirect 301 /automatizacion-procesos-automotriz /servicios/automatizacion-ia/
+Redirect 301 /gestion-de-proyectos-y-producto /servicios/gestion-proyectos/
+RedirectMatch 301 ^/blog(/.*)?$ /hub/
+
+# No exponer archivos del repositorio ni el generador
+RedirectMatch 404 ^/\.git
+RedirectMatch 404 ^/_build
+RedirectMatch 404 ^/README\.md$
+
+ErrorDocument 404 /404.html
+
+# STAGING: no indexar mientras el sitio vive en el subdominio provisorio.
+# Borrar estas 3 líneas el día del lanzamiento (junto con STAGING = False en _build/build.py).
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+# Caché de recursos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+</IfModule>

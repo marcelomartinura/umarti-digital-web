@@ -1,0 +1,56 @@
+{{page_header}}
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="hub-filters" aria-label="Temas">
+        <span class="chip chip--on">Todos</span>
+        <span class="chip">Customer Journey y Ventas</span>
+        <span class="chip">Tecnología e IA</span>
+        <span class="chip">Marketing y Contenido</span>
+        <span class="chip">Gestión y Operaciones</span>
+        <span class="chip">Radar internacional</span>
+      </div>
+      <div class="topics">
+{{hub_cards_all}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap split">
+      <div class="split__head">
+        <p class="eyebrow">Newsletter quincenal</p>
+        <h2>Radar Automotriz</h2>
+        <p>Qué está haciendo la industria de la movilidad en otros países, y qué se puede aplicar en tu operación. Cada dos semanas, en tu correo.</p>
+      </div>
+      <div>
+        <div class="notice notice--ok" id="form-ok" role="status" hidden>Listo, quedaste suscrito al Radar Automotriz.</div>
+        <div class="notice notice--error" id="form-error" role="alert" hidden>No se pudo completar la suscripción. Revisa el email e inténtalo de nuevo.</div>
+        <form class="form" action="/contact.php" method="post">
+          <input type="hidden" name="origen" value="hub">
+          <input type="hidden" name="interes" value="newsletter">
+          <div class="form__row">
+            <label>Nombre<input type="text" name="nombre" required autocomplete="name"></label>
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+          </div>
+          <label class="hp" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+          <p class="form__legal">Al suscribirte aceptas el <a href="/privacidad/">aviso de privacidad</a>. Puedes darte de baja cuando quieras.</p>
+          <button type="submit" class="btn">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Del artículo al debate</h2>
+        <p>El Hub y la Comunidad Umarti funcionan juntos.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Lees el análisis en el Hub.</strong> Cada tema se publica acá con datos, ejemplos y lo que está pasando en otros países.</li>
+        <li><strong>Lo debates en la Comunidad.</strong> Cada artículo tiene su conversación abierta con colegas de autos, motos y camiones.</li>
+        <li><strong>Lo bajas a tu operación.</strong> Si quieres aplicarlo en tu empresa, conversamos 20 minutos sin compromiso.</li>
+      </ol>
+    </div>
+  </section>

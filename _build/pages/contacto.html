@@ -1,0 +1,68 @@
+{{page_header}}
+
+  <section class="section section--tight">
+    <div class="wrap contact">
+      <div class="contact__side">
+        <h2>Hablemos directo</h2>
+        <p>Si prefieres una respuesta rápida, escríbenos por WhatsApp. Respondemos en horario laboral de México y Argentina.</p>
+        {{whatsapp_button}}
+        <a class="contact__mail" href="mailto:{{email}}">{{email}}</a>
+
+        <h2 class="contact__offices-title">Oficinas</h2>
+        <div class="offices">
+          <div class="office">
+            <p class="office__country">MÉXICO</p>
+            <p class="office__city">Querétaro</p>
+            <p>Atendemos México, Centroamérica y el Caribe.</p>
+          </div>
+          <div class="office">
+            <p class="office__country">ARGENTINA</p>
+            <p class="office__city">Ciudad de Buenos Aires</p>
+            <p>Atendemos Argentina, el Cono Sur y España.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__form">
+        <h2>Escríbenos</h2>
+        <p class="contact__intro">Agenda una llamada de 20 minutos o pide la presentación comercial. Te respondemos en menos de 24 horas hábiles.</p>
+        <div class="notice notice--ok" id="form-ok" role="status" hidden>Mensaje enviado. Te respondemos en menos de 24 horas hábiles.</div>
+        <div class="notice notice--error" id="form-error" role="alert" hidden>No se pudo enviar el mensaje. Revisa que nombre, empresa y email estén completos e inténtalo de nuevo.</div>
+        <form class="form" action="/contact.php" method="post">
+          <input type="hidden" name="origen" value="contacto">
+          <div class="form__row">
+            <label>Nombre<input type="text" name="nombre" required autocomplete="name"></label>
+            <label>Empresa<input type="text" name="empresa" required autocomplete="organization"></label>
+          </div>
+          <div class="form__row">
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            <label><span>WhatsApp <span class="optional">(opcional)</span></span><input type="tel" name="telefono" autocomplete="tel"></label>
+          </div>
+          <div class="form__row">
+            <label>¿Qué te gustaría?
+              <select name="interes" id="interes">
+                <option value="llamada">Agendar una llamada de 20 minutos</option>
+                <option value="presentacion">Recibir la presentación comercial</option>
+              </select>
+            </label>
+            <label>País
+              <select name="pais">
+                <option>México</option>
+                <option>Argentina</option>
+                <option>Colombia</option>
+                <option>Chile</option>
+                <option>Perú</option>
+                <option>Panamá</option>
+                <option>España</option>
+                <option>Otro</option>
+              </select>
+            </label>
+          </div>
+          <label><span>¿Qué te gustaría mejorar? <span class="optional">(opcional)</span></span><textarea name="mensaje" rows="5"></textarea></label>
+          <label class="hp" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+          <p class="form__legal">Al enviar aceptas el <a href="/privacidad/">aviso de privacidad</a>.</p>
+          <button type="submit" class="btn">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
