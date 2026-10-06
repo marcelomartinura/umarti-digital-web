@@ -84,7 +84,7 @@ PAGES = [
          h1="Para quién trabajo",
          lead="Me especializo en la industria automotriz. Y llevo el mismo método a otros negocios donde vender y atender bien lo es todo.",
          crumb="Para quién"),
-    dict(path="/industrias/automotriz/", file="automotriz.html", faq="AUTOMOTRIZ", nav="industrias", parent="industrias",
+    dict(path="/industrias/automotriz/", file="automotriz.html", nav="industrias", parent="industrias",
          title="Consultoría automotriz para concesionarios y grupos automotrices | Umarti Digital",
          description="Consultoría automotriz: procesos, automatización con IA y gestión digital de ventas para agencias de autos, concesionarios y grupos automotrices en México, Argentina y Latinoamérica.",
          h1="Consultoría automotriz para concesionarios y grupos automotrices",
