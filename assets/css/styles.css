@@ -618,3 +618,6 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 @media (max-width: 760px) { .pains--grid { grid-template-columns: 1fr; } }
 .page-home main > section[id] { scroll-margin-top: 12px; }
 .footer .footer__title.footer__title--next { margin-top: 24px; }
+.benefits--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1060px) { .benefits--three { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .benefits--three { grid-template-columns: 1fr; } }
