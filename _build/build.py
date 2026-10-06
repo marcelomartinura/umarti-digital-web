@@ -59,21 +59,21 @@ PAGES = [
          h1="Agentes conversacionales con IA y automatización de procesos",
          lead="Atienden, califican y dan seguimiento a tus clientes las 24 horas, en WhatsApp, web y redes, y convierten cada conversación en una acción concreta dentro de tu operación.",
          crumb="Automatización e IA"),
-    dict(path="/servicios/gestion-digital-ventas/", file=None, nav="servicios", parent="servicios",
+    dict(path="/servicios/gestion-digital-ventas/", file="gestion-digital-ventas.html", faq="VENTAS", nav="servicios", parent="servicios",
          title="Gestión digital de ventas: CRM, leads y embudo comercial | Umarti Digital",
-         description="Consultoría en gestión digital de ventas: canales, CRM, seguimiento de leads, campañas y métricas del embudo hasta el cierre.",
+         description="Consultoría en gestión digital de ventas: proceso comercial, CRM, seguimiento de leads, campañas y métricas del embudo, para que cada oportunidad tenga dueño y se mida hasta la venta.",
          h1="Gestión digital de ventas",
          lead="Ordeno el proceso comercial digital de punta a punta, para que cada lead tenga dueño y se mida hasta la venta.",
          crumb="Gestión digital de ventas"),
-    dict(path="/servicios/desarrollo-nuevos-productos/", file=None, nav="servicios", parent="servicios",
-         title="Desarrollo de nuevos productos y unidades de negocio | Umarti Digital",
-         description="Diseño y lanzamiento de nuevos productos, unidades de negocio y MVPs digitales, con su estrategia comercial y gestión del proyecto.",
+    dict(path="/servicios/desarrollo-nuevos-productos/", file="desarrollo-nuevos-productos.html", faq="PRODUCTOS", nav="servicios", parent="servicios",
+         title="Desarrollo de nuevos productos, unidades de negocio y gestión de proyectos | Umarti Digital",
+         description="Diseño y lanzamiento de nuevos productos, formatos híbridos, unidades de seminuevos y MVPs digitales, con modelo de negocio, experiencia del cliente y gestión ágil del proyecto.",
          h1="Desarrollo de nuevos productos",
          lead="De la idea al lanzamiento: nuevos productos, formatos y unidades de negocio, con su estrategia comercial.",
          crumb="Desarrollo de nuevos productos"),
-    dict(path="/servicios/software-factory-staffing/", file=None, nav="servicios", parent="servicios",
-         title="Software Factory y Staffing tecnológico | Umarti Digital",
-         description="Desarrollo de software a medida y perfiles tecnológicos que se suman a tu equipo, coordinados por un solo interlocutor.",
+    dict(path="/servicios/software-factory-staffing/", file="software-factory-staffing.html", faq="SOFTWARE", nav="servicios", parent="servicios",
+         title="Software Factory y Staffing: desarrollo a medida y talento tecnológico | Umarti Digital",
+         description="Desarrollo de software a medida, integraciones y perfiles tecnológicos que se suman a tu equipo, a través de partners especializados y con un solo interlocutor que entiende tu negocio.",
          h1="Software Factory y Staffing",
          lead="Desarrollo de software a medida y talento tecnológico que se suma a tu equipo, con un solo interlocutor.",
          crumb="Software Factory y Staffing"),
@@ -83,11 +83,11 @@ PAGES = [
          h1="Para quién trabajo",
          lead="Me especializo en la industria automotriz. Y llevo el mismo método a otros negocios donde vender y atender bien lo es todo.",
          crumb="Para quién"),
-    dict(path="/industrias/automotriz/", file=None, nav="industrias", parent="industrias",
+    dict(path="/industrias/automotriz/", file="automotriz.html", faq="AUTOMOTRIZ", nav="industrias", parent="industrias",
          title="Consultoría automotriz para concesionarios y grupos automotrices | Umarti Digital",
          description="Consultoría automotriz: procesos, automatización con IA y gestión digital de ventas para agencias de autos, concesionarios y grupos automotrices en México, Argentina y Latinoamérica.",
          h1="Consultoría automotriz para concesionarios y grupos automotrices",
-         lead="Para agencias de autos, concesionarios y grupos automotrices que quieren vender más y atender mejor.",
+         lead="Para agencias de autos, concesionarios y grupos automotrices que quieren vender más, atender mejor y ganar eficiencia, en México, Argentina, Latinoamérica y España.",
          crumb="Automotriz"),
     dict(path="/hub/", file="hub.html", nav="hub", form=True,
          title="Hub Evolución Digital Automotriz: análisis y tendencias | Umarti Digital",
@@ -104,11 +104,11 @@ PAGES = [
          description="Agenda una llamada de 20 minutos, escríbeme por WhatsApp o pide mi presentación comercial. Querétaro, México y Ciudad de Buenos Aires, Argentina.",
          h1="Conversemos", crumb="Contacto",
          lead="Cuéntame dónde está hoy tu operación. Sin compromiso."),
-    dict(path="/privacidad/", file=None, nav="",
+    dict(path="/privacidad/", file="privacidad.html", nav="",
          title="Aviso de privacidad | Umarti Digital",
-         description="Aviso de privacidad de Umarti Digital.",
+         description="Cómo Umarti Digital trata los datos personales de quienes visitan el sitio y se contactan, según la normativa de Argentina, México, Latinoamérica y España.",
          h1="Aviso de privacidad",
-         lead="Cómo tratamos los datos que nos compartes."),
+         lead="Cómo trato los datos personales que me compartes a través de este sitio."),
 ]
 
 PARENTS = {
@@ -138,6 +138,48 @@ FAQ = [
 ]
 
 PAGE_FAQ = {
+    "AUTOMOTRIZ": [
+        ("¿Qué hace un consultor automotriz?",
+         "Analiza cómo vende y cómo atiende hoy una agencia o un grupo automotriz, desde el primer contacto del cliente hasta la posventa, y define qué cambiar en procesos, tecnología y equipo para vender más y ser más eficiente. Después acompaña la implementación hasta que los cambios funcionan en el día a día."),
+        ("¿Trabajas con agencias de una sola marca o solo con grupos grandes?",
+         "Con los dos. Trabajo con agencias y concesionarios de una o varias sucursales, con grupos automotrices multimarca y con unidades de seminuevos y posventa. El método se adapta al tamaño y a la madurez digital de cada operación."),
+        ("¿Necesito cambiar mi CRM o mi DMS?",
+         "No necesariamente. Parto de las herramientas que ya usas y propongo cambiarlas solo cuando el diagnóstico lo justifica. Muchas mejoras se logran ordenando procesos e integrando los sistemas existentes."),
+        ("¿En qué países trabajas?",
+         "Trabajo desde Ciudad de Buenos Aires y Querétaro con concesionarios de México, Argentina y el resto de Latinoamérica, y también con empresas de España. Los proyectos pueden ser presenciales, remotos o combinados."),
+        ("¿Cuánto tiempo lleva ver resultados?",
+         "Depende del proyecto, pero trabajo con etapas cortas y entregables concretos. Mejoras como el tiempo de respuesta a los leads suelen verse en las primeras semanas; la homologación de procesos en un grupo lleva más tiempo y se implementa por etapas."),
+    ],
+    "VENTAS": [
+        ("¿Qué incluye la gestión digital de ventas?",
+         "Incluye el diseño del proceso comercial digital, la configuración y adopción del CRM, la conexión de canales como sitio web, redes, marketplaces, email y WhatsApp, la automatización del seguimiento y los tableros con las métricas del embudo."),
+        ("¿Tengo que contratar un CRM nuevo?",
+         "No necesariamente. Muchas veces el CRM ya existe pero el equipo no lo usa bien. Empiezo por ordenar el proceso y mejorar la adopción, y solo propongo cambiar de herramienta cuando la actual no permite trabajar como se necesita."),
+        ("¿Esto reemplaza a mi agencia de marketing?",
+         "No. Me enfoco en lo que pasa con los leads después de que llegan: atención, seguimiento, conversión y medición. Trabajo junto a tu agencia de marketing para que las campañas se conecten con el proceso comercial y se midan hasta la venta."),
+        ("¿Qué métricas conviene medir?",
+         "Las más importantes son el tiempo de primera respuesta, la conversión por etapa del embudo y por asesor, el costo por lead y por venta, y el retorno de cada canal y campaña."),
+    ],
+    "PRODUCTOS": [
+        ("¿Qué es un MVP?",
+         "Un MVP, o producto mínimo viable, es una primera versión de un producto o servicio con lo justo para probarlo con clientes reales. Permite validar la idea y aprender rápido antes de invertir en la versión completa."),
+        ("¿Pueden ayudarme a lanzar una unidad de seminuevos?",
+         "Sí. Es uno de los proyectos que más conozco: diseño del formato, procesos de toma, inspección y reacondicionamiento, experiencia del cliente, canales digitales y estrategia comercial."),
+        ("¿Qué metodologías usas para gestionar los proyectos?",
+         "Trabajo con metodologías ágiles como Scrum y Kanban, con proyectos cortos, unidades mínimas de trabajo, OKRs y tableros de seguimiento compartidos con tu equipo."),
+        ("¿Trabajas junto al equipo interno?",
+         "Sí. Puedo liderar el proyecto completo o sumarme como apoyo a un equipo interno que ya tiene la agenda completa, aportando método, gestión y experiencia en la industria."),
+    ],
+    "SOFTWARE": [
+        ("¿Qué diferencia hay entre Software Factory y Staffing?",
+         "En la modalidad Software Factory, un equipo completo desarrolla una solución con alcance, plazos y entregables definidos. En Staffing, se suman perfiles tecnológicos a tu equipo para trabajar con tu metodología y tus prioridades."),
+        ("¿Quién desarrolla el software?",
+         "Trabajo con partners especializados en desarrollo de software y talento tecnológico. Yo defino el alcance contigo, elijo el partner y los perfiles adecuados y coordino la ejecución, para que tu equipo trate con una sola persona."),
+        ("¿Conviene desarrollar a medida o comprar una plataforma?",
+         "Depende del caso. Antes de desarrollar, evalúo si existe una plataforma que resuelva la necesidad. Recomiendo el desarrollo a medida cuando el proceso es propio del negocio, cuando hay que integrar sistemas o cuando ninguna opción del mercado se adapta."),
+        ("¿Por cuánto tiempo puedo contratar perfiles?",
+         "Por proyecto o de forma continua. La duración y la dedicación se definen según la necesidad de tu equipo."),
+    ],
     "IA": [
         ("¿Qué diferencia hay entre un agente conversacional con IA y un chatbot?",
          "Un chatbot tradicional sigue un menú de opciones fijas. Un agente con inteligencia artificial entiende el contexto de la conversación, interpreta lo que la persona necesita, responde en lenguaje natural y además ejecuta acciones: registra el lead en el CRM, agenda una cita, envía una cotización o deriva a un asesor."),
@@ -441,7 +483,7 @@ def hub_cards(n=None):
             <a class="topic__debate" href="/hub/{a['slug']}/">Leer nota</a>
           </div>
         </article>""")
-    for cat, title, summary, comunidad in HUB:
+    for cat, title, summary, comunidad in []:  # temas "Próximamente" retirados
         out.append(f"""        <article class="topic">
           <p class="topic__cat">{e(cat)}</p>
           <h3>{e(title)}</h3>

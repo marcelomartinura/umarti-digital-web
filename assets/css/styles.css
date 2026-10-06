@@ -597,3 +597,16 @@ p { margin: 0 0 1em; }
 .post-body ol { margin: 0 0 1.3em; padding-left: 1.4em; }
 .post-body ol li::marker { color: var(--teal-deep); font-weight: 700; }
 .post-body h3 { font-size: 1.2rem; margin: 30px 0 10px; }
+
+/* Listas sobre fondo oscuro */
+.ticks--light { margin: 0; }
+.ticks--light li { border-color: rgba(255,255,255,.14); color: #C9D6DC; }
+.ticks--light li strong { color: var(--white); }
+.ticks--light li::before { border-color: var(--teal); }
+
+/* Aviso de privacidad */
+.legal { font-size: 1.02rem; }
+.legal h2 { font-size: 1.35rem; margin-top: 40px; }
+.legal__meta { color: var(--slate); font-size: 0.95rem; }
+.legal__note { background: #FFF4D6; color: #6B4E00; border-radius: 10px; padding: 12px 16px; font-weight: 600; font-size: 0.95rem; margin-bottom: 24px; }
+h2 + .flows, h2 + .benefits { margin-top: 32px; }
