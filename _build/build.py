@@ -105,10 +105,10 @@ PAGES = [
          h1="Conversemos", crumb="Contacto",
          lead="Cuéntame dónde está hoy tu operación. Sin compromiso."),
     dict(path="/privacidad/", file="privacidad.html", nav="",
-         title="Aviso de privacidad | Umarti Digital",
-         description="Cómo Umarti Digital trata los datos personales de quienes visitan el sitio y se contactan, según la normativa de Argentina, México, Latinoamérica y España.",
-         h1="Aviso de privacidad",
-         lead="Cómo trato los datos personales que me compartes a través de este sitio."),
+         title="Términos y aviso de privacidad | Umarti Digital",
+         description="Condiciones de uso del sitio umartidigital.com y cómo se tratan los datos personales que compartes a través de él.",
+         h1="Términos y aviso de privacidad",
+         lead="Las reglas de uso del sitio y cómo cuido los datos que me compartes."),
 ]
 
 PARENTS = {
