@@ -19,7 +19,7 @@ BASE = "https://www.umartidigital.com"
 STAGING = True
 EMAIL = "hola@umartidigital.com"
 # Número en formato internacional sin "+" ni espacios, ej. "5214421234567".
-WHATSAPP = ""
+WHATSAPP = "524425307129"
 WHATSAPP_MSG = "Hola, quiero conversar sobre la consultoría de Umarti Digital."
 # URL pública de la Comunidad del marketplace, ej. "https://dominio.com/comunidad".
 COMUNIDAD_URL = ""
