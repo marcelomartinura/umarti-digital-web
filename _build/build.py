@@ -114,6 +114,7 @@ PAGES = [
 PARENTS = {
     "servicios": ("Servicios", "/servicios/"),
     "industrias": ("Para quién", "/industrias/"),
+    "hub": ("Hub", "/hub/"),
 }
 
 # ---------------------------------------------------------------------------
@@ -164,6 +165,29 @@ PAGE_FAQ = {
 }
 
 
+# Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
+# "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
+ARTICULOS = [
+    dict(slug="colaboradores-motivados",
+         titulo="Colaboradores motivados: el motor silencioso de las empresas que crecen",
+         seo_title="Colaboradores motivados: el motor de las empresas que crecen | Umarti Digital",
+         descripcion="Por qué los equipos motivados son un diferencial competitivo en la industria automotriz y otros sectores, qué los desmotiva y cómo procesos, tecnología y automatización ayudan a potenciarlos.",
+         intro="En un contexto de transformación constante, la competitividad de las empresas ya no depende solo de la tecnología que implementan, los productos que comercializan o los canales que utilizan. Cada vez es más evidente que el verdadero diferencial está en las personas que hacen funcionar la organización día a día. En industrias exigentes como la automotriz, y extensivo a sectores como retail, inmobiliario, educación o servicios, desarrollar colaboradores motivados dejó de ser un concepto aspiracional para convertirse en una necesidad estratégica.",
+         resumen="Por qué el verdadero diferencial está en las personas y cómo procesos, tecnología y automatización ayudan a que los equipos crezcan junto con el negocio.",
+         categoria="Gestión y Operaciones",
+         fecha="2026-10-05",
+         imagen="colaboradores-motivados",
+         imagen_alt="Equipo de técnicos de un taller automotriz con el pulgar arriba",
+         old="/colaboradores-motivados-el-motor-silencioso-de-las-empresas-que-crecen-copy",
+         comunidad="",
+         relacionados=[("/servicios/evolucion-digital/", "Método Evolución Digital"),
+                       ("/servicios/automatizacion-ia/", "Automatización e IA")]),
+]
+
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+         "septiembre", "octubre", "noviembre", "diciembre"]
+
+
 # Temas del Hub. "comunidad" es la categoría equivalente en la Comunidad Umarti.
 HUB = [
     ("Customer Journey y Ventas", "¿Cómo compra hoy un cliente de 0 km?",
@@ -208,24 +232,67 @@ def faq_html(items=None):
         for q, a in (items or FAQ))
 
 
+def fecha_larga(iso):
+    d = datetime.date.fromisoformat(iso)
+    return f"{d.day} de {MESES[d.month - 1]} de {d.year}"
+
+
+def minutos_lectura(html_text):
+    import re
+    palabras = len(re.sub(r"<[^>]+>", " ", html_text).split())
+    return max(1, round(palabras / 200))
+
+
+def articulo_body(a):
+    return (SRC / "articulos" / f"{a['slug']}.html").read_text(encoding="utf-8")
+
+
+def articulos_ordenados():
+    return sorted(ARTICULOS, key=lambda a: a["fecha"], reverse=True)
+
+
+def debate_link(comunidad):
+    if COMUNIDAD_URL:
+        url = COMUNIDAD_URL.rstrip("/") + (f"/{comunidad}" if comunidad else "")
+        return (f'<a class="topic__debate" href="{url}" target="_blank" rel="noopener">'
+                "Sumarme al debate en la Comunidad</a>")
+    return '<span class="topic__debate topic__debate--off">Debate en la Comunidad Umarti</span>'
+
+
+def debate_boton(comunidad):
+    if COMUNIDAD_URL:
+        url = COMUNIDAD_URL.rstrip("/") + (f"/{comunidad}" if comunidad else "")
+        return f'<a class="btn btn--ghost" href="{url}" target="_blank" rel="noopener">Sumarme al debate</a>'
+    return '<span class="btn btn--off" aria-disabled="true">Comunidad (próximamente)</span>'
+
+
 def hub_cards(n=None):
     out = []
-    for cat, title, summary, comunidad in HUB[:n]:
-        if COMUNIDAD_URL:
-            debate = (f'<a class="topic__debate" href="{COMUNIDAD_URL.rstrip("/")}/{comunidad}" '
-                      'target="_blank" rel="noopener">Sumarme al debate en la Comunidad</a>')
-        else:
-            debate = '<span class="topic__debate topic__debate--off">Debate en la Comunidad Umarti</span>'
+    for a in articulos_ordenados():
+        mins = minutos_lectura(articulo_body(a))
+        out.append(f"""        <article class="topic topic--post">
+          <a class="topic__img" href="/hub/{a['slug']}/" tabindex="-1" aria-hidden="true">
+            <picture><source srcset="/assets/img/hub/{a['imagen']}.webp" type="image/webp"><img src="/assets/img/hub/{a['imagen']}.jpg" alt="" width="1600" height="368" loading="lazy"></picture>
+          </a>
+          <p class="topic__cat">{e(a['categoria'])}</p>
+          <h3><a href="/hub/{a['slug']}/">{e(a['titulo'])}</a></h3>
+          <p>{e(a['resumen'])}</p>
+          <div class="topic__foot">
+            <span class="badge badge--on">{mins} min de lectura</span>
+            <a class="topic__debate" href="/hub/{a['slug']}/">Leer nota</a>
+          </div>
+        </article>""")
+    for cat, title, summary, comunidad in HUB:
         out.append(f"""        <article class="topic">
           <p class="topic__cat">{e(cat)}</p>
           <h3>{e(title)}</h3>
           <p>{e(summary)}</p>
           <div class="topic__foot">
             <span class="badge">Próximamente</span>
-            {debate}
+            {debate_link(comunidad)}
           </div>
         </article>""")
-    return "\n".join(out)
+    return "\n".join(out[:n] if n else out)
 
 
 def crumbs(page):
@@ -373,6 +440,85 @@ FORM_SCRIPT = """<script>
 </script>"""
 
 
+def articulo_page(a):
+    return dict(path=f"/hub/{a['slug']}/", file=None, nav="hub", parent="hub",
+                title=a["seo_title"], og_title=a["titulo"], description=a["descripcion"],
+                h1=a["titulo"], lead="", crumb=a["titulo"], articulo=a)
+
+
+def articulo_html(a):
+    body = articulo_body(a)
+    mins = minutos_lectura(body)
+    rel = "\n".join(f'        <a href="{u}">{e(t)}</a>' for u, t in a["relacionados"])
+    page = articulo_page(a)
+    trail = crumbs(page)
+    links = ' <span class="crumbs__sep" aria-hidden="true">/</span> '.join(
+        f'<a href="{u}">{e(n)}</a>' for n, u in trail[:-1])
+    return f"""  <article class="post">
+    <header class="post-head">
+      <div class="wrap wrap--post">
+        <nav class="crumbs" aria-label="Ruta">{links}</nav>
+        <p class="eyebrow">{e(a['categoria'])}</p>
+        <h1>{e(a['titulo'])}</h1>
+        <p class="post-head__meta">Por <a href="/sobre-umarti/">Marcelo</a> · <time datetime="{a['fecha']}">{fecha_larga(a['fecha'])}</time> · {mins} min de lectura</p>
+      </div>
+    </header>
+    <figure class="post-cover">
+      <picture><source srcset="/assets/img/hub/{a['imagen']}.webp" type="image/webp"><img src="/assets/img/hub/{a['imagen']}.jpg" alt="{e(a['imagen_alt'])}" width="1600" height="368" fetchpriority="high"></picture>
+    </figure>
+    <div class="wrap wrap--post">
+      <div class="post-body">
+        <p class="post-intro">{e(a['intro'])}</p>
+{body}
+      </div>
+
+      <aside class="post-debate">
+        <div>
+          <p class="eyebrow eyebrow--dark">Comunidad Umarti</p>
+          <h2>¿Cómo lo ves en tu empresa?</h2>
+          <p>Este tema también se debate con colegas de la industria en la Comunidad Umarti.</p>
+        </div>
+        {debate_boton(a['comunidad'])}
+      </aside>
+
+      <div class="post-author">
+        <picture><source srcset="/assets/img/marcelo.webp" type="image/webp"><img src="/assets/img/marcelo.jpg" alt="" width="72" height="72"></picture>
+        <div>
+          <p class="post-author__name">Marcelo</p>
+          <p>Consultor con 20 años en la industria de la movilidad. Ayudo a empresas automotrices, de movilidad e inmobiliarias a ordenar procesos, automatizar con IA y vender mejor.</p>
+        </div>
+      </div>
+
+      <nav class="related post-related" aria-label="Relacionado">
+        <p class="related__title">Relacionado</p>
+{rel}
+        <a href="/hub/">Más notas del Hub</a>
+      </nav>
+    </div>
+  </article>
+
+{cta_band()}"""
+
+
+def articulo_ld(a):
+    d = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": a["titulo"],
+        "description": a["descripcion"],
+        "image": f"{BASE}/assets/img/hub/{a['imagen']}.jpg",
+        "datePublished": a["fecha"],
+        "dateModified": a.get("modificada", a["fecha"]),
+        "inLanguage": "es",
+        "articleSection": a["categoria"],
+        "mainEntityOfPage": f"{BASE}/hub/{a['slug']}/",
+        "author": {"@type": "Person", "name": "Marcelo", "url": f"{BASE}/sobre-umarti/"},
+        "publisher": {"@id": f"{BASE}/#organizacion", "@type": "Organization", "name": "Umarti Digital",
+                      "logo": {"@type": "ImageObject", "url": f"{BASE}/assets/img/umarti-logo.png"}},
+    }
+    return d
+
+
 # ---------------------------------------------------------------------------
 # Build
 # ---------------------------------------------------------------------------
@@ -394,6 +540,8 @@ def render(page, layout, content=None):
                .replace("{{email}}", EMAIL))
 
     ld = []
+    if page.get("articulo"):
+        ld.append(articulo_ld(page["articulo"]))
     if page["path"] in ("/", "/contacto/", "/sobre-umarti/"):
         ld.append(org_ld())
     if page["path"] == "/":
@@ -409,6 +557,7 @@ def render(page, layout, content=None):
     cur = ' aria-current="page"'
     out = (layout
            .replace("{{title}}", e(page["title"]))
+           .replace("{{og_type}}", "article" if page.get("articulo") else "website")
            .replace("{{og_title}}", e(page.get("og_title", page["title"])))
            .replace("{{description}}", e(page["description"]))
            .replace("{{robots}}", '<meta name="robots" content="noindex, nofollow">\n' if (STAGING or page.get("noindex")) else "")
@@ -416,7 +565,7 @@ def render(page, layout, content=None):
            .replace("{{base}}", BASE)
            .replace("{{version}}", VERSION)
            .replace("{{jsonld}}", ld_tags(ld))
-           .replace("{{body_class}}", "page-home" if page["path"] == "/" else "page-inner")
+           .replace("{{body_class}}", "page-home" if page["path"] == "/" else ("page-post" if page.get("articulo") else "page-inner"))
            .replace("{{cur_servicios}}", cur if nav == "servicios" else "")
            .replace("{{cur_industrias}}", cur if nav == "industrias" else "")
            .replace("{{cur_hub}}", cur if nav == "hub" else "")
@@ -437,6 +586,23 @@ def main():
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(render(page, layout), encoding="utf-8")
 
+    for a in ARTICULOS:
+        page = articulo_page(a)
+        target = ROOT / "hub" / a["slug"] / "index.html"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(render(page, layout, articulo_html(a)), encoding="utf-8")
+
+    # Redirecciones de las notas del sitio viejo (bloque generado dentro de .htaccess)
+    ht = ROOT / ".htaccess"
+    txt = ht.read_text(encoding="utf-8")
+    ini, fin = "# >>> notas del sitio anterior (generado)", "# <<< notas del sitio anterior"
+    bloque = ini + "\n" + "".join(f"Redirect 301 {a['old']} /hub/{a['slug']}/\n" for a in ARTICULOS if a.get("old")) + fin
+    if ini in txt:
+        txt = txt[:txt.index(ini)] + bloque + txt[txt.index(fin) + len(fin):]
+    else:
+        txt = txt.replace("# No exponer archivos", bloque + "\n\n# No exponer archivos", 1)
+    ht.write_text(txt, encoding="utf-8")
+
     # 404
     p404 = dict(path="/404/", nav="", file=None, noindex=True, h1="No encontramos esta página",
                 lead="Puede que la dirección haya cambiado con el nuevo sitio.",
@@ -446,14 +612,15 @@ def main():
     (ROOT / "404.html").write_text(render(p404, layout, body), encoding="utf-8")
 
     today = datetime.date.today().isoformat()
-    urls = "\n".join(f"  <url>\n    <loc>{BASE}{p['path']}</loc>\n    <lastmod>{today}</lastmod>\n  </url>"
-                     for p in PAGES)
+    entradas = [(p["path"], today) for p in PAGES] + [(f"/hub/{a['slug']}/", a.get("modificada", a["fecha"])) for a in ARTICULOS]
+    urls = "\n".join(f"  <url>\n    <loc>{BASE}{u}</loc>\n    <lastmod>{d}</lastmod>\n  </url>"
+                     for u, d in entradas)
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "\n</urlset>\n",
         encoding="utf-8")
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
-    print(f"OK: {len(PAGES)} páginas + 404, sitemap y robots. STAGING={STAGING}")
+    print(f"OK: {len(PAGES)} páginas + {len(ARTICULOS)} notas + 404, sitemap y robots. STAGING={STAGING}")
 
 
 if __name__ == "__main__":

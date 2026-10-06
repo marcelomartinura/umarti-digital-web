@@ -9,6 +9,10 @@ Redirect 301 /automatizacion-procesos-automotriz /servicios/automatizacion-ia/
 Redirect 301 /gestion-de-proyectos-y-producto /servicios/desarrollo-nuevos-productos/
 RedirectMatch 301 ^/blog(/.*)?$ /hub/
 
+# >>> notas del sitio anterior (generado)
+Redirect 301 /colaboradores-motivados-el-motor-silencioso-de-las-empresas-que-crecen-copy /hub/colaboradores-motivados/
+# <<< notas del sitio anterior
+
 # No exponer archivos del repositorio ni el generador
 RedirectMatch 404 ^/\.git
 RedirectMatch 404 ^/_build
