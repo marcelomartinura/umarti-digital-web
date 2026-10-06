@@ -7,6 +7,8 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
 # Redirecciones del sitio anterior (Hostinger Builder) a las URLs nuevas
 Redirect 301 /automatizacion-procesos-automotriz /servicios/automatizacion-ia/
 Redirect 301 /gestion-de-proyectos-y-producto /servicios/desarrollo-nuevos-productos/
+RedirectMatch 301 ^/agente-conversacional-con-ai/?$ /servicios/automatizacion-ia/
+RedirectMatch 301 ^/automatizacion-de-procesos/?$ /servicios/automatizacion-ia/
 RedirectMatch 301 ^/blog(/.*)?$ /hub/
 
 # >>> notas del sitio anterior (generado)
