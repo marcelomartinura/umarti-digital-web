@@ -1,7 +1,7 @@
 <?php
 // Recibe los formularios del sitio (contacto y newsletter del Hub) y los envía por email.
 // CONFIGURAR: casilla que recibe los contactos.
-const DESTINO   = 'contacto@umartidigital.com';
+const DESTINO   = 'hola@umartidigital.com';
 const REMITENTE = 'no-responder@umartidigital.com';
 
 // Página a la que vuelve cada formulario.

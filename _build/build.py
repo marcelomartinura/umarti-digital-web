@@ -17,7 +17,7 @@ BASE = "https://www.umartidigital.com"
 # True mientras el sitio vive en el subdominio provisorio: agrega "noindex"
 # en todas las páginas. Cambiar a False el día del lanzamiento.
 STAGING = True
-EMAIL = "contacto@umartidigital.com"
+EMAIL = "hola@umartidigital.com"
 # Número en formato internacional sin "+" ni espacios, ej. "5214421234567".
 WHATSAPP = ""
 WHATSAPP_MSG = "Hola, quiero conversar sobre la consultoría de Umarti Digital."
@@ -37,100 +37,109 @@ e = html.escape
 # file=None -> página en preparación.
 PAGES = [
     dict(path="/", file="home.html", nav="",
-         title="Consultoría digital automotriz: procesos, IA y leads | Umarti Digital",
+         title="Consultoría digital automotriz, movilidad e inmobiliaria: procesos e IA | Umarti Digital",
          og_title="Evolución digital para empresas de movilidad | Umarti Digital",
-         description="Consultoría de transformación digital para concesionarios, agencias de autos, distribuidores de motos y camiones y grupos automotrices: procesos, automatización con IA y generación de leads."),
+         description="Consultoría de evolución digital para concesionarios, grupos automotrices, distribuidores de motos y camiones e inmobiliarias: procesos, automatización con IA y gestión digital de ventas."),
     dict(path="/servicios/", file="servicios.html", nav="servicios",
-         title="Servicios de consultoría para concesionarios | Umarti Digital",
-         description="Método Evolución Digital, automatización con IA, marketing y generación de leads, y gestión de proyectos para empresas de movilidad.",
-         h1="Servicios de consultoría para la industria de la movilidad",
+         title="Servicios de consultoría digital: procesos, IA, ventas y software | Umarti Digital",
+         description="Método Evolución Digital, automatización con IA, gestión digital de ventas, desarrollo de nuevos productos y Software Factory y Staffing para empresas automotrices, de movilidad e inmobiliarias.",
+         h1="Servicios de consultoría digital", crumb="Servicios",
          lead="Se contratan por separado o juntos, como un programa de evolución digital completo."),
     dict(path="/servicios/evolucion-digital/", file="evolucion-digital.html", nav="servicios", parent="servicios",
          faq="EVOLUCION",
-         title="Plan de transformación digital para concesionarias: método Evolución Digital | Umarti Digital",
-         description="Plan de transformación digital y optimización tecnológica para concesionarios y grupos automotrices: relevamiento de procesos, roadmap, automatización, integración de sistemas e inteligencia de negocio.",
+         title="Plan de transformación digital: método Evolución Digital | Umarti Digital",
+         description="Plan de transformación digital y optimización tecnológica para empresas automotrices, de movilidad e inmobiliarias: relevamiento de procesos, roadmap, automatización, integración de sistemas e inteligencia de negocio.",
          h1="Plan de transformación digital: método Evolución Digital",
-         lead="Diseñamos e implementamos procesos digitales que mejoran la eficiencia, ordenan la operación y hacen crecer el negocio, con una hoja de ruta clara de qué hacer primero.",
+         lead="Diseño e implemento procesos digitales que mejoran la eficiencia, ordenan la operación y hacen crecer el negocio, con una hoja de ruta clara de qué hacer primero.",
          crumb="Método Evolución Digital"),
     dict(path="/servicios/automatizacion-ia/", file="automatizacion-ia.html", nav="servicios", parent="servicios",
          faq="IA",
-         title="Agentes conversacionales con IA y automatización de procesos para concesionarios | Umarti Digital",
-         description="Agentes de inteligencia artificial para WhatsApp, web y redes que atienden, califican y dan seguimiento a leads 24/7, más automatización de cotizaciones, campañas e integración con CRM, DMS y ERP.",
+         title="Agentes conversacionales con IA y automatización de procesos | Umarti Digital",
+         description="Agentes de inteligencia artificial para WhatsApp, web y redes que atienden, califican y dan seguimiento a leads 24/7 en concesionarios e inmobiliarias, más automatización de cotizaciones, campañas e integración con CRM y ERP.",
          h1="Agentes conversacionales con IA y automatización de procesos",
          lead="Atienden, califican y dan seguimiento a tus clientes las 24 horas, en WhatsApp, web y redes, y convierten cada conversación en una acción concreta dentro de tu operación.",
          crumb="Automatización e IA"),
-    dict(path="/servicios/marketing-leads/", file=None, nav="servicios", parent="servicios",
-         title="Marketing digital y generación de leads para agencias de autos | Umarti Digital",
-         description="Estrategia digital, campañas y canales conectados al CRM para generar y convertir leads en concesionarios.",
-         h1="Marketing digital y generación de leads",
-         lead="Campañas y canales conectados al proceso comercial, medidos hasta la venta."),
-    dict(path="/servicios/gestion-proyectos/", file=None, nav="servicios", parent="servicios",
-         title="Gestión de proyectos y producto digital | Umarti Digital",
-         description="Priorización de iniciativas, Scrum, Kanban, OKRs y tableros para llevar proyectos digitales a producción.",
-         h1="Gestión de proyectos y producto",
-         lead="Del portafolio de iniciativas a los cambios funcionando en el día a día."),
-    dict(path="/automotriz/agencias-de-autos/", file=None, nav="automotriz", parent="automotriz",
-         title="Consultoría digital para agencias de autos y concesionarios | Umarti Digital",
-         description="Más leads atendidos a tiempo, seguimiento comercial ordenado y showroom digital para agencias de autos.",
-         h1="Consultoría digital para agencias de autos",
-         lead="Más leads atendidos a tiempo y un showroom digital que convierte."),
-    dict(path="/automotriz/motos/", file=None, nav="automotriz", parent="automotriz",
-         title="Marketing y automatización para distribuidores de motos | Umarti Digital",
-         description="Volumen de consultas, financiamiento y posventa sin perder prospectos: consultoría para distribuidores de motos.",
-         h1="Consultoría digital para distribuidores de motos",
-         lead="Volumen de consultas, financiamiento y posventa sin perder prospectos."),
-    dict(path="/automotriz/camiones/", file=None, nav="automotriz", parent="automotriz",
-         title="Consultoría digital para distribuidores de camiones y flotillas | Umarti Digital",
-         description="Ciclos de venta B2B, cotizaciones complejas y seguimiento a cuentas para distribuidores de camiones.",
-         h1="Consultoría digital para camiones y flotillas",
-         lead="Ciclos B2B largos, cotizaciones complejas y seguimiento a cuentas."),
-    dict(path="/automotriz/grupos-automotrices/", file=None, nav="automotriz", parent="automotriz",
-         title="Transformación digital para grupos automotrices | Umarti Digital",
-         description="Un solo proceso comercial en todas las sucursales y marcas, integración de sistemas y datos para decidir.",
-         h1="Transformación digital para grupos automotrices",
-         lead="Un solo proceso en todas las sucursales y marcas, con datos para decidir."),
-    dict(path="/hub/", file="hub.html", nav="hub",
+    dict(path="/servicios/gestion-digital-ventas/", file=None, nav="servicios", parent="servicios",
+         title="Gestión digital de ventas: CRM, leads y embudo comercial | Umarti Digital",
+         description="Consultoría en gestión digital de ventas: canales, CRM, seguimiento de leads, campañas y métricas del embudo hasta el cierre.",
+         h1="Gestión digital de ventas",
+         lead="Ordeno el proceso comercial digital de punta a punta, para que cada lead tenga dueño y se mida hasta la venta.",
+         crumb="Gestión digital de ventas"),
+    dict(path="/servicios/desarrollo-nuevos-productos/", file=None, nav="servicios", parent="servicios",
+         title="Desarrollo de nuevos productos y unidades de negocio | Umarti Digital",
+         description="Diseño y lanzamiento de nuevos productos, unidades de negocio y MVPs digitales, con su estrategia comercial y gestión del proyecto.",
+         h1="Desarrollo de nuevos productos",
+         lead="De la idea al lanzamiento: nuevos productos, formatos y unidades de negocio, con su estrategia comercial.",
+         crumb="Desarrollo de nuevos productos"),
+    dict(path="/servicios/software-factory-staffing/", file=None, nav="servicios", parent="servicios",
+         title="Software Factory y Staffing tecnológico | Umarti Digital",
+         description="Desarrollo de software a medida y perfiles tecnológicos que se suman a tu equipo, coordinados por un solo interlocutor.",
+         h1="Software Factory y Staffing",
+         lead="Desarrollo de software a medida y talento tecnológico que se suma a tu equipo, con un solo interlocutor.",
+         crumb="Software Factory y Staffing"),
+    dict(path="/industrias/automotriz/", file=None, nav="industrias", parent="industrias",
+         title="Consultoría digital para concesionarios y grupos automotrices | Umarti Digital",
+         description="Procesos, automatización con IA y gestión digital de ventas para agencias de autos, concesionarios y grupos automotrices.",
+         h1="Consultoría digital para la industria automotriz",
+         lead="Para agencias de autos, concesionarios y grupos automotrices que quieren vender más y atender mejor.",
+         crumb="Automotriz"),
+    dict(path="/industrias/movilidad/", file=None, nav="industrias", parent="industrias",
+         title="Consultoría digital para distribuidores de motos, camiones y maquinaria | Umarti Digital",
+         description="Evolución digital para distribuidores de motos, camiones y maquinaria, flotillas, posventa e importadoras.",
+         h1="Consultoría digital para empresas de movilidad",
+         lead="Para distribuidores de motos, camiones y maquinaria, flotillas, posventa e importadoras.",
+         crumb="Movilidad"),
+    dict(path="/industrias/bienes-raices/", file=None, nav="industrias", parent="industrias",
+         title="Consultoría digital para inmobiliarias y desarrolladoras | Umarti Digital",
+         description="Automatización con IA, gestión digital de ventas y procesos para inmobiliarias, desarrolladoras y empresas de bienes raíces.",
+         h1="Consultoría digital para bienes raíces",
+         lead="Para inmobiliarias y desarrolladoras que quieren atender cada consulta a tiempo y ordenar su proceso comercial.",
+         crumb="Bienes raíces"),
+    dict(path="/hub/", file="hub.html", nav="hub", form=True,
          title="Hub Evolución Digital Automotriz: análisis y tendencias | Umarti Digital",
          description="Análisis, guías y benchmarking internacional sobre la evolución digital de la industria automotriz, con debate en la Comunidad Umarti.",
          h1="Hub Evolución Digital Automotriz",
          lead="Análisis, guías y lo que está pasando en otros países. Cada tema se debate después con colegas en la Comunidad Umarti."),
     dict(path="/sobre-umarti/", file="sobre-umarti.html", nav="sobre",
-         title="Sobre Umarti Digital: consultoría para la industria de la movilidad",
-         description="Umarti Digital es una consultora de evolución digital para la industria de la movilidad, con oficinas en Querétaro, México y Ciudad de Buenos Aires, Argentina.",
+         title="Sobre Umarti Digital: consultoría de evolución digital",
+         description="Umarti Digital es la marca de consultoría de Marcelo, con 20 años en la industria de la movilidad, en Querétaro, México y Ciudad de Buenos Aires, Argentina.",
          h1="Sobre Umarti",
-         lead="Una consultora de evolución digital hecha desde adentro de la industria de la movilidad."),
+         lead="Consultoría de evolución digital hecha desde adentro de la industria de la movilidad."),
     dict(path="/contacto/", file="contacto.html", nav="contacto", form=True,
          title="Contacto | Umarti Digital, Querétaro y Buenos Aires",
-         description="Agenda una llamada de 20 minutos, escríbenos por WhatsApp o pide la presentación comercial de Umarti Digital.",
+         description="Agenda una llamada de 20 minutos, escríbeme por WhatsApp o pide mi presentación comercial. Querétaro, México y Ciudad de Buenos Aires, Argentina.",
          h1="Conversemos", crumb="Contacto",
-         lead="Cuéntanos dónde está hoy tu operación. Sin compromiso."),
+         lead="Cuéntame dónde está hoy tu operación. Sin compromiso."),
     dict(path="/privacidad/", file=None, nav="",
          title="Aviso de privacidad | Umarti Digital",
          description="Aviso de privacidad de Umarti Digital.",
          h1="Aviso de privacidad",
          lead="Cómo tratamos los datos que nos compartes."),
 ]
-PAGES[10]["form"] = True  # hub: formulario del newsletter
 
 PARENTS = {
     "servicios": ("Servicios", "/servicios/"),
-    "automotriz": ("Para quién", None),
+    "industrias": ("Para quién", None),
 }
 
 # ---------------------------------------------------------------------------
 # Datos
 # ---------------------------------------------------------------------------
 FAQ = [
-    ("¿Qué hace una consultoría de transformación digital automotriz?",
-     "Revisa cómo trabaja hoy una agencia o un grupo automotriz, desde que entra un lead hasta la entrega y la posventa, y define qué cambiar en procesos, tecnología y equipo para vender más y atender mejor. Después acompaña la implementación hasta que los cambios funcionan en el día a día."),
-    ("¿Qué procesos de un concesionario se pueden automatizar con inteligencia artificial?",
-     "Los más habituales son la primera respuesta a leads de WhatsApp, web y redes, la calificación y el seguimiento de prospectos, el agendamiento de pruebas de manejo y citas de servicio, el envío de cotizaciones, las encuestas de satisfacción y las campañas de recompra. No todo conviene automatizarlo: el diagnóstico define dónde la automatización realmente genera valor."),
-    ("¿Necesito cambiar mi CRM o mi DMS?",
-     "No necesariamente. Partimos de las herramientas que ya usas y proponemos cambiarlas solo cuando el diagnóstico lo justifica. Muchas mejoras se logran ordenando procesos e integrando los sistemas que ya existen."),
-    ("¿Con qué tipo de empresas trabajan?",
-     "Con concesionarios y grupos automotrices multimarca, distribuidores de motos, camiones y maquinaria agrícola, talleres y áreas de posventa, importadoras y otras empresas de movilidad de Latinoamérica y España."),
+    ("¿Qué sucede si ya tengo un equipo trabajando en iniciativas digitales?",
+     "Mi objetivo es ayudar a identificar y llevar adelante iniciativas comerciales, digitales y tecnológicas que generen impacto en el negocio. Muchas veces trabajo junto a equipos internos que ya tienen la agenda completa, como apoyo en un proyecto puntual, con un diagnóstico independiente o con un análisis de su estrategia digital actual."),
+    ("¿De qué manera puedes colaborar con mi empresa?",
+     "Colaboro estratégicamente mapeando un proceso actual, diseñando un nuevo proceso, homologando procesos, diseñando una experiencia de cliente phygital (para que la experiencia física y la digital funcionen coordinadas) o una nueva unidad de negocio, o como brazo externo para acelerar una implementación. A su vez, trabajo con partners especializados en inteligencia artificial, automatización, desarrollo tecnológico y generación de demanda."),
+    ("¿Necesito cambiar mis plataformas tecnológicas?",
+     "No necesariamente. Parto de las herramientas que ya usas, como el CRM, el DMS o el ERP, y propongo cambiarlas solo cuando el diagnóstico lo justifica. Muchas mejoras se logran ordenando procesos e integrando los sistemas que ya existen."),
+    ("¿Qué procesos se pueden automatizar con inteligencia artificial?",
+     "Los más habituales son la primera respuesta a consultas de WhatsApp, web y redes, la calificación y el seguimiento de prospectos, el agendamiento de citas, pruebas de manejo o visitas, el envío de cotizaciones, las encuestas de satisfacción y las campañas de recompra o reactivación. No todo conviene automatizarlo: el diagnóstico define dónde la automatización realmente genera valor."),
+    ("¿Cómo se gestionan las iniciativas?",
+     "Cada iniciativa parte de un diagnóstico y de un objetivo medible. Las priorizo según impacto y esfuerzo, las organizo en un plan de trabajo por etapas o sprints, y las sigo con tableros e indicadores compartidos con tu equipo. Así siempre se sabe qué se está haciendo, qué sigue y qué resultado está dando."),
+    ("¿Con qué tipo de empresas trabajas?",
+     "Con empresas de movilidad, como concesionarios y grupos automotrices, distribuidores de motos, camiones y maquinaria, posventa e importadoras, y con inmobiliarias y desarrolladoras de Latinoamérica y España."),
     ("¿Cómo empezamos?",
-     "Con una llamada de 20 minutos para entender tu operación, o pidiendo la presentación comercial para ver los servicios y los proyectos en detalle. En ambos casos, sin compromiso."),
+     "Con una llamada de 20 minutos para entender tu operación, o pidiendo mi presentación comercial para ver los servicios y los proyectos en detalle. En ambos casos, sin compromiso."),
 ]
 
 PAGE_FAQ = {
@@ -138,23 +147,23 @@ PAGE_FAQ = {
         ("¿Qué diferencia hay entre un agente conversacional con IA y un chatbot?",
          "Un chatbot tradicional sigue un menú de opciones fijas. Un agente con inteligencia artificial entiende el contexto de la conversación, interpreta lo que la persona necesita, responde en lenguaje natural y además ejecuta acciones: registra el lead en el CRM, agenda una cita, envía una cotización o deriva a un asesor."),
         ("¿El agente reemplaza al vendedor o al asesor de servicio?",
-         "No. Se ocupa de la primera respuesta, las preguntas repetitivas, la calificación y el seguimiento, y entrega al asesor un prospecto ya calificado y con el contexto de la conversación. El equipo dedica su tiempo a cerrar ventas y atender mejor."),
+         "No. Se ocupa de la primera respuesta, las preguntas repetitivas, la calificación y el seguimiento, y entrega al asesor un prospecto ya calificado y con el contexto de la conversación. Tu equipo dedica su tiempo a cerrar ventas y atender mejor."),
         ("¿En qué canales funciona?",
          "En WhatsApp, el sitio web, redes sociales como Instagram y Facebook, email y plataformas internas. Lo habitual es empezar por el canal donde hoy se pierden más consultas, que en la mayoría de las agencias es WhatsApp."),
         ("¿Se integra con mi CRM, DMS o ERP?",
-         "Sí. El agente puede conectarse con CRM, ERP, DMS, calendarios, bases de datos y plataformas de marketing para registrar información y ejecutar acciones sin carga manual. En el diagnóstico definimos qué integraciones generan más valor."),
+         "Sí. El agente puede conectarse con CRM, ERP, DMS, calendarios, bases de datos y plataformas de marketing para registrar información y ejecutar acciones sin carga manual. En el diagnóstico defino qué integraciones generan más valor."),
         ("¿Es difícil de usar para mi equipo?",
-         "No. La interfaz es intuitiva y no requiere conocimientos técnicos. Acompañamos la puesta en marcha y capacitamos al equipo para que pueda revisar conversaciones, ajustar respuestas y medir resultados."),
-        ("¿Qué plataforma de inteligencia artificial usan?",
-         "No dependemos de una única herramienta. Seleccionamos la plataforma más adecuada para cada empresa junto a especialistas tecnológicos, según los canales, el volumen de conversaciones y los sistemas que ya usa."),
+         "No. La interfaz es intuitiva y no requiere conocimientos técnicos. Acompaño la puesta en marcha y capacito al equipo para que pueda revisar conversaciones, ajustar respuestas y medir resultados."),
+        ("¿Qué plataforma de inteligencia artificial usas?",
+         "No dependo de una única herramienta. Selecciono la plataforma más adecuada para cada empresa junto a especialistas tecnológicos, según los canales, el volumen de conversaciones y los sistemas que ya usa."),
     ],
     "EVOLUCION": [
         ("¿Qué es un plan de transformación digital para una concesionaria?",
          "Es una hoja de ruta que define qué procesos digitalizar, qué automatizar, qué sistemas integrar y en qué orden, a partir de un diagnóstico de cómo trabaja hoy la agencia o el grupo. Cada etapa tiene entregables e indicadores para medir el avance."),
         ("¿Por dónde conviene empezar?",
-         "Por el diagnóstico. Relevamos los procesos actuales, las herramientas y los resultados, y detectamos dónde se pierden más ventas o más tiempo. Con eso priorizamos las iniciativas de mayor impacto y menor esfuerzo."),
+         "Por el diagnóstico. Relevo los procesos actuales, las herramientas y los resultados, y detecto dónde se pierden más ventas o más tiempo. Con eso priorizo las iniciativas de mayor impacto y menor esfuerzo."),
         ("¿Hay que cambiar todos los sistemas?",
-         "No. Partimos de lo que ya funciona y proponemos cambios solo cuando el diagnóstico lo justifica. Muchas mejoras salen de ordenar procesos e integrar los sistemas existentes."),
+         "No. Parto de lo que ya funciona y propongo cambios solo cuando el diagnóstico lo justifica. Muchas mejoras salen de ordenar procesos e integrar los sistemas existentes."),
         ("¿Sirve para un grupo con varias sucursales y marcas?",
          "Sí. Uno de los objetivos más frecuentes es homologar un solo proceso comercial y de posventa en todas las sucursales, con datos comparables entre marcas y puntos de venta."),
     ],
@@ -257,7 +266,7 @@ def page_header(page):
 def cta_band():
     wa = ""
     if WHATSAPP:
-        wa = f'<a class="link" href="{wa_link()}" target="_blank" rel="noopener">o escríbenos por WhatsApp</a>'
+        wa = f'<a class="link" href="{wa_link()}" target="_blank" rel="noopener">o escríbeme por WhatsApp</a>'
     return f"""  <section class="cta-band">
     <div class="wrap cta-band__inner">
       <div>
@@ -279,7 +288,7 @@ def placeholder(page):
     <div class="wrap">
       <div class="wip">
         <p class="eyebrow eyebrow--dark">En preparación</p>
-        <p>Estamos escribiendo esta página. Mientras tanto, puedes ver <a href="/servicios/">todos los servicios</a> o <a href="/contacto/">agendar una llamada</a>.</p>
+        <p>Estoy escribiendo esta página. Mientras tanto, puedes ver <a href="/servicios/">todos los servicios</a> o <a href="/contacto/">agendar una llamada</a>.</p>
       </div>
     </div>
   </section>
@@ -300,9 +309,9 @@ def org_ld():
         "logo": f"{BASE}/assets/img/umarti-logo.png",
         "image": f"{BASE}/assets/img/umarti-logo.png",
         "email": EMAIL,
-        "description": "Consultoría de evolución digital para la industria de la movilidad: procesos, automatización con IA y generación de leads.",
+        "description": "Consultoría de evolución digital para la industria automotriz, la movilidad y los bienes raíces: procesos, automatización con IA, gestión digital de ventas y nuevos productos.",
         "areaServed": ["MX", "AR", "Latinoamérica", "ES"],
-        "knowsAbout": ["Consultoría automotriz", "Transformación digital", "Automatización de procesos",
+        "knowsAbout": ["Consultoría automotriz", "Bienes raíces", "Transformación digital", "Automatización de procesos",
                        "Agentes conversacionales con IA", "CRM para concesionarios", "Generación de leads"],
         "address": [
             {"@type": "PostalAddress", "addressLocality": "Querétaro", "addressRegion": "Querétaro", "addressCountry": "MX"},
@@ -348,7 +357,7 @@ def service_ld(page):
         "serviceType": page.get("crumb", page["h1"]),
         "provider": {"@id": f"{BASE}/#organizacion"},
         "areaServed": ["MX", "AR", "Latinoamérica", "ES"],
-        "audience": {"@type": "BusinessAudience", "audienceType": "Concesionarios, grupos automotrices y distribuidores de motos y camiones"},
+        "audience": {"@type": "BusinessAudience", "audienceType": "Empresas automotrices, de movilidad e inmobiliarias"},
     }
 
 
@@ -415,7 +424,7 @@ def render(page, layout, content=None):
            .replace("{{jsonld}}", ld_tags(ld))
            .replace("{{body_class}}", "page-home" if page["path"] == "/" else "page-inner")
            .replace("{{cur_servicios}}", cur if nav == "servicios" else "")
-           .replace("{{cur_automotriz}}", cur if nav == "automotriz" else "")
+           .replace("{{cur_industrias}}", cur if nav == "industrias" else "")
            .replace("{{cur_hub}}", cur if nav == "hub" else "")
            .replace("{{cur_sobre}}", cur if nav == "sobre" else "")
            .replace("{{email}}", EMAIL)

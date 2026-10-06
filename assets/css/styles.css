@@ -513,3 +513,8 @@ p { margin: 0 0 1em; }
   .route__stop > :not(.route__num) { grid-column: 2; }
   .route__num { grid-row: 1 / span 3; }
 }
+
+/* Cinco servicios y tres industrias */
+.services--five .service--wide { grid-column: 1 / -1; border-right: 0; padding-right: 0; }
+.segments--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1060px) { .segments--three { grid-template-columns: 1fr; } }
