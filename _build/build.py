@@ -42,17 +42,17 @@ PAGES = [
          og_title="Evolución digital para empresas de movilidad | Umarti Digital",
          description="Consultoría de evolución digital para concesionarios, grupos automotrices, distribuidores de motos y camiones e inmobiliarias: procesos, automatización con IA y gestión digital de ventas."),
     dict(path="/servicios/", file="servicios.html", nav="servicios",
-         title="Servicios de consultoría digital: procesos, IA, ventas y software | Umarti Digital",
-         description="Método Evolución Digital, automatización con IA, gestión digital de ventas, desarrollo de nuevos productos y Software Factory y Staffing para empresas automotrices, de movilidad e inmobiliarias.",
-         h1="Servicios de consultoría digital", crumb="Servicios",
-         lead="Se contratan por separado o juntos, como un programa de evolución digital completo."),
-    dict(path="/servicios/evolucion-digital/", file="evolucion-digital.html", nav="servicios", parent="servicios",
+         title="Servicios adicionales: IA, ventas, nuevos productos y software | Umarti Digital",
+         description="Automatización con IA, gestión digital de ventas, desarrollo de nuevos productos y Software Factory y Staffing para empresas automotrices, de movilidad e inmobiliarias, como complemento de la Evolución Digital.",
+         h1="Servicios adicionales", crumb="Servicios adicionales",
+         lead="Complementan la Evolución Digital, mi servicio principal. Se contratan por separado o como parte del mismo programa."),
+    dict(path="/servicios/evolucion-digital/", file="evolucion-digital.html", nav="",
          faq="EVOLUCION",
          title="Plan de transformación digital: método Evolución Digital | Umarti Digital",
          description="Plan de transformación digital y optimización tecnológica para empresas automotrices, de movilidad e inmobiliarias: relevamiento de procesos, roadmap, automatización, integración de sistemas e inteligencia de negocio.",
          h1="Plan de transformación digital: método Evolución Digital",
          lead="Diseño e implemento procesos digitales que mejoran la eficiencia, ordenan la operación y hacen crecer el negocio, con una hoja de ruta clara de qué hacer primero.",
-         crumb="Método Evolución Digital"),
+         crumb="Evolución Digital"),
     dict(path="/servicios/automatizacion-ia/", file="automatizacion-ia.html", nav="servicios", parent="servicios",
          faq="IA",
          title="Agentes conversacionales con IA y automatización de procesos | Umarti Digital",
@@ -113,7 +113,7 @@ PAGES = [
 ]
 
 PARENTS = {
-    "servicios": ("Servicios", "/servicios/"),
+    "servicios": ("Servicios adicionales", "/servicios/"),
     "industrias": ("Para quién", "/industrias/"),
     "hub": ("Hub", "/hub/"),
 }
