@@ -5,6 +5,7 @@ Uso:  python3 _build/build.py
 Edita el contenido en _build/pages/ y los datos en este archivo; nunca los
 .html generados en la raíz (se sobrescriben en cada build).
 """
+import re
 import datetime
 import html
 import json
@@ -91,9 +92,9 @@ PAGES = [
          crumb="Automotriz"),
     dict(path="/hub/", file="hub.html", nav="hub", form=True,
          title="Hub Evolución Digital Automotriz: análisis y tendencias | Umarti Digital",
-         description="Análisis, guías y benchmarking internacional sobre la evolución digital de la industria automotriz, con debate en la Comunidad Umarti.",
+         description="Análisis, guías y benchmarking internacional sobre la evolución digital de la industria automotriz" + (", con debate en la Comunidad Umarti." if COMUNIDAD_URL else "."),
          h1="Hub Evolución Digital Automotriz",
-         lead="Análisis, guías y lo que está pasando en otros países. Cada tema se debate después con colegas en la Comunidad Umarti."),
+         lead="Análisis, guías y lo que está pasando en otros países." + (" Cada tema se debate después con colegas en la Comunidad Umarti." if COMUNIDAD_URL else "")),
     dict(path="/sobre-umarti/", file="sobre-umarti.html", nav="sobre",
          title="Sobre Umarti Digital: consultoría de evolución digital",
          description="Umarti Digital es la marca de consultoría de Marcelo, con 20 años en la industria de la movilidad, en Querétaro, México y Ciudad de Buenos Aires, Argentina.",
@@ -648,6 +649,15 @@ def articulo_page(a):
 
 
 def articulo_html(a):
+    aside_debate = ("""      <aside class="post-debate">
+        <div>
+          <p class="eyebrow eyebrow--dark">Comunidad Umarti</p>
+          <h2>¿Cómo lo ves en tu empresa?</h2>
+          <p>Este tema también se debate con colegas de la industria en la Comunidad Umarti.</p>
+        </div>
+        """ + debate_boton(a['comunidad']) + """
+      </aside>
+""") if COMUNIDAD_URL else ""
     body = articulo_body(a)
     mins = minutos_lectura(body)
     rel = "\n".join(f'        <a href="{u}">{e(t)}</a>' for u, t in a["relacionados"])
@@ -673,15 +683,7 @@ def articulo_html(a):
 {body}
       </div>
 
-      <aside class="post-debate">
-        <div>
-          <p class="eyebrow eyebrow--dark">Comunidad Umarti</p>
-          <h2>¿Cómo lo ves en tu empresa?</h2>
-          <p>Este tema también se debate con colegas de la industria en la Comunidad Umarti.</p>
-        </div>
-        {debate_boton(a['comunidad'])}
-      </aside>
-
+{aside_debate}
       <div class="post-author">
         <picture><source srcset="/assets/img/marcelo.webp" type="image/webp"><img src="/assets/img/marcelo.jpg" alt="" width="72" height="72"></picture>
         <div>
@@ -739,6 +741,8 @@ def render(page, layout, content=None):
                .replace("{{hub_cards_all}}", hub_cards())
                .replace("{{whatsapp_button}}", whatsapp_button())
                .replace("{{email}}", EMAIL))
+    # Bloques marcados como Comunidad: se muestran solo cuando hay COMUNIDAD_URL
+    content = re.sub(r"<!--comunidad-->(.*?)<!--/comunidad-->", (lambda m: m.group(1)) if COMUNIDAD_URL else "", content, flags=re.S)
 
     ld = []
     if page.get("articulo"):
