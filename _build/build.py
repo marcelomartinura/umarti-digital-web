@@ -211,6 +211,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="agentes-ia-whatsapp-concesionarios",
+         titulo="Agentes de IA en WhatsApp para concesionarios: qué pueden hacer y qué no",
+         seo_title="Agentes de IA en WhatsApp para concesionarios: qué pueden hacer y qué no | Umarti Digital",
+         descripcion="Qué puede hacer un agente de inteligencia artificial en WhatsApp en un concesionario (ventas, financiamiento y posventa), cuáles son sus límites y cómo empezar a implementarlo.",
+         intro="La inteligencia artificial puede transformar la operación de una agencia automotriz en ventas, atención al cliente y posventa. WhatsApp, el canal donde ya conversan tus clientes, es el mejor lugar para empezar. Pero un agente de IA no hace magia: hay cosas que resuelve muy bien y otras que conviene dejar en manos de tu equipo.",
+         resumen="Qué resuelve un agente de IA en WhatsApp en ventas, financiamiento y posventa, qué no debería hacer y cómo empezar con un caso concreto.",
+         categoria="Tecnología e IA",
+         fecha="2026-10-13",
+         imagen="agentes-ia-whatsapp-concesionarios",
+         imagen_alt="Conversación de WhatsApp entre un cliente y un agente virtual que ofrece agendar una prueba de manejo",
+         old="",
+         comunidad="autos",
+         relacionados=[("/servicios/automatizacion-ia/", "Automatización e IA"),
+                       ("/hub/diagnostico-procesos-agencia-automotriz/", "Diagnóstico de procesos en una agencia automotriz")]),
     dict(slug="diagnostico-procesos-agencia-automotriz",
          titulo="Diagnóstico de procesos en una agencia automotriz: por dónde empezar",
          seo_title="Diagnóstico de procesos en una agencia automotriz: por dónde empezar | Umarti Digital",
