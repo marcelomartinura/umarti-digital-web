@@ -211,6 +211,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="tiempo-primera-respuesta",
+         titulo="Tiempo de primera respuesta: el indicador que más ventas hace perder",
+         seo_title="Tiempo de primera respuesta en concesionarios: el indicador que más ventas hace perder | Umarti Digital",
+         descripcion="Por qué las agencias responden tarde las consultas digitales, cuánto cuesta y cómo medirlo, y cómo mejorar el tiempo de primera respuesta sin sumar carga al equipo comercial.",
+         intro="Una consulta por WhatsApp, por el sitio web o por un portal es una oportunidad de venta con fecha de vencimiento. Cada hora que pasa sin respuesta, el cliente sigue buscando y otra agencia puede responder primero. El tiempo de primera respuesta es uno de los indicadores más simples de medir y uno de los que más ventas hace perder.",
+         resumen="Por qué las agencias responden tarde, cuánto cuesta, qué medir y cómo mejorar la primera respuesta sin sumar carga al equipo.",
+         categoria="Customer Journey y Ventas",
+         fecha="2026-10-15",
+         imagen="tiempo-primera-respuesta",
+         imagen_alt="Asesor preocupado frente a la computadora mientras se acumulan consultas de clientes sin responder en el celular",
+         old="",
+         comunidad="autos",
+         relacionados=[("/servicios/gestion-digital-ventas/", "Gestión digital de ventas"),
+                       ("/hub/agentes-ia-whatsapp-concesionarios/", "Agentes de IA en WhatsApp para concesionarios")]),
     dict(slug="agentes-ia-whatsapp-concesionarios",
          titulo="Agentes de IA en WhatsApp para concesionarios: qué pueden hacer y qué no",
          seo_title="Agentes de IA en WhatsApp para concesionarios: qué pueden hacer y qué no | Umarti Digital",
