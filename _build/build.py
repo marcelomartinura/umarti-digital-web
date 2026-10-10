@@ -17,7 +17,7 @@ import pathlib
 BASE = "https://www.umartidigital.com"
 # True mientras el sitio vive en el subdominio provisorio: agrega "noindex"
 # en todas las páginas. Cambiar a False el día del lanzamiento.
-STAGING = True
+STAGING = False
 EMAIL = "hola@umartidigital.com"
 # Número en formato internacional sin "+" ni espacios, ej. "5214421234567".
 WHATSAPP = "524425307129"

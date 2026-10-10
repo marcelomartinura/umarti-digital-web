@@ -1,5 +1,10 @@
 RewriteEngine On
 
+# Dominio único: sin www y el subdominio provisorio pasan a https://www.umartidigital.com
+RewriteCond %{HTTP_HOST} ^umartidigital\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^nuevo\.umartidigital\.com$ [NC]
+RewriteRule ^(.*)$ https://www.umartidigital.com/$1 [L,R=301]
+
 # Forzar HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
@@ -34,12 +39,6 @@ RedirectMatch 404 ^/_build
 RedirectMatch 404 ^/README\.md$
 
 ErrorDocument 404 /404.html
-
-# STAGING: no indexar mientras el sitio vive en el subdominio provisorio.
-# Borrar estas 3 líneas el día del lanzamiento (junto con STAGING = False en _build/build.py).
-<IfModule mod_headers.c>
-  Header set X-Robots-Tag "noindex, nofollow"
-</IfModule>
 
 # Caché de recursos estáticos
 <IfModule mod_expires.c>
