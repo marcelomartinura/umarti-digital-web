@@ -211,6 +211,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="diagnostico-procesos-agencia-automotriz",
+         titulo="Diagnóstico de procesos en una agencia automotriz: por dónde empezar",
+         seo_title="Diagnóstico de procesos en una agencia automotriz: por dónde empezar | Umarti Digital",
+         descripcion="Cómo hacer un diagnóstico de procesos en un concesionario: trazar el flujo actual con tiempos, roles, objetivos y tareas, siempre pensando en la experiencia del cliente. Cinco pasos para empezar.",
+         intro="Cuando una agencia quiere vender más o atender mejor, la tentación es empezar por la tecnología: un CRM nuevo, un chatbot, otra plataforma. Pero el primer paso es otro: entender cómo funciona hoy el proceso. Y entenderlo desde el lugar correcto, que es la experiencia del cliente.",
+         resumen="Trazar el proceso actual con tiempos, roles, objetivos y tareas, sin perder de vista lo que vive el cliente. Cinco pasos para empezar el diagnóstico de tu agencia.",
+         categoria="Gestión y Operaciones",
+         fecha="2026-10-12",
+         imagen="diagnostico-procesos-agencia-automotriz",
+         imagen_alt="Diagrama de un proceso en cinco pasos con tiempos entre etapas, una lupa sobre una etapa y el cliente al final",
+         old="",
+         comunidad="autos",
+         relacionados=[("/servicios/evolucion-digital/", "Método Evolución Digital"),
+                       ("/hub/digitalizar-proceso-venta-automotriz/", "Cómo digitalizar un proceso de venta automotriz")]),
     dict(slug="colaboradores-motivados",
          titulo="Colaboradores motivados: el motor silencioso de las empresas que crecen",
          seo_title="Colaboradores motivados: el motor de las empresas que crecen | Umarti Digital",
