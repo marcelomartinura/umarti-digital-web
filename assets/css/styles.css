@@ -640,3 +640,8 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 .chain li { justify-content: center; padding: 10px 10px; font-size: .9rem; text-align: center; }
 @media (max-width: 900px) { .chain { grid-auto-flow: row; grid-template-columns: 1fr 1fr; } .chain li { justify-content: flex-start; } }
 @media (max-width: 560px) { .chain { grid-template-columns: 1fr; } }
+
+/* Redes sociales en el pie */
+.footer__social { display: flex; gap: 10px; margin-top: 18px; }
+.footer .footer__social a { display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); color: #C9D6DC; }
+.footer .footer__social a:hover { color: var(--ink); background: var(--teal); border-color: var(--teal); }

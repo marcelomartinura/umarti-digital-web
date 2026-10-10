@@ -581,6 +581,10 @@ def org_ld():
             {"@type": "PostalAddress", "addressLocality": "Ciudad de Buenos Aires", "addressCountry": "AR"},
         ],
         "founder": {"@type": "Person", "name": "Marcelo"},
+        "sameAs": [
+            "https://www.linkedin.com/company/umarti-digital/",
+            "https://www.facebook.com/umartidigital/",
+        ],
     }
     if WHATSAPP:
         data["telephone"] = f"+{WHATSAPP}"
