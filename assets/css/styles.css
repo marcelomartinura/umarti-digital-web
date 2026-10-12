@@ -660,3 +660,9 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 .stat-example__grid span { font-size: .92rem; line-height: 1.35; color: var(--slate); }
 .post-body .stat-example__note { margin: 16px 0 0; font-size: .85rem; color: var(--slate); }
 @media (max-width: 760px) { .stat-example__grid { grid-template-columns: 1fr 1fr; } }
+
+/* Landings de presencia digital */
+.landing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 22px; }
+.landing-note { margin-top: 22px; font-size: .95rem; color: var(--slate); }
+.landing-note a { color: var(--teal-deep); font-weight: 600; }
+#presupuesto { scroll-margin-top: 12px; }

@@ -1,0 +1,116 @@
+{{page_header}}
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>¿Te pasa esto?</h2>
+        <p>Les pasa a la mayoría de los negocios que todavía no están bien en internet.</p>
+        <div class="landing-actions">
+          <a href="#presupuesto" class="btn">Pedir mi presupuesto</a>
+          {{whatsapp_button}}
+        </div>
+      </div>
+      <ul class="pains">
+        <li>Tus clientes te buscan en Google y no te encuentran, o encuentran a la competencia.</li>
+        <li>Te escriben por WhatsApp a cualquier hora y no llegas a responder a todos.</li>
+        <li>Tienes redes sociales, pero no sabes qué publicar ni cuándo.</li>
+        <li>Sientes que tener un sitio web es complicado, lento o caro.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap">
+      <h2>Qué incluye</h2>
+      <p class="section__lead">Todo lo que tu negocio necesita para que la gente te encuentre en internet y te escriba. Yo me encargo de la parte técnica.</p>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>Tu sitio web, en pocos días</h3>
+          <p>Una página moderna que se ve bien en el celular, con lo que haces, tus fotos, tu ubicación, tus horarios y un botón para escribirte.</p>
+        </div>
+        <div class="benefit">
+          <h3>Aparecer en Google</h3>
+          <p>Configuro tu negocio para que aparezca cuando te buscan en Google y en Google Maps, con tu dirección, teléfono y opiniones.</p>
+        </div>
+        <div class="benefit">
+          <h3>Redes sociales en orden</h3>
+          <p>Perfiles armados, con una imagen prolija y coherente, y una guía simple de qué publicar para atraer clientes.</p>
+        </div>
+        <div class="benefit">
+          <h3>Atención con inteligencia artificial</h3>
+          <p>Un asistente que responde por WhatsApp las preguntas de siempre, a cualquier hora, y te avisa cuando alguien quiere comprar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Cómo funciona</h2>
+        <p>Tres pasos, sin vueltas.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Conversamos 20 minutos.</strong> Me cuentas qué hace tu negocio y qué necesitas. Te paso un presupuesto claro, sin letra chica.</li>
+        <li><strong>Armo todo en pocos días.</strong> Tú solo me pasas tu logo, algunas fotos y tus datos. Del resto me ocupo yo.</li>
+        <li><strong>Lo publicamos y te enseño a usarlo.</strong> Te muestro cómo funciona todo y te acompaño después del lanzamiento.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>No necesitas saber de tecnología</h2>
+        <p>Para eso estoy yo.</p>
+      </div>
+      <ul class="ticks ticks--light">
+        <li>Me ocupo del dominio (tu dirección en internet) y del alojamiento.</li>
+        <li>El sitio y las cuentas quedan a tu nombre: son tuyos.</li>
+        <li>Te explico todo con palabras simples, sin términos técnicos.</li>
+        <li>Si algo no funciona, me escribes y lo resolvemos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+{{faq_html}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="presupuesto">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Pide tu presupuesto</h2>
+        <p>Déjame tus datos y te escribo para conversar. Si prefieres, escríbeme directo por WhatsApp.</p>
+        <div class="landing-actions">{{whatsapp_button}}</div>
+        <p class="landing-note">¿Tienes una agencia de autos, motos o camiones? Mira <a href="/presencia-digital/automotriz/">presencia digital para agencias</a>.</p>
+      </div>
+      <div>
+        <div class="notice notice--ok" id="form-ok" role="status" hidden>¡Gracias! Recibí tus datos y te escribo pronto.</div>
+        <div class="notice notice--error" id="form-error" role="alert" hidden>No se pudo enviar. Revisa los datos o escríbeme por WhatsApp.</div>
+        <form class="form" action="/contact.php" method="post">
+          <input type="hidden" name="origen" value="presencia">
+          <input type="hidden" name="interes" value="presencia">
+          <div class="form__row">
+            <label>Tu nombre<input type="text" name="nombre" required autocomplete="name"></label>
+            <label>Nombre de tu negocio<input type="text" name="empresa" required autocomplete="organization"></label>
+          </div>
+          <div class="form__row">
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            <label><span>WhatsApp <span class="optional">(opcional)</span></span><input type="tel" name="telefono" autocomplete="tel"></label>
+          </div>
+          <label><span>¿A qué se dedica tu negocio? <span class="optional">(opcional)</span></span><textarea name="mensaje" rows="4"></textarea></label>
+          <label class="hp" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+          <p class="form__legal">Al enviar aceptas el <a href="/privacidad/">aviso de privacidad</a>.</p>
+          <button type="submit" class="btn">Quiero mi presupuesto</button>
+        </form>
+      </div>
+    </div>
+  </section>

@@ -105,6 +105,18 @@ PAGES = [
          description="Agenda una llamada de 20 minutos, escríbeme por WhatsApp o pide mi presentación comercial. Querétaro, México y Ciudad de Buenos Aires, Argentina.",
          h1="Conversemos", crumb="Contacto",
          lead="Cuéntame dónde está hoy tu operación. Sin compromiso."),
+    dict(path="/presencia-digital/", file="presencia-digital.html", nav="", form=True, faq="PRESENCIA",
+         title="Presencia digital para tu negocio: sitio web, Google, redes e IA | Umarti Digital",
+         description="Tu negocio en internet en pocos días: sitio web, presencia en Google y Google Maps, redes sociales y atención con inteligencia artificial por WhatsApp. Sin tecnicismos.",
+         h1="Tu negocio en internet, sin complicaciones",
+         lead="Te armo el sitio web, tu presencia en Google, tus redes sociales y la atención automática por WhatsApp, para que tus clientes te encuentren y te escriban. Tú te ocupas de tu negocio; de la parte digital me encargo yo.",
+         crumb="Presencia digital"),
+    dict(path="/presencia-digital/automotriz/", file="presencia-digital-automotriz.html", nav="", parent="presencia", form=True, faq="PRESENCIA_AUTO",
+         title="Presencia digital para agencias de autos: sitio web, redes, IA y marketplaces | Umarti Digital",
+         description="Tu agencia en internet en pocos días: sitio web con inventario, redes sociales, atención con inteligencia artificial por WhatsApp y gestión de marketplaces de autos.",
+         h1="Tu agencia en internet, lista en pocos días",
+         lead="Sitio web con tu inventario, redes sociales, atención con inteligencia artificial y publicación en marketplaces. Todo armado y conectado para que recibas más consultas y no se te escape ninguna.",
+         crumb="Agencias automotrices"),
     dict(path="/privacidad/", file="privacidad.html", nav="",
          title="Términos y aviso de privacidad | Umarti Digital",
          description="Condiciones de uso del sitio umartidigital.com y cómo se tratan los datos personales que compartes a través de él.",
@@ -116,6 +128,7 @@ PARENTS = {
     "servicios": ("Servicios adicionales", "/servicios/"),
     "industrias": ("Para quién", "/industrias/"),
     "hub": ("Hub", "/hub/"),
+    "presencia": ("Presencia digital", "/presencia-digital/"),
 }
 
 # ---------------------------------------------------------------------------
@@ -139,6 +152,34 @@ FAQ = [
 ]
 
 PAGE_FAQ = {
+    "PRESENCIA": [
+        ("¿Necesito saber de computación o de internet?",
+         "No. Me ocupo de toda la parte técnica y te explico lo necesario con palabras simples. Tú solo me pasas tu logo, algunas fotos y los datos de tu negocio."),
+        ("¿Cuánto tarda en estar listo?",
+         "Un sitio web simple queda listo en pocos días desde que me pasas el material. Al conversar te doy una fecha concreta según lo que necesites."),
+        ("¿Cuánto cuesta?",
+         "Depende de lo que tu negocio necesite. Después de una conversación de 20 minutos te paso un presupuesto cerrado, sin costos ocultos."),
+        ("¿Qué es un dominio y lo necesito?",
+         "Es tu dirección en internet, por ejemplo minegocio.com. Te ayudo a elegirlo y a registrarlo a tu nombre."),
+        ("¿Voy a poder hacer cambios después?",
+         "Sí. Te enseño a actualizar lo básico y, si prefieres, me ocupo yo de los cambios."),
+        ("Ya tengo un sitio web, ¿sirve igual?",
+         "Sí. Reviso lo que tienes y te digo qué conviene mejorar o rehacer para que te encuentren y te escriban."),
+    ],
+    "PRESENCIA_AUTO": [
+        ("¿Cuánto tarda en estar listo?",
+         "Un sitio web con tu inventario queda listo en pocos días desde que me pasas el material. Al conversar te doy una fecha concreta."),
+        ("¿Cómo se carga el inventario?",
+         "Con las fotos y los datos de cada unidad. Si ya los tienes en un sistema o en una planilla, los aprovechamos para no cargar todo dos veces."),
+        ("¿En qué marketplaces se publica?",
+         "En los portales de autos y marketplaces que más consultas generan en tu zona. Los elegimos juntos según lo que vendes."),
+        ("¿El asistente con inteligencia artificial reemplaza a mis vendedores?",
+         "No. Responde al instante las preguntas de siempre, agenda pruebas de manejo y le pasa a tus vendedores los clientes listos para comprar."),
+        ("¿Cuánto cuesta?",
+         "Depende del tamaño de tu agencia y de lo que necesites. Después de una conversación de 20 minutos te paso un presupuesto cerrado, sin costos ocultos."),
+        ("¿Necesito saber de tecnología?",
+         "No. Me ocupo de toda la parte técnica y te explico lo necesario con palabras simples."),
+    ],
     "AUTOMOTRIZ": [
         ("¿Qué hace un consultor automotriz?",
          "Analiza cómo vende y cómo atiende hoy una agencia o un grupo automotriz, desde el primer contacto del cliente hasta la posventa, y define qué cambiar en procesos, tecnología y equipo para vender más y ser más eficiente. Después acompaña la implementación hasta que los cambios funcionan en el día a día."),
