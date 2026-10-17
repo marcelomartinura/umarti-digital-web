@@ -666,3 +666,14 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 .landing-note { margin-top: 22px; font-size: .95rem; color: var(--slate); }
 .landing-note a { color: var(--teal-deep); font-weight: 600; }
 #presupuesto { scroll-margin-top: 12px; }
+
+/* Comparación AS IS / TO BE y figura vertical */
+.post-figure--portrait { max-width: 460px; margin-left: auto; margin-right: auto; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 24px 0 28px; }
+.compare__col { border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; background: var(--white); }
+.compare__col--to { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.post-body .compare__tag { margin: 0 0 10px; font-size: .82rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--teal-deep); }
+.post-body .compare__col--to .compare__tag { color: var(--teal); }
+.compare ul { margin: 0; font-size: 1rem; }
+.compare__col--to li::marker { color: var(--teal); }
+@media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
