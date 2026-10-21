@@ -1,0 +1,116 @@
+{{page_header}}
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Estrategia, contenido y tecnología trabajando juntos</h2>
+        <div class="landing-actions">
+          <a href="#presupuesto" class="btn">Quiero una propuesta</a>
+          {{whatsapp_button}}
+        </div>
+      </div>
+      <div class="prose">
+        <p>La mayoría de las agencias ya está en internet: tiene un sitio, publica en redes y sube unidades a algún portal. El problema es que cada canal funciona por separado, con información desactualizada y sin una estrategia que los conecte.</p>
+        <p>La digitalización optimizada ordena esos tres frentes, el sitio web, el contenido y los marketplaces, para que trabajen juntos con un mismo objetivo: más visibilidad, más consultas y más ventas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--dark">Plataformas digitales</p>
+      <h2>Tu sitio web y tu contenido, pensados para vender</h2>
+      <div class="flows">
+        <article class="flow">
+          <p class="flow__tag">Sitio web</p>
+          <ul class="ticks">
+            <li><strong>Análisis del sitio actual:</strong> evalúo el rendimiento, la experiencia de usuario y las oportunidades de mejora.</li>
+            <li><strong>Journey y puntos de contacto:</strong> diseño el recorrido del cliente y sus puntos de contacto digitales y físicos.</li>
+            <li><strong>Mapa de plataformas:</strong> identifico e integro las plataformas clave de tu ecosistema digital.</li>
+            <li><strong>Unificación y estructura ideal:</strong> defino y unifico la estructura ideal de tu sitio.</li>
+            <li><strong>Diseño del sitio web con IA:</strong> un sitio moderno, estratégico y optimizado para convertir.</li>
+          </ul>
+        </article>
+        <article class="flow flow--ink">
+          <p class="flow__tag">Contenido</p>
+          <ul class="ticks">
+            <li><strong>Contenido digital:</strong> piezas relevantes y atractivas para tus canales digitales.</li>
+            <li><strong>Notas editoriales:</strong> artículos que informan, educan y posicionan tu marca en Google.</li>
+            <li><strong>Estructura y planificación:</strong> un calendario de contenido para mantener consistencia y alcance.</li>
+            <li><strong>Análisis y optimización:</strong> mido resultados y ajusto para mejorar el rendimiento.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <p class="eyebrow eyebrow--dark">Marketplaces</p>
+        <h2>Tu inventario donde el comprador ya está buscando</h2>
+        <p>Portales automotrices, marketplaces generalistas, portales de seminuevos y de motos, y los marketplaces de las redes sociales. Elegimos juntos los que más consultas generan para lo que vendes.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Gestión administrativa.</strong> Alta de cuentas y relación con cada marketplace, para que tu agencia esté presente con su marca y sus datos correctos.</li>
+        <li><strong>Publicaciones.</strong> Diseño de los anuncios y publicación del inventario, con fotos, precios y descripciones que destacan frente a la competencia.</li>
+        <li><strong>Análisis de resultados y mejoras.</strong> Reportes de visitas y consultas por portal, optimización de publicaciones y ajustes de estrategia.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Lo que cambia en tu agencia</h2>
+      </div>
+      <ul class="ticks ticks--light">
+        <li>Más visibilidad: tu agencia aparece donde el cliente busca, con información actualizada.</li>
+        <li>Más consultas, y mejor calificadas, desde el sitio, las redes y los portales.</li>
+        <li>Un solo criterio para todos los canales, en lugar de esfuerzos sueltos.</li>
+        <li>Datos para decidir: qué canal, qué contenido y qué portal traen ventas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+{{faq_html}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="presupuesto">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Pide tu propuesta</h2>
+        <p>Cuéntame cómo están hoy tu sitio, tus redes y tus publicaciones, y te preparo una propuesta a medida.</p>
+        <div class="landing-actions">{{whatsapp_button}}</div>
+        <p class="landing-note">¿Recién empiezas en internet y buscas algo simple? Mira <a href="/presencia-digital/automotriz/">presencia digital para agencias</a>.</p>
+      </div>
+      <div>
+        <div class="notice notice--ok" id="form-ok" role="status" hidden>¡Gracias! Recibí tus datos y te escribo pronto.</div>
+        <div class="notice notice--error" id="form-error" role="alert" hidden>No se pudo enviar. Revisa los datos o escríbeme por WhatsApp.</div>
+        <form class="form" action="/contact.php" method="post">
+          <input type="hidden" name="origen" value="digitalizacion">
+          <input type="hidden" name="interes" value="digitalizacion">
+          <div class="form__row">
+            <label>Tu nombre<input type="text" name="nombre" required autocomplete="name"></label>
+            <label>Agencia o empresa<input type="text" name="empresa" required autocomplete="organization"></label>
+          </div>
+          <div class="form__row">
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            <label><span>WhatsApp <span class="optional">(opcional)</span></span><input type="tel" name="telefono" autocomplete="tel"></label>
+          </div>
+          <label><span>¿Qué te gustaría mejorar? <span class="optional">(opcional)</span></span><textarea name="mensaje" rows="4"></textarea></label>
+          <label class="hp" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+          <p class="form__legal">Al enviar aceptas el <a href="/privacidad/">aviso de privacidad</a>.</p>
+          <button type="submit" class="btn">Quiero una propuesta</button>
+        </form>
+      </div>
+    </div>
+  </section>

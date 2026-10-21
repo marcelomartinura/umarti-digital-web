@@ -6,14 +6,15 @@ const REMITENTE = 'no-responder@umartidigital.com';
 
 // Página a la que vuelve cada formulario.
 const ORIGENES = ['contacto' => '/contacto/', 'hub' => '/hub/',
-                  'presencia' => '/presencia-digital/', 'presencia-auto' => '/presencia-digital/automotriz/'];
+                  'presencia' => '/presencia-digital/', 'presencia-auto' => '/presencia-digital/automotriz/',
+                  'digitalizacion' => '/digitalizacion-optimizada/'];
 
 $origen = $_POST['origen'] ?? 'contacto';
 $volverA = ORIGENES[$origen] ?? '/contacto/';
 
 function volver($ok) {
     global $volverA;
-    $ancla = strpos($volverA, '/presencia-digital/') === 0 ? '#presupuesto' : '';
+    $ancla = (strpos($volverA, '/presencia-digital/') === 0 || $volverA === '/digitalizacion-optimizada/') ? '#presupuesto' : '';
     header('Location: ' . $volverA . '?enviado=' . ($ok ? '1' : '0') . $ancla, true, 303);
     exit;
 }
@@ -42,7 +43,8 @@ if ($interesRaw === 'newsletter') {
     $telefono = $limpiar($_POST['telefono'] ?? '', 40);
     $pais     = $limpiar($_POST['pais'] ?? '', 40);
     $interes  = $interesRaw === 'presentacion' ? 'Recibir la presentación comercial'
-             : ($interesRaw === 'presencia' ? 'Presupuesto de presencia digital' : 'Agendar una llamada de 20 minutos');
+             : ($interesRaw === 'presencia' ? 'Presupuesto de presencia digital'
+             : ($interesRaw === 'digitalizacion' ? 'Propuesta de digitalización optimizada' : 'Agendar una llamada de 20 minutos'));
     $mensaje  = mb_substr(trim((string)($_POST['mensaje'] ?? '')), 0, 3000);
     if ($nombre === '' || $empresa === '' || !$email) volver(false);
     $asunto = "Nuevo contacto desde umartidigital.com: $empresa ($pais) - $interes";

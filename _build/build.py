@@ -24,6 +24,8 @@ WHATSAPP = "524425307129"
 WHATSAPP_MSG = "Hola, quiero conversar sobre la consultoría de Umarti Digital."
 # URL pública de la Comunidad del marketplace, ej. "https://dominio.com/comunidad".
 COMUNIDAD_URL = ""
+# ID de medición de Google Analytics 4 (G-XXXXXXX). Vacío = sin Analytics.
+GA_ID = ""
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = pathlib.Path(__file__).resolve().parent
@@ -117,6 +119,12 @@ PAGES = [
          h1="Tu agencia en internet, lista en pocos días",
          lead="Sitio web con tu inventario, redes sociales, atención con inteligencia artificial y publicación en marketplaces. Todo armado y conectado para que recibas más consultas y no se te escape ninguna.",
          crumb="Agencias automotrices"),
+    dict(path="/digitalizacion-optimizada/", file="digitalizacion-optimizada.html", nav="", form=True, faq="DIGITALIZACION",
+         title="Digitalización optimizada para agencias: sitio web, contenido y marketplaces | Umarti Digital",
+         description="Sitio web, contenido y marketplaces trabajando juntos para tu agencia: análisis y diseño del sitio con IA, notas editoriales y gestión de publicaciones en portales automotrices.",
+         h1="Digitalización optimizada para agencias",
+         lead="Tu sitio web, tu contenido y tus publicaciones en marketplaces, ordenados y conectados para que tu agencia gane visibilidad y reciba más consultas.",
+         crumb="Digitalización optimizada"),
     dict(path="/privacidad/", file="privacidad.html", nav="",
          title="Términos y aviso de privacidad | Umarti Digital",
          description="Condiciones de uso del sitio umartidigital.com y cómo se tratan los datos personales que compartes a través de él.",
@@ -152,6 +160,18 @@ FAQ = [
 ]
 
 PAGE_FAQ = {
+    "DIGITALIZACION": [
+        ("¿En qué se diferencia de la presencia digital?",
+         "La presencia digital es un punto de partida simple para quien recién empieza en internet. La digitalización optimizada es para agencias que ya tienen sitio, redes y publicaciones, y necesitan ordenarlos con estrategia, contenido y análisis de resultados."),
+        ("¿Tengo que rehacer mi sitio web?",
+         "No necesariamente. Primero analizo el sitio actual y te digo qué conviene mejorar y qué conviene rehacer."),
+        ("¿En qué marketplaces se publica?",
+         "En los portales automotrices, marketplaces generalistas, portales de seminuevos y de motos, y marketplaces de redes sociales que más consultas generan para lo que vendes. Los elegimos juntos."),
+        ("¿Quién hace el contenido?",
+         "Lo planifico y lo produzco con tu equipo: tú aportas el conocimiento de tu agencia y yo lo convierto en contenido, notas y publicaciones."),
+        ("¿Cómo se miden los resultados?",
+         "Con reportes periódicos de visitas, consultas y conversiones por canal y por portal, para ajustar la estrategia con datos."),
+    ],
     "PRESENCIA": [
         ("¿Necesito saber de computación o de internet?",
          "No. Me ocupo de toda la parte técnica y te explico lo necesario con palabras simples. Tú solo me pasas tu logo, algunas fotos y los datos de tu negocio."),
@@ -880,6 +900,7 @@ def render(page, layout, content=None):
            .replace("{{og_type}}", "article" if page.get("articulo") else "website")
            .replace("{{og_title}}", e(page.get("og_title", page["title"])))
            .replace("{{description}}", e(page["description"]))
+           .replace("{{analytics}}", (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>\n') if GA_ID else "")
            .replace("{{robots}}", '<meta name="robots" content="noindex, nofollow">\n' if (STAGING or page.get("noindex")) else "")
            .replace("{{url}}", f"{BASE}{page['path']}")
            .replace("{{base}}", BASE)
