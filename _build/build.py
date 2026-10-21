@@ -25,7 +25,7 @@ WHATSAPP_MSG = "Hola, quiero conversar sobre la consultoría de Umarti Digital."
 # URL pública de la Comunidad del marketplace, ej. "https://dominio.com/comunidad".
 COMUNIDAD_URL = ""
 # ID de medición de Google Analytics 4 (G-XXXXXXX). Vacío = sin Analytics.
-GA_ID = ""
+GA_ID = "G-MS7PXD6NQR"
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = pathlib.Path(__file__).resolve().parent
