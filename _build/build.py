@@ -546,6 +546,14 @@ def wa_link():
     return f"https://wa.me/{WHATSAPP}?text={quote(WHATSAPP_MSG)}"
 
 
+
+def analytics_tag():
+    if not GA_ID:
+        return ""
+    return ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '"></script>\n'
+            "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
+            "gtag('js',new Date());gtag('config','" + GA_ID + "');</script>\n")
+
 def whatsapp_button():
     if WHATSAPP:
         return (f'<a class="btn btn--wa" href="{wa_link()}" target="_blank" rel="noopener">'
@@ -900,7 +908,7 @@ def render(page, layout, content=None):
            .replace("{{og_type}}", "article" if page.get("articulo") else "website")
            .replace("{{og_title}}", e(page.get("og_title", page["title"])))
            .replace("{{description}}", e(page["description"]))
-           .replace("{{analytics}}", (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>\n') if GA_ID else "")
+           .replace("{{analytics}}", analytics_tag())
            .replace("{{robots}}", '<meta name="robots" content="noindex, nofollow">\n' if (STAGING or page.get("noindex")) else "")
            .replace("{{url}}", f"{BASE}{page['path']}")
            .replace("{{base}}", BASE)
