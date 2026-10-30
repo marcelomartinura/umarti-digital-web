@@ -86,7 +86,7 @@ PAGES = [
          h1="Para quién trabajo",
          lead="Me especializo en la industria automotriz. Y llevo el mismo método a otros negocios donde vender y atender bien lo es todo.",
          crumb="Para quién"),
-    dict(path="/industrias/automotriz/", file="automotriz.html", nav="industrias", parent="industrias",
+    dict(path="/industrias/automotriz/", file="automotriz.html", nav="industrias", hero_bg="/assets/img/hero-automotriz.webp", parent="industrias",
          title="Consultoría automotriz para concesionarios y grupos automotrices | Umarti Digital",
          description="Consultoría automotriz: procesos, automatización con IA y gestión digital de ventas para agencias de autos, concesionarios y grupos automotrices.",
          h1="Consultoría automotriz para concesionarios y grupos automotrices",
@@ -682,7 +682,10 @@ def page_header(page):
         else:
             parts.append(f'<a href="{url}">{e(name)}</a>')
     trail = ' <span class="crumbs__sep" aria-hidden="true">/</span> '.join(parts)
-    return f"""  <section class="page-head">
+    bg = page.get("hero_bg")
+    cls = ' page-head--img' if bg else ''
+    style = f' style="--hero-bg:url({bg})"' if bg else ''
+    return f"""  <section class="page-head{cls}"{style}>
     <div class="wrap">
       <nav class="crumbs" aria-label="Ruta">{trail}</nav>
       <h1>{e(page["h1"])}</h1>

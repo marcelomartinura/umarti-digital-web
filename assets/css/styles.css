@@ -695,3 +695,20 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 .section:not(.section--ink) .wrap:not(.contact) .form textarea { border-color: var(--line); }
 .section:not(.section--ink) .wrap:not(.contact) .form .form__legal { color: var(--slate); }
 .section:not(.section--ink) .wrap:not(.contact) .form .form__legal a { color: var(--teal-deep); }
+
+/* Encabezado con imagen esfumada */
+.page-head--img { position: relative; overflow: hidden; }
+.page-head--img::before {
+  content: ""; position: absolute; inset: 0 0 0 30%;
+  background: var(--hero-bg) center right / cover no-repeat;
+  opacity: .55;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 45%, #000 100%);
+}
+.page-head--img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--ink) 25%, rgba(11,30,47,.55) 60%, rgba(11,30,47,.25) 100%),
+              linear-gradient(0deg, var(--ink) 0%, transparent 35%);
+}
+.page-head--img .wrap { position: relative; z-index: 1; }
+@media (max-width: 760px) { .page-head--img::before { inset: 0; opacity: .3; } }
