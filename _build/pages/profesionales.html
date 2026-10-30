@@ -1,0 +1,150 @@
+{{page_header}}
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>¿Te suena familiar?</h2>
+        <p>Tu tiempo tiene que estar con tus pacientes y clientes, no respondiendo mensajes ni ordenando la agenda.</p>
+        <div class="landing-actions">
+          <a href="#presupuesto" class="btn">Pedir mi propuesta</a>
+          {{whatsapp_button}}
+        </div>
+      </div>
+      <ul class="pains">
+        <li>Respondes mensajes de WhatsApp entre consultas, de noche y los fines de semana.</li>
+        <li>Pacientes o clientes que olvidan el turno y no avisan.</li>
+        <li>Te buscan en Google y no te encuentran, o encuentran información vieja.</li>
+        <li>La agenda vive en un cuaderno, en el celular o en la cabeza de tu secretaria.</li>
+        <li>Sabes que podrías tener más consultas, pero no tienes tiempo de ocuparte del marketing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap">
+      <h2>Tres líneas de servicio</h2>
+      <p class="section__lead">Empiezas por la que más necesitas y sumas las otras cuando quieras. Yo me encargo de la parte técnica.</p>
+      <div class="flows flows--three">
+        <article class="flow">
+          <p class="flow__tag">1 · Presencia digital</p>
+          <h3>Que te encuentren</h3>
+          <ul class="ticks">
+            <li>Sitio web profesional, claro y pensado para el celular.</li>
+            <li>Perfil de Google Business para aparecer en Google y en Google Maps.</li>
+            <li>Posicionamiento local: que te encuentren en tu zona y en tu especialidad.</li>
+            <li>Formularios de contacto y botón de WhatsApp.</li>
+          </ul>
+        </article>
+        <article class="flow flow--ink">
+          <p class="flow__tag">2 · Gestión inteligente</p>
+          <h3>Que la agenda trabaje sola</h3>
+          <ul class="ticks">
+            <li>WhatsApp automatizado que responde las preguntas de siempre.</li>
+            <li>Agenda de turnos en línea, disponible las 24 horas.</li>
+            <li>Recordatorios automáticos para reducir las ausencias.</li>
+            <li>Gestión ordenada de las consultas.</li>
+            <li>CRM básico con el historial de cada contacto.</li>
+          </ul>
+        </article>
+        <article class="flow">
+          <p class="flow__tag">3 · Crecimiento digital</p>
+          <h3>Que lleguen más consultas</h3>
+          <ul class="ticks">
+            <li>Campañas publicitarias en Google y redes sociales.</li>
+            <li>Generación de nuevos pacientes o clientes.</li>
+            <li>Seguimiento automatizado de quienes consultaron.</li>
+            <li>Reportes simples de resultados.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Para quién es</h2>
+        <p>Para profesionales independientes y pequeños consultorios, estudios y centros.</p>
+      </div>
+      <ul class="ticks ticks--cols">
+        <li>Psicólogos y terapeutas</li>
+        <li>Médicos y especialistas</li>
+        <li>Odontólogos</li>
+        <li>Nutricionistas</li>
+        <li>Kinesiólogos y fisioterapeutas</li>
+        <li>Contadores</li>
+        <li>Abogados y escribanos</li>
+        <li>Arquitectos y otros estudios profesionales</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Cómo funciona</h2>
+        <p>Tres pasos, sin vueltas.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Conversamos 20 minutos.</strong> Me cuentas cómo trabajas hoy, cómo te llegan las consultas y cómo manejas la agenda.</li>
+        <li><strong>Armo todo en pocos días.</strong> Tú me pasas tus datos, fotos y horarios. Del resto me ocupo yo.</li>
+        <li><strong>Lo ponemos en marcha y te acompaño.</strong> Te enseño a usarlo y quedo disponible para ajustes y mejoras mes a mes.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Pensado para profesionales</h2>
+        <p>Sé que tu trabajo maneja información delicada.</p>
+      </div>
+      <ul class="ticks ticks--light">
+        <li>La información de tus pacientes y clientes se trata con confidencialidad.</li>
+        <li>El asistente automático responde lo administrativo, nunca da indicaciones profesionales.</li>
+        <li>No necesitas saber de tecnología: te explico todo con palabras simples.</li>
+        <li>El sitio, las cuentas y los datos quedan a tu nombre.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+{{faq_html}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="presupuesto">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Pide tu propuesta</h2>
+        <p>Déjame tus datos y te escribo para conversar. Si prefieres, escríbeme directo por WhatsApp.</p>
+        <div class="landing-actions">{{whatsapp_button}}</div>
+      </div>
+      <div>
+        <div class="notice notice--ok" id="form-ok" role="status" hidden>¡Gracias! Recibí tus datos y te escribo pronto.</div>
+        <div class="notice notice--error" id="form-error" role="alert" hidden>No se pudo enviar. Revisa los datos o escríbeme por WhatsApp.</div>
+        <form class="form" action="/contact.php" method="post">
+          <input type="hidden" name="origen" value="profesionales">
+          <input type="hidden" name="interes" value="profesionales">
+          <div class="form__row">
+            <label>Tu nombre<input type="text" name="nombre" required autocomplete="name"></label>
+            <label>Profesión o especialidad<input type="text" name="empresa" required autocomplete="organization"></label>
+          </div>
+          <div class="form__row">
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            <label><span>WhatsApp <span class="optional">(opcional)</span></span><input type="tel" name="telefono" autocomplete="tel"></label>
+          </div>
+          <label><span>¿Qué te gustaría resolver primero? <span class="optional">(opcional)</span></span><textarea name="mensaje" rows="4"></textarea></label>
+          <label class="hp" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+          <p class="form__legal">Al enviar aceptas el <a href="/privacidad/">aviso de privacidad</a>.</p>
+          <button type="submit" class="btn">Quiero mi propuesta</button>
+        </form>
+      </div>
+    </div>
+  </section>

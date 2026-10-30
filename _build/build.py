@@ -125,6 +125,12 @@ PAGES = [
          h1="Digitalización optimizada para agencias",
          lead="Tu sitio web, tu contenido y tus publicaciones en marketplaces, ordenados y conectados para que tu agencia gane visibilidad y reciba más consultas.",
          crumb="Digitalización optimizada"),
+    dict(path="/profesionales/", file="profesionales.html", nav="", form=True, faq="PROFESIONALES",
+         title="Umarti Profesionales: sitio web, turnos y WhatsApp automatizado para profesionales | Umarti Digital",
+         description="Digitalización para psicólogos, médicos, odontólogos, contadores y otros profesionales: sitio web, Google Business, agenda de turnos, recordatorios, WhatsApp automatizado y campañas.",
+         h1="Umarti Profesionales",
+         lead="Digitalización para profesionales independientes y pequeños consultorios: que te encuentren en internet, que la agenda se ordene sola y que lleguen más consultas, sin que tengas que ocuparte de la tecnología.",
+         crumb="Umarti Profesionales"),
     dict(path="/privacidad/", file="privacidad.html", nav="",
          title="Términos y aviso de privacidad | Umarti Digital",
          description="Condiciones de uso del sitio umartidigital.com y cómo se tratan los datos personales que compartes a través de él.",
@@ -160,6 +166,20 @@ FAQ = [
 ]
 
 PAGE_FAQ = {
+    "PROFESIONALES": [
+        ("¿Tengo que contratar las tres líneas?",
+         "No. Puedes empezar por la que más necesitas, por ejemplo el sitio web y Google, o la agenda con recordatorios, y sumar las otras cuando quieras."),
+        ("¿Cuánto tarda en estar listo?",
+         "La presencia digital queda lista en pocos días desde que me pasas tus datos. La agenda y el WhatsApp automatizado se configuran en paralelo."),
+        ("¿El WhatsApp automatizado responde consultas profesionales?",
+         "No. Responde lo administrativo: horarios, ubicación, aranceles, cómo sacar turno. Las consultas profesionales siempre te llegan a ti."),
+        ("¿Qué pasa con la información de mis pacientes o clientes?",
+         "Se trata con confidencialidad y queda en cuentas a tu nombre. Solo se usa para gestionar turnos y consultas."),
+        ("¿Cuánto cuesta?",
+         "Depende de las líneas que elijas. Después de conversar 20 minutos te paso una propuesta clara, con un valor mensual para el mantenimiento y las mejoras."),
+        ("¿Necesito saber de tecnología?",
+         "No. Me ocupo de toda la parte técnica y te explico lo necesario con palabras simples."),
+    ],
     "DIGITALIZACION": [
         ("¿En qué se diferencia de la presencia digital?",
          "La presencia digital es un punto de partida simple para quien recién empieza en internet. La digitalización optimizada es para agencias que ya tienen sitio, redes y publicaciones, y necesitan ordenarlos con estrategia, contenido y análisis de resultados."),
