@@ -681,3 +681,17 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 /* Imagen principal de landings */
 .landing-visual { background: var(--ink); padding: 0 0 clamp(36px, 5vw, 64px); margin-top: -1px; }
 .landing-visual img { display: block; width: 100%; height: auto; border-radius: 22px; }
+
+/* LATAM Market Expansion */
+.service-row__title { font-size: clamp(1.3rem, 2.2vw, 1.7rem); margin: 0 0 12px; }
+.landing-actions--hero { margin-top: 26px; }
+.landing-markets { color: #C9D6DC; font-weight: 700; letter-spacing: .04em; }
+
+/* Formularios sobre fondo claro (landings) */
+.section:not(.section--ink) .wrap:not(.contact) .form label { color: var(--ink); }
+.section:not(.section--ink) .wrap:not(.contact) .form .optional { color: var(--slate); }
+.section:not(.section--ink) .wrap:not(.contact) .form input,
+.section:not(.section--ink) .wrap:not(.contact) .form select,
+.section:not(.section--ink) .wrap:not(.contact) .form textarea { border-color: var(--line); }
+.section:not(.section--ink) .wrap:not(.contact) .form .form__legal { color: var(--slate); }
+.section:not(.section--ink) .wrap:not(.contact) .form .form__legal a { color: var(--teal-deep); }
