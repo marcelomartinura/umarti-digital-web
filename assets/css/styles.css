@@ -677,3 +677,7 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 .compare ul { margin: 0; font-size: 1rem; }
 .compare__col--to li::marker { color: var(--teal); }
 @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+
+/* Imagen principal de landings */
+.landing-visual { background: var(--ink); padding: 0 0 clamp(36px, 5vw, 64px); margin-top: -1px; }
+.landing-visual img { display: block; width: 100%; height: auto; border-radius: 22px; }
