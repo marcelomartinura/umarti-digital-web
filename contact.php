@@ -8,14 +8,15 @@ const REMITENTE = 'no-responder@umartidigital.com';
 const ORIGENES = ['contacto' => '/contacto/', 'hub' => '/hub/',
                   'presencia' => '/presencia-digital/', 'presencia-auto' => '/presencia-digital/automotriz/',
                   'digitalizacion' => '/digitalizacion-optimizada/',
-                  'profesionales' => '/profesionales/'];
+                  'profesionales' => '/profesionales/',
+                  'expansion' => '/expansion-latam/'];
 
 $origen = $_POST['origen'] ?? 'contacto';
 $volverA = ORIGENES[$origen] ?? '/contacto/';
 
 function volver($ok) {
     global $volverA;
-    $ancla = (strpos($volverA, '/presencia-digital/') === 0 || $volverA === '/digitalizacion-optimizada/' || $volverA === '/profesionales/') ? '#presupuesto' : '';
+    $ancla = (strpos($volverA, '/presencia-digital/') === 0 || $volverA === '/digitalizacion-optimizada/' || $volverA === '/profesionales/') ? '#presupuesto' : ($volverA === '/expansion-latam/' ? '#reunion' : '');
     header('Location: ' . $volverA . '?enviado=' . ($ok ? '1' : '0') . $ancla, true, 303);
     exit;
 }
@@ -46,8 +47,14 @@ if ($interesRaw === 'newsletter') {
     $interes  = $interesRaw === 'presentacion' ? 'Recibir la presentación comercial'
              : ($interesRaw === 'presencia' ? 'Presupuesto de presencia digital'
              : ($interesRaw === 'digitalizacion' ? 'Propuesta de digitalización optimizada'
-             : ($interesRaw === 'profesionales' ? 'Propuesta Umarti Profesionales' : 'Agendar una llamada de 20 minutos')));
+             : ($interesRaw === 'profesionales' ? 'Propuesta Umarti Profesionales'
+             : ($interesRaw === 'expansion' ? 'Reunión LATAM Market Expansion' : 'Agendar una llamada de 20 minutos'))));
     $mensaje  = mb_substr(trim((string)($_POST['mensaje'] ?? '')), 0, 3000);
+    if ($interesRaw === 'expansion') {
+        $extra = "Sitio web: " . $limpiar($_POST['web'] ?? '') . "\nMercado objetivo: " . $limpiar($_POST['mercado'] ?? '')
+               . "\nAcompañamiento: " . $limpiar($_POST['acompanamiento'] ?? '') . "\n\n";
+        $mensaje = $extra . $mensaje;
+    }
     if ($nombre === '' || $empresa === '' || !$email) volver(false);
     $asunto = "Nuevo contacto desde umartidigital.com: $empresa ($pais) - $interes";
     $cuerpo = "Quiere: $interes\nNombre: $nombre\nEmpresa: $empresa\nEmail: $email\nWhatsApp: $telefono\nPaís: $pais\n\nMensaje:\n$mensaje\n";
