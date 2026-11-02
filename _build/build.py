@@ -298,6 +298,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="experiencia-cliente-posventa",
+         titulo="La venta termina, pero la experiencia del cliente continúa",
+         seo_title="Experiencia del cliente en la posventa automotriz: la venta termina, la relación continúa | Umarti Digital",
+         descripcion="Por qué la posventa es donde se construye gran parte de la confianza con el cliente, dónde se pierde, qué señales conviene medir y cómo convertirla en un motor comercial para la concesionaria.",
+         intro="Una empresa automotriz puede invertir mucho tiempo y dinero en atraer clientes, generar oportunidades y concretar ventas. Pero hay una pregunta que muchas veces queda en segundo plano: ¿qué sucede después de entregar el vehículo?",
+         resumen="Dónde se pierde la confianza después de la venta, qué señales medir en la posventa y cómo convertirla en un motor comercial.",
+         categoria="Customer Journey y Ventas",
+         fecha="2026-11-02",
+         imagen="experiencia-cliente-posventa",
+         imagen_alt="Asesor de servicio explicando a un cliente el estado de su vehículo con una tablet en el taller",
+         old="",
+         comunidad="autos",
+         relacionados=[("/hub/entrega-emotiva/", "La entrega emotiva"),
+                       ("/servicios/evolucion-digital/", "Método Evolución Digital")]),
     dict(slug="inventario-decisiones-comerciales",
          titulo="El inventario también vende: cómo convertir el stock en decisiones comerciales",
          seo_title="Gestión de inventario en concesionarias: cómo convertir el stock en decisiones comerciales | Umarti Digital",
