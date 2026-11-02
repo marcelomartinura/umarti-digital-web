@@ -298,6 +298,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="inventario-decisiones-comerciales",
+         titulo="El inventario también vende: cómo convertir el stock en decisiones comerciales",
+         seo_title="Gestión de inventario en concesionarias: cómo convertir el stock en decisiones comerciales | Umarti Digital",
+         descripcion="Cómo pasar de gestionar el stock de forma reactiva a usar el inventario como fuente de información: las preguntas clave, las señales que conviene mirar y cómo conectar DMS, CRM y sitio para decidir a tiempo.",
+         intro="El inventario de una concesionaria no debería ser solamente una lista de vehículos disponibles. Debería ser una herramienta para tomar decisiones comerciales.",
+         resumen="Las preguntas clave, las señales que conviene mirar y cómo conectar la información para que el stock ayude a vender.",
+         categoria="Gestión y Operaciones",
+         fecha="2026-11-02",
+         imagen="inventario-decisiones-comerciales",
+         imagen_alt="Gerente analizando indicadores de inventario en una laptop, con autos exhibidos en el showroom de fondo",
+         old="",
+         comunidad="autos",
+         relacionados=[("/servicios/evolucion-digital/", "Método Evolución Digital"),
+                       ("/hub/diagnostico-procesos-agencia-automotriz/", "Diagnóstico de procesos en una agencia automotriz")]),
     dict(slug="as-is-to-be-procesos-comerciales",
          titulo="AS IS y TO BE: cómo mejorar los procesos comerciales de una concesionaria",
          seo_title="AS IS y TO BE: cómo mejorar los procesos comerciales de una concesionaria | Umarti Digital",
