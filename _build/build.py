@@ -298,6 +298,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="datos-flotas-decisiones",
+         titulo="Las flotas generan datos todos los días. ¿Las empresas están aprovechándolos?",
+         seo_title="Gestión de flotas con datos: KPIs y decisiones para reducir costos | Umarti Digital",
+         descripcion="Cómo convertir los datos que ya genera una flota (GPS, taller, combustible) en decisiones: qué permite la información integrada, qué KPIs dan visibilidad real y por qué gestionar información es gestionar rentabilidad.",
+         intro="Cada vehículo de una flota genera información constantemente: kilómetros recorridos, consumo, tiempos de utilización, recorridos, detenciones y necesidades de mantenimiento. Sin embargo, muchas empresas siguen tomando decisiones sobre sus flotas con información fragmentada o registros manuales.",
+         resumen="Qué permite integrar los datos de una flota, qué KPIs dan visibilidad real y por qué gestionar información es gestionar rentabilidad.",
+         categoria="Gestión y Operaciones",
+         fecha="2026-11-02",
+         imagen="datos-flotas-decisiones",
+         imagen_alt="Responsable de flota revisando recorridos e indicadores en una tablet frente a una fila de camionetas de reparto",
+         old="",
+         comunidad="autos",
+         relacionados=[("/servicios/automatizacion-ia/", "Automatización e IA"),
+                       ("/hub/inventario-decisiones-comerciales/", "El inventario también vende")]),
     dict(slug="experiencia-cliente-posventa",
          titulo="La venta termina, pero la experiencia del cliente continúa",
          seo_title="Experiencia del cliente en la posventa automotriz: la venta termina, la relación continúa | Umarti Digital",
