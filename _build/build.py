@@ -298,6 +298,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="ia-anticipar-demanda",
+         titulo="Inteligencia artificial: ¿puede ayudar a una concesionaria a anticiparse a la demanda?",
+         seo_title="Inteligencia artificial para anticipar la demanda en concesionarias | Umarti Digital",
+         descripcion="Cómo la inteligencia artificial puede ayudar a una concesionaria a pasar de mirar lo que ocurrió a anticipar la demanda: qué aporta, qué señales ya existen en la agencia y por qué la información confiable va primero.",
+         intro="Tradicionalmente, muchas decisiones comerciales en una concesionaria se toman mirando lo que ocurrió: cuánto se vendió, qué modelos tuvieron mayor demanda y qué resultados obtuvo cada sucursal.",
+         resumen="Qué puede aportar la IA a la planificación comercial, qué señales ya tiene una concesionaria y por qué la información confiable va primero.",
+         categoria="Tecnología e IA",
+         fecha="2026-11-09",
+         imagen="ia-anticipar-demanda",
+         imagen_alt="Gerente comercial observando en una pantalla proyecciones de demanda y tendencias de ventas, en un showroom de autos",
+         old="",
+         comunidad="autos",
+         relacionados=[("/servicios/automatizacion-ia/", "Automatización e IA"),
+                       ("/hub/rentabilidad-comercial/", "Vender más no siempre significa ganar más")]),
     dict(slug="rentabilidad-comercial",
          titulo="Vender más no siempre significa ganar más: el desafío de la rentabilidad comercial",
          seo_title="Rentabilidad comercial en concesionarias: vender más no siempre es ganar más | Umarti Digital",
