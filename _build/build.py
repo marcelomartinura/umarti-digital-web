@@ -298,6 +298,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="rentabilidad-comercial",
+         titulo="Vender más no siempre significa ganar más: el desafío de la rentabilidad comercial",
+         seo_title="Rentabilidad comercial en concesionarias: vender más no siempre es ganar más | Umarti Digital",
+         descripcion="Descuentos, financiación, bonificaciones y costos comerciales pueden cambiar el resultado de una venta. Qué mirar más allá del volumen y qué indicadores ayudan a gestionar la rentabilidad comercial de una concesionaria.",
+         intro="En la industria automotriz, muchas veces el éxito comercial se mide por la cantidad de vehículos vendidos. Pero el volumen, por sí solo, no cuenta toda la historia.",
+         resumen="Qué hay entre el precio de lista y lo que realmente queda, qué mirar más allá del volumen y qué indicadores cambian la conversación comercial.",
+         categoria="Gestión y Operaciones",
+         fecha="2026-11-09",
+         imagen="rentabilidad-comercial",
+         imagen_alt="Gerente comercial analizando indicadores de ventas y margen en un monitor, con autos exhibidos en el showroom",
+         old="",
+         comunidad="autos",
+         relacionados=[("/hub/inventario-decisiones-comerciales/", "El inventario también vende"),
+                       ("/servicios/evolucion-digital/", "Método Evolución Digital")]),
     dict(slug="datos-flotas-decisiones",
          titulo="Las flotas generan datos todos los días. ¿Las empresas están aprovechándolos?",
          seo_title="Gestión de flotas con datos: KPIs y decisiones para reducir costos | Umarti Digital",
