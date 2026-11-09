@@ -298,6 +298,20 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="movilidad-electrica-preparacion",
+         titulo="Movilidad eléctrica: ¿están preparadas las empresas automotrices para el cambio?",
+         seo_title="Movilidad eléctrica: cómo preparar a una concesionaria para el cambio | Umarti Digital",
+         descripcion="La movilidad eléctrica cambia cómo se vende, cómo se atiende y cómo se construye la relación con el cliente. Los nuevos desafíos para concesionarias y empresas de movilidad, y cómo empezar a prepararse.",
+         intro="La movilidad eléctrica está transformando la industria automotriz. Pero el cambio no consiste solamente en incorporar nuevos vehículos al catálogo.",
+         resumen="Los nuevos desafíos comerciales, de posventa y de experiencia que trae la movilidad eléctrica, y cómo empezar a prepararse.",
+         categoria="Customer Journey y Ventas",
+         fecha="2026-11-09",
+         imagen="movilidad-electrica-preparacion",
+         imagen_alt="Vehículo eléctrico cargando en una estación de carga mientras un asesor revisa información en una tablet",
+         old="",
+         comunidad="autos",
+         relacionados=[("/hub/movilidad-en-transicion/", "La movilidad en transición"),
+                       ("/servicios/evolucion-digital/", "Método Evolución Digital")]),
     dict(slug="ia-anticipar-demanda",
          titulo="Inteligencia artificial: ¿puede ayudar a una concesionaria a anticiparse a la demanda?",
          seo_title="Inteligencia artificial para anticipar la demanda en concesionarias | Umarti Digital",
