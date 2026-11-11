@@ -131,6 +131,12 @@ PAGES = [
          h1="Umarti Profesionales",
          lead="Digitalización para profesionales independientes y pequeños consultorios: que te encuentren en internet, que la agenda se ordene sola y que lleguen más consultas, sin que tengas que ocuparte de la tecnología.",
          crumb="Umarti Profesionales"),
+    dict(path="/soluciones/", file="soluciones.html", nav="", form=True, faq="SOLUCIONES",
+         title="Ecosistema de soluciones: consultoría, automatización, IA, ERP y software a medida | Umarti Digital",
+         description="Consultoría en procesos y automatización, integración tecnológica, diseño digital, agentes de IA, generación de demanda, ERP con IA y software a medida, integrados en un solo plan y con un solo interlocutor.",
+         h1="Un ecosistema de soluciones para que tu empresa sea más eficiente",
+         lead="Consultoría, automatización, inteligencia artificial, gestión y desarrollo a medida, integrados en un solo plan. Diagnostico qué necesitas y coordino a partners especializados para implementarlo.",
+         crumb="Ecosistema de soluciones"),
     dict(path="/expansion-latam/", file="expansion-latam.html", nav="", form=True,
          title="LATAM Market Expansion: expansión de startups y empresas tecnológicas en Latinoamérica | Umarti Digital",
          description="Acompaño a startups y empresas tecnológicas a ingresar y crecer en México y Latinoamérica: estrategia de entrada, desarrollo de negocios, alianzas, country manager externo y representación comercial.",
@@ -172,6 +178,18 @@ FAQ = [
 ]
 
 PAGE_FAQ = {
+    "SOLUCIONES": [
+        ("¿Tengo que contratar todo el ecosistema?",
+         "No. La mayoría de las empresas empieza por una o dos piezas, las que resuelven el problema más urgente, y suma otras cuando tiene sentido."),
+        ("¿Quién implementa cada solución?",
+         "Cada solución la implementa un partner especializado en esa área. Yo hago el diagnóstico, diseño el plan, coordino la implementación y me ocupo de que todo quede integrado."),
+        ("¿Sirve para empresas que no son del sector automotriz?",
+         "Sí. Mi origen es la industria automotriz, pero el método y las soluciones se aplican a inmobiliarias, estudios profesionales, pymes y empresas de servicios."),
+        ("¿Puedo sumar herramientas que ya uso?",
+         "Sí. Parte del trabajo es aprovechar lo que ya funciona y conectarlo con lo nuevo, en lugar de reemplazar todo."),
+        ("¿Cuánto cuesta?",
+         "Depende de las piezas que elijas y del tamaño de tu empresa. Después del diagnóstico te paso una propuesta clara, por etapas."),
+    ],
     "PROFESIONALES": [
         ("¿Tengo que contratar las tres líneas?",
          "No. Puedes empezar por la que más necesitas, por ejemplo el sitio web y Google, o la agenda con recordatorios, y sumar las otras cuando quieras."),
