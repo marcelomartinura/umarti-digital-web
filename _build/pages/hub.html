@@ -2,16 +2,34 @@
 
   <section class="section section--tight">
     <div class="wrap">
-      <div class="hub-filters" aria-label="Temas">
-        <span class="chip chip--on">Todos</span>
-        <span class="chip">Customer Journey y Ventas</span>
-        <span class="chip">Tecnología e IA</span>
-        <span class="chip">Marketing y Contenido</span>
-        <span class="chip">Gestión y Operaciones</span>
-      </div>
-      <div class="topics">
+{{hub_filters}}
+      <div class="topics" id="hub-notas">
 {{hub_cards_all}}
       </div>
+      <script>
+      (function () {
+        var sel = { ind: "", tema: "" };
+        var cards = document.querySelectorAll("#hub-notas .topic");
+        var empty = document.querySelector(".hub-empty");
+        function aplicar() {
+          var visibles = 0;
+          cards.forEach(function (c) {
+            var ok = (!sel.ind || c.dataset.ind === sel.ind) && (!sel.tema || c.dataset.tema === sel.tema);
+            c.hidden = !ok; if (ok) visibles++;
+          });
+          if (empty) empty.hidden = visibles > 0;
+        }
+        document.querySelectorAll(".hub-filters .chip").forEach(function (b) {
+          b.addEventListener("click", function () {
+            sel[b.dataset.f] = b.dataset.v;
+            document.querySelectorAll('.hub-filters .chip[data-f="' + b.dataset.f + '"]').forEach(function (o) {
+              o.classList.toggle("chip--on", o === b);
+            });
+            aplicar();
+          });
+        });
+      })();
+      </script>
     </div>
   </section>
 

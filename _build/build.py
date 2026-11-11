@@ -68,6 +68,12 @@ PAGES = [
          h1="Gestión digital de ventas",
          lead="Ordeno el proceso comercial digital de punta a punta, para que cada lead tenga dueño y se mida hasta la venta.",
          crumb="Gestión digital de ventas"),
+    dict(path="/servicios/generacion-demanda-agente-ia/", file="generacion-demanda-agente-ia.html", faq="DEMANDA", nav="servicios", parent="servicios",
+         title="Generación de demanda y agente conversacional con IA | Umarti Digital",
+         description="Generación de demanda, marketing digital y un agente conversacional con IA que atiende 24/7, precalifica leads, agenda citas y envía propuestas, integrados en un solo plan.",
+         h1="Generación de demanda y agente conversacional con IA",
+         lead="Integro generación de demanda, marketing digital, inteligencia artificial y tecnología para que lleguen más oportunidades y ninguna quede sin respuesta.",
+         crumb="Generación de demanda y agente IA"),
     dict(path="/servicios/desarrollo-nuevos-productos/", file="desarrollo-nuevos-productos.html", faq="PRODUCTOS", nav="servicios", parent="servicios",
          title="Desarrollo de nuevos productos, unidades de negocio y gestión de proyectos | Umarti Digital",
          description="Diseño y lanzamiento de nuevos productos, formatos híbridos, unidades de seminuevos y MVPs digitales, nuevos puntos de venta y canales digitales, con modelo de negocio, experiencia del cliente y gestión del proyecto.",
@@ -93,10 +99,10 @@ PAGES = [
          lead="Para agencias de autos, concesionarios y grupos automotrices que quieren vender más, atender mejor y ganar eficiencia.",
          crumb="Automotriz"),
     dict(path="/hub/", file="hub.html", nav="hub", form=True,
-         title="Hub Evolución Digital Automotriz: análisis y tendencias | Umarti Digital",
-         description="Análisis, guías y benchmarking internacional sobre la evolución digital de la industria automotriz" + (", con debate en la Comunidad Umarti." if COMUNIDAD_URL else "."),
-         h1="Hub Evolución Digital Automotriz",
-         lead="Análisis, guías y lo que está pasando en otros países." + (" Cada tema se debate después con colegas en la Comunidad Umarti." if COMUNIDAD_URL else "")),
+         title="Hub Evolución Digital: análisis y tendencias por industria | Umarti Digital",
+         description="Análisis, guías y tendencias sobre la evolución digital de las empresas, organizados por industria y por tema" + (", con debate en la Comunidad Umarti." if COMUNIDAD_URL else "."),
+         h1="Hub Evolución Digital",
+         lead="Análisis, guías y lo que está pasando en otros países, organizados por industria y por tema." + (" Cada tema se debate después con colegas en la Comunidad Umarti." if COMUNIDAD_URL else "")),
     dict(path="/sobre-umarti/", file="sobre-umarti.html", nav="sobre",
          title="Sobre Umarti Digital: consultoría de evolución digital",
          description="Umarti Digital es la marca de consultoría de Marcelo, con 20 años en la industria de la movilidad, en Querétaro, México y Ciudad de Buenos Aires, Argentina.",
@@ -166,18 +172,30 @@ FAQ = [
     ("¿De qué manera puedes colaborar con mi empresa?",
      "Colaboro estratégicamente mapeando un proceso actual, diseñando un nuevo proceso, homologando procesos, diseñando una experiencia de cliente phygital (para que la experiencia física y la digital funcionen coordinadas) o una nueva unidad de negocio, o como brazo externo para acelerar una implementación. A su vez, trabajo con partners especializados en inteligencia artificial, automatización, desarrollo tecnológico y generación de demanda."),
     ("¿Necesito cambiar mis plataformas tecnológicas?",
-     "No necesariamente. Parto de las herramientas que ya usas, como el CRM, el DMS o el ERP, y propongo cambiarlas solo cuando el diagnóstico lo justifica. Muchas mejoras se logran ordenando procesos e integrando los sistemas que ya existen."),
+     "No necesariamente. Parto de las herramientas que ya usas, como el CRM, el ERP o tu sistema de gestión, y propongo cambiarlas solo cuando el diagnóstico lo justifica. Muchas mejoras se logran ordenando procesos e integrando los sistemas que ya existen."),
     ("¿Qué procesos se pueden automatizar con inteligencia artificial?",
-     "Los más habituales son la primera respuesta a consultas de WhatsApp, web y redes, la calificación y el seguimiento de prospectos, el agendamiento de citas, pruebas de manejo o visitas, el envío de cotizaciones, las encuestas de satisfacción y las campañas de recompra o reactivación. No todo conviene automatizarlo: el diagnóstico define dónde la automatización realmente genera valor."),
+     "Los más habituales son la primera respuesta a consultas de WhatsApp, web y redes, la calificación y el seguimiento de prospectos, el agendamiento de citas, reuniones o visitas, el envío de cotizaciones, las encuestas de satisfacción y las campañas de recompra o reactivación. No todo conviene automatizarlo: el diagnóstico define dónde la automatización realmente genera valor."),
     ("¿Cómo se gestionan las iniciativas?",
      "Cada iniciativa parte de un diagnóstico y de un objetivo medible. Las priorizo según impacto y esfuerzo, las organizo en un plan de trabajo por etapas o sprints, y las sigo con tableros e indicadores compartidos con tu equipo. Así siempre se sabe qué se está haciendo, qué sigue y qué resultado está dando."),
     ("¿Con qué tipo de empresas trabajas?",
-     "Con empresas de movilidad, como concesionarios y grupos automotrices, distribuidores de motos, camiones y maquinaria, posventa e importadoras, y con inmobiliarias y desarrolladoras de Latinoamérica y España."),
+     "Con empresas de distintas industrias que quieren vender y atender mejor: pymes, empresas de servicios, profesionales y estudios, y compañías que necesitan ordenar sus procesos e integrar su tecnología, en Latinoamérica y España."),
     ("¿Cómo empezamos?",
      "Con una llamada de 20 minutos para entender tu operación, o pidiendo mi presentación comercial para ver los servicios y los proyectos en detalle. En ambos casos, sin compromiso."),
 ]
 
 PAGE_FAQ = {
+    "DEMANDA": [
+        ("¿Qué hace exactamente el agente conversacional?",
+         "Atiende a tus clientes por WhatsApp, web y redes las 24 horas: responde consultas, clasifica y precalifica oportunidades, envía información y propuestas, procesa solicitudes de venta y servicio y agenda citas. Cuando una conversación necesita a una persona, la deriva al equipo con todo el contexto."),
+        ("¿Reemplaza a mi equipo comercial?",
+         "No. Se ocupa de la primera respuesta y de las tareas repetitivas para que tu equipo dedique su tiempo a las oportunidades con más chances de cerrar."),
+        ("¿Puedo contratar solo una de las dos partes?",
+         "Sí. Puedes empezar por la generación de demanda o por el agente, aunque juntos rinden más: la campaña atrae y el agente atiende cada consulta al instante."),
+        ("¿Se integra con mi CRM?",
+         "Sí. Las conversaciones y los leads se registran en tu CRM para hacer seguimiento y medir qué campaña genera ventas."),
+        ("¿Puedo ver una demo?",
+         "Sí. Coordinamos una llamada breve, sin compromiso, en la que ves el agente funcionando y conversamos sobre tu caso."),
+    ],
     "SOLUCIONES": [
         ("¿Tengo que contratar todo el ecosistema?",
          "No. La mayoría de las empresas empieza por una o dos piezas, las que resuelven el problema más urgente, y suma otras cuando tiene sentido."),
@@ -720,6 +738,41 @@ def articulos_ordenados():
     return sorted(ARTICULOS, key=lambda a: a["fecha"], reverse=True)
 
 
+# Industria de cada nota del Hub (campo opcional "industria"; por defecto, automotriz).
+HUB_INDUSTRIAS = [("automotriz", "Automotriz y movilidad"), ("empresas", "Empresas y negocios"),
+                  ("profesionales", "Profesionales"), ("inmobiliarias", "Inmobiliarias")]
+HUB_TEMAS = ["Customer Journey y Ventas", "Tecnología e IA", "Marketing y Contenido", "Gestión y Operaciones"]
+
+
+def industria_de(a):
+    return a.get("industria", "automotriz")
+
+
+def hub_filters():
+    usadas = {industria_de(a) for a in ARTICULOS}
+    temas = {a["categoria"] for a in ARTICULOS}
+    ind = "".join(f'<button type="button" class="chip" data-f="ind" data-v="{k}">{e(v)}</button>'
+                  for k, v in HUB_INDUSTRIAS if k in usadas)
+    tem = "".join(f'<button type="button" class="chip" data-f="tema" data-v="{e(t)}">{e(t)}</button>'
+                  for t in HUB_TEMAS if t in temas)
+    return f"""      <div class="hub-filters" aria-label="Industria">
+        <span class="hub-filters__label">Industria</span>
+        <button type="button" class="chip chip--on" data-f="ind" data-v="">Todas</button>{ind}
+      </div>
+      <div class="hub-filters" aria-label="Tema">
+        <span class="hub-filters__label">Tema</span>
+        <button type="button" class="chip chip--on" data-f="tema" data-v="">Todos</button>{tem}
+      </div>
+      <p class="hub-empty" hidden>Todavía no hay notas con esta combinación. Prueba con otra industria o tema.</p>"""
+
+
+def hub_home():
+    generales = [a for a in articulos_ordenados() if industria_de(a) != "automotriz"]
+    if generales:
+        return '      <div class="topics">\n' + hub_cards(3, generales) + '\n      </div>'
+    return ""
+
+
 def debate_link(comunidad):
     if COMUNIDAD_URL:
         url = COMUNIDAD_URL.rstrip("/") + (f"/{comunidad}" if comunidad else "")
@@ -735,15 +788,16 @@ def debate_boton(comunidad):
     return '<span class="btn btn--off" aria-disabled="true">Comunidad (próximamente)</span>'
 
 
-def hub_cards(n=None):
+def hub_cards(n=None, lista=None):
     out = []
-    for a in articulos_ordenados():
+    for a in (lista if lista is not None else articulos_ordenados()):
         mins = minutos_lectura(articulo_body(a))
-        out.append(f"""        <article class="topic topic--post">
+        ind = dict(HUB_INDUSTRIAS).get(industria_de(a), "")
+        out.append(f"""        <article class="topic topic--post" data-ind="{industria_de(a)}" data-tema="{e(a['categoria'])}">
           <a class="topic__img" href="/hub/{a['slug']}/" tabindex="-1" aria-hidden="true">
             <picture><source srcset="/assets/img/hub/{a['imagen']}.webp" type="image/webp"><img src="/assets/img/hub/{a['imagen']}.jpg" alt="" width="1600" height="368" loading="lazy"></picture>
           </a>
-          <p class="topic__cat">{e(a['categoria'])}</p>
+          <p class="topic__cat">{e(ind)} · {e(a['categoria'])}</p>
           <h3><a href="/hub/{a['slug']}/">{e(a['titulo'])}</a></h3>
           <p>{e(a['resumen'])}</p>
           <div class="topic__foot">
@@ -842,7 +896,7 @@ def org_ld():
         "logo": f"{BASE}/assets/img/umarti-logo.png",
         "image": f"{BASE}/assets/img/umarti-logo.png",
         "email": EMAIL,
-        "description": "Consultoría de evolución digital para la industria automotriz, la movilidad y los bienes raíces: procesos, automatización con IA, gestión digital de ventas y nuevos productos.",
+        "description": "Consultoría de evolución digital para empresas: optimización de procesos, automatización con IA, integración tecnológica, generación de demanda y un ecosistema de soluciones.",
         "areaServed": ["MX", "AR", "Latinoamérica", "ES"],
         "knowsAbout": ["Consultoría automotriz", "Bienes raíces", "Transformación digital", "Automatización de procesos",
                        "Agentes conversacionales con IA", "CRM para concesionarios", "Generación de leads"],
@@ -1013,6 +1067,8 @@ def render(page, layout, content=None):
                .replace("{{faq_html}}", faq_html(PAGE_FAQ.get(page.get("faq"))))
                .replace("{{hub_cards_3}}", hub_cards(3))
                .replace("{{hub_cards_all}}", hub_cards())
+               .replace("{{hub_filters}}", hub_filters())
+               .replace("{{hub_home}}", hub_home())
                .replace("{{whatsapp_button}}", whatsapp_button())
                .replace("{{email}}", EMAIL))
     # Bloques marcados como Comunidad: se muestran solo cuando hay COMUNIDAD_URL
