@@ -754,3 +754,20 @@ h2 + .flows, h2 + .benefits { margin-top: 32px; }
 .xind__link { margin-top: auto; font-weight: 700; font-size: .9rem; color: var(--teal-deep); text-decoration: none; }
 @media (max-width: 960px) { .xind-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .xind-grid { grid-template-columns: 1fr; } }
+
+/* Home: ecosistema resumido */
+.eco-mini { display: grid; grid-template-columns: 1fr 200px 1fr; gap: 40px; align-items: center; margin: 40px 0 36px; }
+.eco-mini__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.eco-mini__list li { margin: 0; padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(23,187,189,.28); background: rgba(255,255,255,.05); color: #fff; font-weight: 600; font-size: .95rem; }
+.eco-mini__list li::before { display: none; }
+.eco-mini__list--tech li { background: rgba(23,187,189,.10); border-color: rgba(23,187,189,.5); }
+.eco-mini__core { display: grid; place-items: center; }
+.eco-mini__core span { width: 180px; height: 180px; border-radius: 50%; border: 8px solid var(--teal); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--teal); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; box-shadow: 0 0 0 12px rgba(23,187,189,.12), 0 0 50px rgba(23,187,189,.22); background: radial-gradient(circle, #14344a 0%, var(--ink) 70%); }
+.eco-mini__core strong { display: block; color: #fff; font-size: 1.15rem; letter-spacing: 0; text-transform: none; margin-top: 4px; }
+.modes--light dt { color: #fff; }
+.modes--light dd { color: #C9D6DC; }
+.modes--light > div { border-color: rgba(255,255,255,.14); }
+@media (max-width: 900px) { .eco-mini { grid-template-columns: 1fr; gap: 20px; } .eco-mini__core { order: -1; } }
+.related--light a { color: var(--teal); }
+.sector .more { display: inline-block; margin-top: 14px; color: var(--teal-deep); font-weight: 700; text-decoration: none; }
+.eco-mini__core em { font-style: normal; }
