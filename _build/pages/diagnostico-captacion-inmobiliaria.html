@@ -1,0 +1,120 @@
+{{page_header}}
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>¿Te pasa esto?</h2>
+        <p>Les pasa a muchas inmobiliarias y desarrolladoras que reciben consultas por muchos canales a la vez.</p>
+        <div class="landing-actions">
+          <a href="#diagnostico" class="btn">Quiero mi diagnóstico</a>
+          {{whatsapp_button}}
+        </div>
+      </div>
+      <ul class="pains">
+        <li>Las consultas de los portales y las redes se responden tarde o quedan sin respuesta.</li>
+        <li>Las visitas no se confirman y muchas se caen a último momento.</li>
+        <li>El seguimiento de interesados y propietarios se hace a mano.</li>
+        <li>No sabes qué portal o canal trae operaciones y cuál solo trae consultas.</li>
+        <li>La captación de propiedades no tiene un proceso definido.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Qué reviso</h2>
+        <p>Recorro cómo llegan y se trabajan los interesados y las propiedades, desde la primera consulta hasta la operación.</p>
+      </div>
+      <ul class="ticks ticks--cols">
+        <li>Canales de captación de interesados: portales, redes, web, WhatsApp y cartelería</li>
+        <li>Captación de propiedades y relación con propietarios</li>
+        <li>Tiempos de respuesta y calificación de interesados</li>
+        <li>Agenda, confirmación y seguimiento de visitas</li>
+        <li>Seguimiento hasta la reserva o la operación</li>
+        <li>Herramientas en uso y resultados de la inversión en portales</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Qué recibes</h2>
+      <p class="section__lead">Un entregable concreto, para que sepas exactamente dónde estás y dónde conviene actuar.</p>
+      <div class="benefits">
+        <div class="benefit"><h3>Informe de hallazgos</h3><p>Qué funciona, qué no y por qué, con ejemplos concretos de tu operación.</p></div>
+        <div class="benefit"><h3>Mapa de tu proceso de captación y seguimiento</h3><p>Cómo funciona hoy, paso a paso, con los puntos donde se pierde tiempo, información u oportunidades.</p></div>
+        <div class="benefit"><h3>Oportunidades priorizadas</h3><p>Las mejoras posibles, ordenadas según su impacto y el esfuerzo que requieren.</p></div>
+        <div class="benefit"><h3>Reunión de resultados</h3><p>Recorremos juntos el informe y resolvemos tus preguntas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Cómo funciona</h2>
+        <p>Un alcance definido desde el principio.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Conversación inicial.</strong> En 20 minutos entiendo tu situación y te paso una propuesta con el alcance y el precio cerrado del diagnóstico.</li>
+        <li><strong>Relevamiento.</strong> Converso con las personas clave del equipo y reviso canales, sistemas e información disponible.</li>
+        <li><strong>Entrega.</strong> Te entrego el informe y lo recorremos juntos en una reunión de resultados.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Inversión</h2>
+        <p>El diagnóstico tiene un precio cerrado, según el tamaño de tu empresa y el alcance acordado. Te lo paso en la primera conversación.</p>
+      </div>
+      <ul class="ticks ticks--light">
+        <li>Precio cerrado, sin sorpresas.</li>
+        <li>Si después avanzas con el proyecto, el valor del diagnóstico se descuenta.</li>
+        <li>El informe es tuyo, avances o no conmigo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+{{faq_html}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="diagnostico">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Pide tu diagnóstico</h2>
+        <p>Déjame tus datos y te escribo para coordinar la conversación inicial. Si prefieres, escríbeme directo por WhatsApp.</p>
+        <div class="landing-actions">{{whatsapp_button}}</div>
+      </div>
+      <div>
+        <div class="notice notice--ok" id="form-ok" role="status" hidden>¡Gracias! Recibí tus datos y te escribo pronto.</div>
+        <div class="notice notice--error" id="form-error" role="alert" hidden>No se pudo enviar. Revisa los datos o escríbeme por WhatsApp.</div>
+        <form class="form" action="/contact.php" method="post">
+          <input type="hidden" name="origen" value="diag-inmo">
+          <input type="hidden" name="interes" value="diag-inmo">
+          <div class="form__row">
+            <label>Nombre y apellido<input type="text" name="nombre" required autocomplete="name"></label>
+            <label>Inmobiliaria o desarrolladora<input type="text" name="empresa" required autocomplete="organization"></label>
+          </div>
+          <div class="form__row">
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            <label><span>WhatsApp <span class="optional">(opcional)</span></span><input type="tel" name="telefono" autocomplete="tel"></label>
+          </div>
+          <label><span>¿Qué te gustaría mejorar en la captación o el seguimiento? <span class="optional">(opcional)</span></span><textarea name="mensaje" rows="4"></textarea></label>
+          <label class="hp" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+          <p class="form__legal">Al enviar aceptas el <a href="/privacidad/">aviso de privacidad</a>.</p>
+          <button type="submit" class="btn">Quiero mi diagnóstico</button>
+        </form>
+      </div>
+    </div>
+  </section>

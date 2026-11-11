@@ -779,3 +779,21 @@ button.chip--on { background: var(--ink); color: var(--white); }
 .hub-empty { color: var(--slate); margin: 18px 0 0; }
 .industries--home .industry--main { grid-row: span 2; }
 #hub-notas .topic[hidden] { display: none; }
+
+/* Ofertas de entrada */
+.offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.offer { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; padding: 26px; background: var(--white); text-decoration: none; color: var(--ink); transition: border-color .2s, transform .2s; }
+.offer:hover { border-color: var(--teal); transform: translateY(-2px); }
+.offer__seg { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-deep); }
+.offer h2 { font-size: 1.3rem; margin: 10px 0 8px; }
+.offer p { color: var(--slate); font-size: .95rem; margin: 0 0 18px; }
+.offer .more { margin-top: auto; }
+@media (max-width: 960px) { .offers { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .offers { grid-template-columns: 1fr; } }
+.industry__offer { display: block; margin-top: 10px; font-size: .82rem; font-weight: 700; color: var(--teal-deep); }
+.industry--main .industry__offer, .industry-feature .industry__offer { color: var(--teal); margin-bottom: 8px; }
+.post-offer { display: flex; gap: 28px; align-items: center; justify-content: space-between; background: var(--ink); color: var(--white); border-radius: 18px; padding: 30px 32px; margin: 40px 0 8px; }
+.post-offer h2 { color: var(--white); font-size: 1.35rem; margin: 6px 0 8px; }
+.post-offer p:not(.eyebrow) { color: #C9D6DC; margin: 0; font-size: .95rem; }
+.post-offer .btn { flex-shrink: 0; }
+@media (max-width: 700px) { .post-offer { flex-direction: column; align-items: flex-start; } }

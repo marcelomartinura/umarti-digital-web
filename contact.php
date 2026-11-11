@@ -10,14 +10,17 @@ const ORIGENES = ['contacto' => '/contacto/', 'hub' => '/hub/',
                   'digitalizacion' => '/digitalizacion-optimizada/',
                   'profesionales' => '/profesionales/',
                   'expansion' => '/expansion-latam/',
-                  'soluciones' => '/soluciones/'];
+                  'soluciones' => '/soluciones/',
+                  'diag-auto' => '/diagnostico/procesos-comerciales/',
+                  'diag-inmo' => '/diagnostico/captacion-inmobiliaria/',
+                  'diag-pymes' => '/diagnostico/digitalizacion/'];
 
 $origen = $_POST['origen'] ?? 'contacto';
 $volverA = ORIGENES[$origen] ?? '/contacto/';
 
 function volver($ok) {
     global $volverA;
-    $ancla = (strpos($volverA, '/presencia-digital/') === 0 || $volverA === '/digitalizacion-optimizada/' || $volverA === '/profesionales/') ? '#presupuesto' : (($volverA === '/expansion-latam/' || $volverA === '/soluciones/') ? '#reunion' : '');
+    $ancla = (strpos($volverA, '/presencia-digital/') === 0 || $volverA === '/digitalizacion-optimizada/' || $volverA === '/profesionales/') ? '#presupuesto' : (($volverA === '/expansion-latam/' || $volverA === '/soluciones/') ? '#reunion' : (strpos($volverA, '/diagnostico/') === 0 ? '#diagnostico' : ''));
     header('Location: ' . $volverA . '?enviado=' . ($ok ? '1' : '0') . $ancla, true, 303);
     exit;
 }
@@ -50,7 +53,10 @@ if ($interesRaw === 'newsletter') {
              : ($interesRaw === 'digitalizacion' ? 'Propuesta de digitalización optimizada'
              : ($interesRaw === 'profesionales' ? 'Propuesta Umarti Profesionales'
              : ($interesRaw === 'expansion' ? 'Reunión LATAM Market Expansion'
-             : ($interesRaw === 'soluciones' ? 'Diagnóstico ecosistema de soluciones' : 'Agendar una llamada de 20 minutos')))));
+             : ($interesRaw === 'soluciones' ? 'Diagnóstico ecosistema de soluciones'
+             : ($interesRaw === 'diag-auto' ? 'Diagnóstico de procesos comerciales (automotriz)'
+             : ($interesRaw === 'diag-inmo' ? 'Diagnóstico de captación y seguimiento (inmobiliaria)'
+             : ($interesRaw === 'diag-pymes' ? 'Diagnóstico de digitalización (pyme)' : 'Agendar una llamada de 20 minutos'))))))));
     $mensaje  = mb_substr(trim((string)($_POST['mensaje'] ?? '')), 0, 3000);
     if ($interesRaw === 'expansion') {
         $extra = "Sitio web: " . $limpiar($_POST['web'] ?? '') . "\nMercado objetivo: " . $limpiar($_POST['mercado'] ?? '')

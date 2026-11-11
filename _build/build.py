@@ -137,6 +137,33 @@ PAGES = [
          h1="Umarti Profesionales",
          lead="Digitalización para profesionales independientes y pequeños consultorios: que te encuentren en internet, que la agenda se ordene sola y que lleguen más consultas, sin que tengas que ocuparte de la tecnología.",
          crumb="Umarti Profesionales"),
+    dict(path="/diagnostico/", file="diagnostico.html", nav="",
+         title="Por dónde empezar: diagnósticos y ofertas de entrada por tipo de empresa | Umarti Digital",
+         description="Una oferta de entrada concreta para cada tipo de empresa: diagnóstico de procesos comerciales, de captación y seguimiento, de digitalización, web profesional y expansión comercial en Latinoamérica.",
+         h1="Por dónde empezar",
+         lead="Antes de un proyecto, un primer paso concreto, con alcance y entregable definidos. Elige el que corresponde a tu empresa.",
+         crumb="Por dónde empezar"),
+    dict(path="/diagnostico/procesos-comerciales/", file="diagnostico-procesos-comerciales.html", nav="", parent="diagnostico",
+         form=True, faq="DIAG",
+         title="Diagnóstico de procesos comerciales para concesionarias y grupos automotrices | Umarti Digital",
+         description="Diagnóstico pago con alcance definido: reviso tu proceso comercial de la consulta a la entrega y te entrego un informe con hallazgos, el mapa del proceso y las oportunidades priorizadas.",
+         h1="Diagnóstico de procesos comerciales",
+         lead="Para concesionarias, grupos automotrices y empresas de movilidad que quieren saber dónde se pierden oportunidades y por dónde empezar a mejorar.",
+         crumb="Procesos comerciales"),
+    dict(path="/diagnostico/captacion-inmobiliaria/", file="diagnostico-captacion-inmobiliaria.html", nav="", parent="diagnostico",
+         form=True, faq="DIAG",
+         title="Diagnóstico de captación y seguimiento para inmobiliarias | Umarti Digital",
+         description="Diagnóstico pago con alcance definido: reviso cómo llegan y se trabajan tus interesados y propiedades, y te entrego un informe con hallazgos, el mapa del proceso y las oportunidades priorizadas.",
+         h1="Diagnóstico de captación y seguimiento",
+         lead="Para inmobiliarias y desarrolladoras que reciben consultas por muchos canales y quieren convertir más interesados en visitas y operaciones.",
+         crumb="Captación y seguimiento"),
+    dict(path="/diagnostico/digitalizacion/", file="diagnostico-digitalizacion.html", nav="", parent="diagnostico",
+         form=True, faq="DIAG",
+         title="Diagnóstico de digitalización para pymes y empresas de servicios | Umarti Digital",
+         description="Diagnóstico pago con alcance definido: reviso procesos, sistemas y canales de tu empresa y te entrego un informe con hallazgos, el mapa de procesos y las oportunidades priorizadas.",
+         h1="Diagnóstico de digitalización",
+         lead="Para pymes y empresas de servicios que quieren ordenar procesos, conectar sus herramientas y saber dónde la tecnología realmente suma.",
+         crumb="Digitalización"),
     dict(path="/soluciones/", file="soluciones.html", nav="", form=True, faq="SOLUCIONES",
          title="Ecosistema de soluciones: consultoría, automatización, IA, ERP y software a medida | Umarti Digital",
          description="Consultoría en procesos y automatización, integración tecnológica, diseño digital, agentes de IA, generación de demanda, ERP con IA y software a medida, integrados en un solo plan y con un solo interlocutor.",
@@ -161,7 +188,69 @@ PARENTS = {
     "industrias": ("Para quién", "/industrias/"),
     "hub": ("Hub", "/hub/"),
     "presencia": ("Presencia digital", "/presencia-digital/"),
+    "diagnostico": ("Por dónde empezar", "/diagnostico/"),
 }
+
+# Oferta de entrada por segmento.
+OFERTAS = {
+    "auto": dict(segmento="Automotriz y movilidad", nombre="Diagnóstico de procesos comerciales",
+                 url="/diagnostico/procesos-comerciales/",
+                 texto="Recorro tu proceso comercial de la consulta a la entrega y te entrego un informe con hallazgos, el mapa del proceso actual y las oportunidades priorizadas."),
+    "inmo": dict(segmento="Inmobiliarias", nombre="Diagnóstico de captación y seguimiento",
+                 url="/diagnostico/captacion-inmobiliaria/",
+                 texto="Reviso cómo llegan y se trabajan tus interesados y propiedades, y te entrego un informe con hallazgos, el mapa del proceso y las oportunidades priorizadas."),
+    "prof": dict(segmento="Profesionales y estudios", nombre="Web profesional + presencia digital",
+                 url="/profesionales/",
+                 texto="Sitio web, perfil de Google, botón de WhatsApp y agenda en orden, para que te encuentren y te escriban."),
+    "pymes": dict(segmento="Pymes y empresas de servicios", nombre="Diagnóstico de digitalización",
+                  url="/diagnostico/digitalizacion/",
+                  texto="Reviso procesos, sistemas y canales de tu empresa y te entrego un informe con hallazgos, el mapa de tus procesos y las oportunidades priorizadas."),
+    "tec": dict(segmento="Startups y empresas tecnológicas", nombre="Expansión comercial LATAM",
+                url="/expansion-latam/",
+                texto="Estrategia y acompañamiento para entrar y vender en México y Latinoamérica con presencia comercial local."),
+}
+OFERTA_POR_INDUSTRIA = {"automotriz": "auto", "inmobiliarias": "inmo", "profesionales": "prof", "empresas": "pymes"}
+
+# Pregunta del cierre de cada nota según su tema, y servicio relacionado.
+CTA_TEMA = {
+    "Customer Journey y Ventas": "¿Cuántas oportunidades se pierden hoy entre la consulta y la venta?",
+    "Tecnología e IA": "¿Dónde puede ayudarte la tecnología en tu operación?",
+    "Gestión y Operaciones": "¿Qué procesos te están costando tiempo y margen?",
+    "Marketing y Contenido": "¿Tus canales digitales generan ventas o solo visitas?",
+}
+SERVICIO_TEMA = {
+    "Customer Journey y Ventas": ("/servicios/gestion-digital-ventas/", "Gestión digital de ventas"),
+    "Tecnología e IA": ("/servicios/automatizacion-ia/", "Automatización e IA"),
+    "Gestión y Operaciones": ("/servicios/evolucion-digital/", "Método Evolución Digital"),
+    "Marketing y Contenido": ("/servicios/generacion-demanda-agente-ia/", "Generación de demanda y agente IA"),
+}
+
+
+def ofertas_html():
+    out = []
+    for k, o in OFERTAS.items():
+        out.append(f"""        <a class="offer" href="{o['url']}">
+          <span class="offer__seg">{e(o['segmento'])}</span>
+          <h2>{e(o['nombre'])}</h2>
+          <p>{e(o['texto'])}</p>
+          <span class="more">Ver la oferta</span>
+        </a>""")
+    return "\n".join(out)
+
+
+def oferta_nota(a):
+    k = a.get("oferta") or OFERTA_POR_INDUSTRIA.get(a.get("industria", "automotriz"), "auto")
+    o = OFERTAS[k]
+    titulo = a.get("cta_titulo") or CTA_TEMA.get(a["categoria"], "¿Por dónde empezar en tu empresa?")
+    return f"""      <aside class="post-offer">
+        <div>
+          <p class="eyebrow">{e(o['segmento'])}</p>
+          <h2>{e(titulo)}</h2>
+          <p>{e(o['texto'])}</p>
+        </div>
+        <a href="{o['url']}" class="btn">{e(o['nombre'])}</a>
+      </aside>
+"""
 
 # ---------------------------------------------------------------------------
 # Datos
@@ -184,6 +273,18 @@ FAQ = [
 ]
 
 PAGE_FAQ = {
+    "DIAG": [
+        ("¿Por qué el diagnóstico es pago?",
+         "Porque es un trabajo real, con relevamiento y un entregable concreto. Tiene un precio cerrado y, si después avanzas con el proyecto, ese valor se descuenta."),
+        ("¿Cuánto dura?",
+         "Depende del tamaño de la empresa y del alcance acordado. Lo definimos en la conversación inicial, antes de empezar."),
+        ("¿Qué recibo al final?",
+         "Un informe con los hallazgos, el mapa de cómo funciona hoy el proceso y las oportunidades de mejora priorizadas, que recorremos juntos en una reunión de resultados."),
+        ("¿Tengo que contratar algo más después?",
+         "No. El informe es tuyo y puedes usarlo como quieras. Si decides avanzar conmigo, armamos una propuesta a partir de lo que encontramos."),
+        ("¿Qué necesito para empezar?",
+         "Una conversación inicial de 20 minutos y, después, acceso a las personas clave del equipo y a la información que ya usan."),
+    ],
     "DEMANDA": [
         ("¿Qué hace exactamente el agente conversacional?",
          "Atiende a tus clientes por WhatsApp, web y redes las 24 horas: responde consultas, clasifica y precalifica oportunidades, envía información y propuestas, procesa solicitudes de venta y servicio y agenda citas. Cuando una conversación necesita a una persona, la deriva al equipo con todo el contexto."),
@@ -850,18 +951,23 @@ def page_header(page):
   </section>"""
 
 
-def cta_band():
+def cta_band(oferta=None):
     wa = ""
     if WHATSAPP:
         wa = f'<a class="link" href="{wa_link()}" target="_blank" rel="noopener">o escríbeme por WhatsApp</a>'
+    if oferta:
+        o = OFERTAS[oferta]
+        titulo, texto, url, label = f"Empieza por el {o['nombre'][0].lower() + o['nombre'][1:]}" if o['nombre'].startswith("Diagnóstico") else o['nombre'], o['texto'], o['url'], "Ver la oferta"
+    else:
+        titulo, texto, url, label = "¿Por dónde empezar?", "Un primer paso concreto, con alcance y entregable definidos, según tu tipo de empresa.", "/diagnostico/", "Ver por dónde empezar"
     return f"""  <section class="cta-band">
     <div class="wrap cta-band__inner">
       <div>
-        <h2>¿Dónde está hoy tu operación?</h2>
-        <p>Una llamada de 20 minutos para entenderla y ver por dónde empezar. Sin compromiso.</p>
+        <h2>{e(titulo)}</h2>
+        <p>{e(texto)}</p>
       </div>
       <div class="cta-band__actions">
-        <a href="/contacto/" class="btn">Agendar una llamada</a>
+        <a href="{url}" class="btn">{e(label)}</a>
         {wa}
       </div>
     </div>
@@ -988,7 +1094,11 @@ def articulo_html(a):
 """) if COMUNIDAD_URL else ""
     body = articulo_body(a)
     mins = minutos_lectura(body)
-    rel = "\n".join(f'        <a href="{u}">{e(t)}</a>' for u, t in a["relacionados"])
+    rels = list(a["relacionados"])
+    serv = SERVICIO_TEMA.get(a["categoria"])
+    if serv and not any(u.startswith("/servicios/") for u, _ in rels):
+        rels.insert(0, serv)
+    rel = "\n".join(f'        <a href="{u}">{e(t)}</a>' for u, t in rels)
     page = articulo_page(a)
     trail = crumbs(page)
     links = ' <span class="crumbs__sep" aria-hidden="true">/</span> '.join(
@@ -1011,6 +1121,7 @@ def articulo_html(a):
 {body}
       </div>
 
+{oferta_nota(a)}
 {aside_debate}
       <div class="post-author">
         <picture><source srcset="/assets/img/marcelo.webp" type="image/webp"><img src="/assets/img/marcelo.jpg" alt="" width="72" height="72"></picture>
@@ -1027,8 +1138,7 @@ def articulo_html(a):
       </nav>
     </div>
   </article>
-
-{cta_band()}"""
+"""
 
 
 def articulo_ld(a):
@@ -1064,6 +1174,8 @@ def render(page, layout, content=None):
     content = (content
                .replace("{{page_header}}", page_header(page) if page["path"] != "/" else "")
                .replace("{{cta_band}}", cta_band())
+               .replace("{{cta_band:auto}}", cta_band("auto"))
+               .replace("{{ofertas_html}}", ofertas_html())
                .replace("{{faq_html}}", faq_html(PAGE_FAQ.get(page.get("faq"))))
                .replace("{{hub_cards_3}}", hub_cards(3))
                .replace("{{hub_cards_all}}", hub_cards())

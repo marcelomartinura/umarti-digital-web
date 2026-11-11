@@ -1,0 +1,120 @@
+{{page_header}}
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>¿Te pasa esto?</h2>
+        <p>Les pasa a muchas agencias y grupos automotrices que crecieron más rápido que sus procesos.</p>
+        <div class="landing-actions">
+          <a href="#diagnostico" class="btn">Quiero mi diagnóstico</a>
+          {{whatsapp_button}}
+        </div>
+      </div>
+      <ul class="pains">
+        <li>Las consultas de la web, WhatsApp y los portales se responden tarde o se pierden.</li>
+        <li>Cada vendedor y cada sucursal trabaja a su manera.</li>
+        <li>El CRM se usa a medias y la información termina en planillas.</li>
+        <li>No sabes en qué etapa del embudo se pierden las oportunidades.</li>
+        <li>El seguimiento depende de la memoria de cada vendedor.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Qué reviso</h2>
+        <p>Recorro el proceso comercial completo, desde que llega la consulta hasta la entrega.</p>
+      </div>
+      <ul class="ticks ticks--cols">
+        <li>Canales de entrada de oportunidades: web, WhatsApp, portales, redes y piso de ventas</li>
+        <li>Tiempos de primera respuesta y de seguimiento</li>
+        <li>Proceso de venta de punta a punta, de la consulta a la entrega</li>
+        <li>Uso del CRM y del DMS, y cómo se conectan entre sí</li>
+        <li>Conversión por etapa, por vendedor y por sucursal</li>
+        <li>Financiación, usados y posventa como parte del proceso comercial</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Qué recibes</h2>
+      <p class="section__lead">Un entregable concreto, para que sepas exactamente dónde estás y dónde conviene actuar.</p>
+      <div class="benefits">
+        <div class="benefit"><h3>Informe de hallazgos</h3><p>Qué funciona, qué no y por qué, con ejemplos concretos de tu operación.</p></div>
+        <div class="benefit"><h3>Mapa de tu proceso comercial actual</h3><p>Cómo funciona hoy, paso a paso, con los puntos donde se pierde tiempo, información u oportunidades.</p></div>
+        <div class="benefit"><h3>Oportunidades priorizadas</h3><p>Las mejoras posibles, ordenadas según su impacto y el esfuerzo que requieren.</p></div>
+        <div class="benefit"><h3>Reunión de resultados</h3><p>Recorremos juntos el informe y resolvemos tus preguntas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Cómo funciona</h2>
+        <p>Un alcance definido desde el principio.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Conversación inicial.</strong> En 20 minutos entiendo tu situación y te paso una propuesta con el alcance y el precio cerrado del diagnóstico.</li>
+        <li><strong>Relevamiento.</strong> Converso con las personas clave del equipo y reviso canales, sistemas e información disponible.</li>
+        <li><strong>Entrega.</strong> Te entrego el informe y lo recorremos juntos en una reunión de resultados.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Inversión</h2>
+        <p>El diagnóstico tiene un precio cerrado, según el tamaño de tu empresa y el alcance acordado. Te lo paso en la primera conversación.</p>
+      </div>
+      <ul class="ticks ticks--light">
+        <li>Precio cerrado, sin sorpresas.</li>
+        <li>Si después avanzas con el proyecto, el valor del diagnóstico se descuenta.</li>
+        <li>El informe es tuyo, avances o no conmigo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+{{faq_html}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="diagnostico">
+    <div class="wrap split">
+      <div class="split__head">
+        <h2>Pide tu diagnóstico</h2>
+        <p>Déjame tus datos y te escribo para coordinar la conversación inicial. Si prefieres, escríbeme directo por WhatsApp.</p>
+        <div class="landing-actions">{{whatsapp_button}}</div>
+      </div>
+      <div>
+        <div class="notice notice--ok" id="form-ok" role="status" hidden>¡Gracias! Recibí tus datos y te escribo pronto.</div>
+        <div class="notice notice--error" id="form-error" role="alert" hidden>No se pudo enviar. Revisa los datos o escríbeme por WhatsApp.</div>
+        <form class="form" action="/contact.php" method="post">
+          <input type="hidden" name="origen" value="diag-auto">
+          <input type="hidden" name="interes" value="diag-auto">
+          <div class="form__row">
+            <label>Nombre y apellido<input type="text" name="nombre" required autocomplete="name"></label>
+            <label>Agencia o grupo<input type="text" name="empresa" required autocomplete="organization"></label>
+          </div>
+          <div class="form__row">
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            <label><span>WhatsApp <span class="optional">(opcional)</span></span><input type="tel" name="telefono" autocomplete="tel"></label>
+          </div>
+          <label><span>¿Qué te gustaría mejorar en tu proceso comercial? <span class="optional">(opcional)</span></span><textarea name="mensaje" rows="4"></textarea></label>
+          <label class="hp" aria-hidden="true">No completar<input type="text" name="sitio" tabindex="-1" autocomplete="off"></label>
+          <p class="form__legal">Al enviar aceptas el <a href="/privacidad/">aviso de privacidad</a>.</p>
+          <button type="submit" class="btn">Quiero mi diagnóstico</button>
+        </form>
+      </div>
+    </div>
+  </section>
