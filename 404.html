@@ -19,12 +19,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/styles.css?v=202611171107">
+<link rel="stylesheet" href="/assets/css/styles.css?v=202611171133">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.umartidigital.com/"}, {"@type": "ListItem", "position": 2, "name": "No encontramos esta página", "item": "https://www.umartidigital.com/404/"}]}</script>
 <script>
 (function () {
   var host = location.hostname;
-  if (host !== 'umartidigital.com' && host !== 'www.umartidigital.com') return;
+  if (host !== 'umartidigital.com' && host !== 'www.umartidigital.com') {
+    // Sitio temporal u otro dominio: no indexar y no medir.
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+    return;
+  }
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MS7PXD6NQR';
@@ -154,7 +160,7 @@
       <p class="page-head__lead">Puede que la dirección haya cambiado con el nuevo sitio.</p>
     </div>
   </section>
-  <section class="section section--tight"><div class="wrap"><p><a class="btn" href="/">Ir al inicio</a></p></div></section>
+  <section class="section section--tight"><div class="wrap"><p class="landing-actions"><a class="btn" href="/">Ir al inicio</a> <a class="btn btn--ghost" href="/hub/">Ver el Hub</a> <a class="btn btn--ghost" href="/contacto/">Contacto</a></p></div></section>
 </main>
 
 <footer class="footer">

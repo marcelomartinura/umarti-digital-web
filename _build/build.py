@@ -823,7 +823,13 @@ def analytics_tag():
     return """<script>
 (function () {
   var host = location.hostname;
-  if (host !== 'umartidigital.com' && host !== 'www.umartidigital.com') return;
+  if (host !== 'umartidigital.com' && host !== 'www.umartidigital.com') {
+    // Sitio temporal u otro dominio: no indexar y no medir.
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+    return;
+  }
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=__GA__';
@@ -1311,7 +1317,9 @@ def main():
     ht = ROOT / ".htaccess"
     txt = ht.read_text(encoding="utf-8")
     ini, fin = "# >>> notas del sitio anterior (generado)", "# <<< notas del sitio anterior"
-    bloque = ini + "\n" + "".join(f"Redirect 301 {a['old']} /hub/{a['slug']}/\n" for a in ARTICULOS if a.get("old")) + fin
+    bloque = ini + "\n" + "".join(
+        f"RewriteRule ^{re.escape(a['old'].strip('/'))}/?$ https://www.umartidigital.com/hub/{a['slug']}/ [R=301,L]\n"
+        for a in ARTICULOS if a.get("old")) + fin
     if ini in txt:
         txt = txt[:txt.index(ini)] + bloque + txt[txt.index(fin) + len(fin):]
     else:
@@ -1323,7 +1331,7 @@ def main():
                 lead="Puede que la dirección haya cambiado con el nuevo sitio.",
                 title="Página no encontrada | Umarti Digital", description="Página no encontrada.")
     body = page_header(p404) + """
-  <section class="section section--tight"><div class="wrap"><p><a class="btn" href="/">Ir al inicio</a></p></div></section>"""
+  <section class="section section--tight"><div class="wrap"><p class="landing-actions"><a class="btn" href="/">Ir al inicio</a> <a class="btn btn--ghost" href="/hub/">Ver el Hub</a> <a class="btn btn--ghost" href="/contacto/">Contacto</a></p></div></section>"""
     (ROOT / "404.html").write_text(render(p404, layout, body), encoding="utf-8")
 
     today = datetime.date.today().isoformat()

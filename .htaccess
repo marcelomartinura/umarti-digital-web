@@ -1,44 +1,80 @@
 RewriteEngine On
+DirectorySlash On
 
-# Dominio único: sin www y el subdominio provisorio pasan a https://www.umartidigital.com
-RewriteCond %{HTTP_HOST} ^umartidigital\.com$ [NC,OR]
-RewriteCond %{HTTP_HOST} ^nuevo\.umartidigital\.com$ [NC]
-RewriteRule ^(.*)$ https://www.umartidigital.com/$1 [L,R=301]
+# ---------------------------------------------------------------------------
+# 1. Cualquier dominio que no sea el de producción (sitio temporal *.hostingersite.com,
+#    etc.): no indexar. En producción no se envía la cabecera.
+SetEnvIfNoCase Host "^(www\.)?umartidigital\.com$" ES_PRODUCCION
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow" env=!ES_PRODUCCION
+</IfModule>
 
-# Forzar HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+# ---------------------------------------------------------------------------
+# 2. Páginas de plantilla del sitio anterior que no son del sitio: 410 (Gone)
+RewriteRule ^(face-serum|face-serum-gxrcld|classic-cap-hpeszv|set-of-plates-cxlzwx|blog-viajero|autos|bienes-raices|negocios)/?$ - [G,L]
 
-# Redirecciones del sitio anterior (Hostinger Builder) a las URLs nuevas
-Redirect 301 /automatizacion-procesos-automotriz /servicios/automatizacion-ia/
-Redirect 301 /gestion-de-proyectos-y-producto /servicios/desarrollo-nuevos-productos/
-RedirectMatch 301 ^/agente-conversacional-con-ai/?$ /servicios/automatizacion-ia/
-RedirectMatch 301 ^/automatizacion-de-procesos/?$ /servicios/automatizacion-ia/
-RedirectMatch 301 ^/movilidad/?$ /industrias/automotriz/
-RedirectMatch 301 ^/blog(/.*)?$ /hub/
+# ---------------------------------------------------------------------------
+# 3. Redirecciones del sitio anterior. Todas 301, con o sin barra final, y con destino
+#    absoluto para llegar en un solo salto aunque se pida con http o sin www.
+RewriteRule ^(sobre-mi|partners|mis-partners|experiencia|metodo-umarti-digital)/?$ https://www.umartidigital.com/sobre-umarti/ [R=301,L]
+RewriteRule ^(transformacion-automotriz|automotriz|movilidad)/?$ https://www.umartidigital.com/industrias/automotriz/ [R=301,L]
+RewriteRule ^(diseno-estrategico|consultoria-en-tecnologia)/?$ https://www.umartidigital.com/servicios/evolucion-digital/ [R=301,L]
+RewriteRule ^(generacion-de-leads|generacion-de-leads-automotriz)/?$ https://www.umartidigital.com/servicios/generacion-demanda-agente-ia/ [R=301,L]
+RewriteRule ^(desarrollo-comercial-y-digital|consultoria-de-ventas)/?$ https://www.umartidigital.com/servicios/gestion-digital-ventas/ [R=301,L]
+RewriteRule ^(automatizacion-y-digitalizacion-de-procesos|automatizacion-y-digitalizacion-en-automotriz|agente-conversacional-con-ai|automatizacion-de-procesos|automatizacion-procesos-automotriz)/?$ https://www.umartidigital.com/servicios/automatizacion-ia/ [R=301,L]
+RewriteRule ^digitalizacion-de-procesos/?$ https://www.umartidigital.com/digitalizacion-optimizada/ [R=301,L]
+RewriteRule ^(marketing-digital|marketing|desarrollo-web-y-digital|desarrollo-digital)/?$ https://www.umartidigital.com/presencia-digital/ [R=301,L]
+RewriteRule ^(experiencia-wow|experiencia-del-cliente-automotriz)/?$ https://www.umartidigital.com/hub/experiencia-del-cliente/ [R=301,L]
+RewriteRule ^automatizacion-de-procesos-en-la-industria-automotriz-utilizando-la-tecnologia/?$ https://www.umartidigital.com/hub/automatizacion-procesos-automotriz/ [R=301,L]
+RewriteRule ^gestion-de-proyectos-y-producto/?$ https://www.umartidigital.com/servicios/desarrollo-nuevos-productos/ [R=301,L]
+RewriteRule ^(blog1|blog-list)/?$ https://www.umartidigital.com/hub/ [R=301,L]
+RewriteRule ^blog(/.*)?$ https://www.umartidigital.com/hub/ [R=301,L]
+RewriteRule ^terminos-y-condiciones/?$ https://www.umartidigital.com/privacidad/ [R=301,L]
+RewriteRule ^(info-general|eng|services|onboarding-mexico)/?$ https://www.umartidigital.com/ [R=301,L]
 
 # >>> notas del sitio anterior (generado)
-Redirect 301 /colaboradores-motivados-el-motor-silencioso-de-las-empresas-que-crecen-copy /hub/colaboradores-motivados/
-Redirect 301 /la-movilidad-en-transicion-los-retos-digitales-que-marcaran-el-futuro-del-sector-automotriz /hub/movilidad-en-transicion/
-Redirect 301 /inteligencia-artificial-automatizar-no-es-suficiente-la-diferencia-esta-en-la-experiencia /hub/ia-experiencia/
-Redirect 301 /estrategias-para-potenciar-la-experiencia-del-usuario-copy /hub/experiencia-del-cliente/
-Redirect 301 /estamos-listos-para-disenar-procesos-digitales-seguros-y-transparentes-copy /hub/procesos-digitales-seguros/
-Redirect 301 /la-entrega-emotiva-como-construir-una-experiencia-verdaderamente-diferenciada-en-la-industria-automotriz-copy /hub/entrega-emotiva/
-Redirect 301 /automatizacion-de-procesos-en-la-industria-automotriz-utilizando-la-tecnologia-copy /hub/automatizacion-procesos-automotriz/
-Redirect 301 /el-sitio-web-como-canal-de-ventas-de-presencia-digital-a-motor-de-crecimiento /hub/sitio-web-canal-de-ventas/
-Redirect 301 /como-digitalizar-un-proceso-de-venta-automotriz /hub/digitalizar-proceso-venta-automotriz/
-Redirect 301 /la-nueva-experiencia-al-cliente-en-seminuevos /hub/seminuevos-experiencia-cliente/
-Redirect 301 /que-es-y-como-funciona-una-agencia-especializada-de-seminuevos /hub/agencia-seminuevos/
-Redirect 301 /como-hago-crecer-mis-ventas /hub/crecer-ventas/
-Redirect 301 /como-disenar-estrategias-de-comunicacion-digital /hub/estrategias-comunicacion-digital/
+RewriteRule ^colaboradores\-motivados\-el\-motor\-silencioso\-de\-las\-empresas\-que\-crecen\-copy/?$ https://www.umartidigital.com/hub/colaboradores-motivados/ [R=301,L]
+RewriteRule ^la\-movilidad\-en\-transicion\-los\-retos\-digitales\-que\-marcaran\-el\-futuro\-del\-sector\-automotriz/?$ https://www.umartidigital.com/hub/movilidad-en-transicion/ [R=301,L]
+RewriteRule ^inteligencia\-artificial\-automatizar\-no\-es\-suficiente\-la\-diferencia\-esta\-en\-la\-experiencia/?$ https://www.umartidigital.com/hub/ia-experiencia/ [R=301,L]
+RewriteRule ^estrategias\-para\-potenciar\-la\-experiencia\-del\-usuario\-copy/?$ https://www.umartidigital.com/hub/experiencia-del-cliente/ [R=301,L]
+RewriteRule ^estamos\-listos\-para\-disenar\-procesos\-digitales\-seguros\-y\-transparentes\-copy/?$ https://www.umartidigital.com/hub/procesos-digitales-seguros/ [R=301,L]
+RewriteRule ^la\-entrega\-emotiva\-como\-construir\-una\-experiencia\-verdaderamente\-diferenciada\-en\-la\-industria\-automotriz\-copy/?$ https://www.umartidigital.com/hub/entrega-emotiva/ [R=301,L]
+RewriteRule ^automatizacion\-de\-procesos\-en\-la\-industria\-automotriz\-utilizando\-la\-tecnologia\-copy/?$ https://www.umartidigital.com/hub/automatizacion-procesos-automotriz/ [R=301,L]
+RewriteRule ^el\-sitio\-web\-como\-canal\-de\-ventas\-de\-presencia\-digital\-a\-motor\-de\-crecimiento/?$ https://www.umartidigital.com/hub/sitio-web-canal-de-ventas/ [R=301,L]
+RewriteRule ^como\-digitalizar\-un\-proceso\-de\-venta\-automotriz/?$ https://www.umartidigital.com/hub/digitalizar-proceso-venta-automotriz/ [R=301,L]
+RewriteRule ^la\-nueva\-experiencia\-al\-cliente\-en\-seminuevos/?$ https://www.umartidigital.com/hub/seminuevos-experiencia-cliente/ [R=301,L]
+RewriteRule ^que\-es\-y\-como\-funciona\-una\-agencia\-especializada\-de\-seminuevos/?$ https://www.umartidigital.com/hub/agencia-seminuevos/ [R=301,L]
+RewriteRule ^como\-hago\-crecer\-mis\-ventas/?$ https://www.umartidigital.com/hub/crecer-ventas/ [R=301,L]
+RewriteRule ^como\-disenar\-estrategias\-de\-comunicacion\-digital/?$ https://www.umartidigital.com/hub/estrategias-comunicacion-digital/ [R=301,L]
 # <<< notas del sitio anterior
 
+# ---------------------------------------------------------------------------
+# 4. Carpetas pedidas sin barra final (por ejemplo /contacto): agregar la barra
+#    en un solo salto, ya con https y www.
+RewriteCond %{HTTP_HOST} ^(www\.|nuevo\.)?umartidigital\.com$ [NC]
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*)$ https://www.umartidigital.com/$1/ [R=301,L]
+
+# ---------------------------------------------------------------------------
+# 5. Dominio único: sin www y el subdominio provisorio pasan a https://www.umartidigital.com
+RewriteCond %{HTTP_HOST} ^umartidigital\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^nuevo\.umartidigital\.com$ [NC]
+RewriteRule ^(.*)$ https://www.umartidigital.com/$1 [R=301,L]
+
+# 6. Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# ---------------------------------------------------------------------------
 # No exponer archivos del repositorio ni el generador
 RedirectMatch 404 ^/\.git
 RedirectMatch 404 ^/_build
 RedirectMatch 404 ^/README\.md$
 
+# Página 404 propia (responde con código 404 real)
 ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
 
 # Caché de recursos estáticos
 <IfModule mod_expires.c>
