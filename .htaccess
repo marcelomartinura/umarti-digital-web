@@ -4,9 +4,14 @@ DirectorySlash On
 # ---------------------------------------------------------------------------
 # 1. Cualquier dominio que no sea el de producción (sitio temporal *.hostingersite.com,
 #    etc.): no indexar. En producción no se envía la cabecera.
-SetEnvIfNoCase Host "^(www\.)?umartidigital\.com$" ES_PRODUCCION
+#    Lógica positiva: la variable solo existe fuera de producción, así que si el servidor
+#    no la procesa, la cabecera simplemente no se envía (nunca bloquea producción).
+#    Respaldo: el <head> de cada página agrega meta robots noindex fuera de producción.
+RewriteCond %{HTTP_HOST} !^(www\.)?umartidigital\.com$ [NC]
+RewriteRule ^ - [E=SITIO_NO_INDEXABLE:1]
 <IfModule mod_headers.c>
-  Header always set X-Robots-Tag "noindex, nofollow" env=!ES_PRODUCCION
+  Header always set X-Robots-Tag "noindex, nofollow" env=SITIO_NO_INDEXABLE
+  Header always set X-Robots-Tag "noindex, nofollow" env=REDIRECT_SITIO_NO_INDEXABLE
 </IfModule>
 
 # ---------------------------------------------------------------------------
