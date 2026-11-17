@@ -816,11 +816,57 @@ def wa_link():
 
 
 def analytics_tag():
+    """GA4 solo en el dominio de producción, más los eventos clic_correo y generate_lead.
+    WhatsApp no se mide acá: ya se mide desde Analytics."""
     if not GA_ID:
         return ""
-    return ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '"></script>\n'
-            "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}"
-            "gtag('js',new Date());gtag('config','" + GA_ID + "');</script>\n")
+    return """<script>
+(function () {
+  var host = location.hostname;
+  if (host !== 'umartidigital.com' && host !== 'www.umartidigital.com') return;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=__GA__';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+
+  // Envío exitoso de un formulario: contact.php vuelve con ?enviado=1&lead=1&lo=<origen>&li=<interes>&lp=<ruta>.
+  // Se limpian esos parámetros de la URL antes del config, para que no queden en la page_view.
+  var q = new URLSearchParams(location.search), lead = null;
+  if (q.get('enviado') === '1' && q.get('lead') === '1') {
+    lead = {
+      origen: q.get('lo') || '',
+      interes: q.get('li') || '',
+      page_location: location.origin + (q.get('lp') || location.pathname)
+    };
+    ['lead', 'lo', 'li', 'lp'].forEach(function (k) { q.delete(k); });
+    var rest = q.toString();
+    history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
+  }
+  gtag('config', '__GA__');
+  if (lead) gtag('event', 'generate_lead', lead);
+
+  // Clics en enlaces de correo, actuales y futuros (un solo listener delegado).
+  document.addEventListener('click', function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="mailto:"]') : null;
+    if (!a) return;
+    var zona = a.closest('footer') ? 'pie' : a.closest('header') ? 'encabezado' : '';
+    if (!zona) {
+      var sec = a.closest('section, aside, article');
+      var h = sec ? sec.querySelector('h1, h2, h3') : null;
+      zona = (sec && sec.id) || (h ? h.textContent.trim() : '') || location.pathname;
+    }
+    var texto = (a.textContent || '').trim().slice(0, 60);
+    gtag('event', 'clic_correo', {
+      link_url: a.getAttribute('href').split('?')[0],
+      ubicacion: (zona + (texto ? ' | ' + texto : '')).slice(0, 100)
+    });
+  }, true);
+})();
+</script>
+""".replace("__GA__", GA_ID)
 
 def whatsapp_button():
     if WHATSAPP:

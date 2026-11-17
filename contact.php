@@ -18,10 +18,24 @@ const ORIGENES = ['contacto' => '/contacto/', 'hub' => '/hub/',
 $origen = $_POST['origen'] ?? 'contacto';
 $volverA = ORIGENES[$origen] ?? '/contacto/';
 
-function volver($ok) {
-    global $volverA;
+function volver($ok, $lead = false) {
+    global $volverA, $origen;
     $ancla = (strpos($volverA, '/presencia-digital/') === 0 || $volverA === '/digitalizacion-optimizada/' || $volverA === '/profesionales/') ? '#presupuesto' : (($volverA === '/expansion-latam/' || $volverA === '/soluciones/') ? '#reunion' : (strpos($volverA, '/diagnostico/') === 0 ? '#diagnostico' : ''));
-    header('Location: ' . $volverA . '?enviado=' . ($ok ? '1' : '0') . $ancla, true, 303);
+    $q = 'enviado=' . ($ok ? '1' : '0');
+    if ($ok && $lead) {
+        // Datos para el evento generate_lead de GA4. Solo origen, interés y la página: nada personal.
+        $interes = preg_replace('/[^a-z0-9-]/', '', strtolower((string)($_POST['interes'] ?? '')));
+        $pagina = $volverA;
+        $ref = parse_url($_SERVER['HTTP_REFERER'] ?? '');
+        if (!empty($ref['host']) && preg_match('/(^|\.)umartidigital\.com$/', $ref['host'])
+            && !empty($ref['path']) && preg_match('#^/[A-Za-z0-9/_-]*$#', $ref['path'])) {
+            $pagina = $ref['path'];
+        }
+        $q .= '&lead=1&lo=' . rawurlencode(array_key_exists($origen, ORIGENES) ? $origen : 'contacto')
+            . '&li=' . rawurlencode(substr($interes, 0, 40))
+            . '&lp=' . rawurlencode($pagina);
+    }
+    header('Location: ' . $volverA . '?' . $q . $ancla, true, 303);
     exit;
 }
 
@@ -76,4 +90,5 @@ $cabeceras = "From: Umarti Digital <" . REMITENTE . ">\r\n"
            . "Content-Type: text/plain; charset=UTF-8\r\n";
 
 $ok = mail(DESTINO, '=?UTF-8?B?' . base64_encode($asunto) . '?=', $cuerpo, $cabeceras);
-volver($ok);
+// Solo un envío real y exitoso dispara generate_lead (la trampa de bots vuelve con éxito pero sin evento).
+volver($ok, true);
