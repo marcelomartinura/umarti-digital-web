@@ -238,6 +238,12 @@ def ofertas_html():
     return "\n".join(out)
 
 
+def bio_autor(a):
+    if a.get("industria", "automotriz") == "automotriz":
+        return "Consultor con 20 años en la industria de la movilidad. Ayudo a empresas automotrices, de movilidad e inmobiliarias a ordenar procesos, automatizar con IA y vender mejor."
+    return "Consultor en evolución digital. Ayudo a empresas a ordenar sus procesos, automatizar con inteligencia artificial e integrar su tecnología para vender y atender mejor."
+
+
 def oferta_nota(a):
     k = a.get("oferta") or OFERTA_POR_INDUSTRIA.get(a.get("industria", "automotriz"), "auto")
     o = OFERTAS[k]
@@ -435,6 +441,21 @@ PAGE_FAQ = {
 # Artículos publicados en el Hub. El cuerpo vive en _build/articulos/<slug>.html.
 # "fecha" es la de publicación original (ISO). "old" es la URL del sitio viejo (para la 301).
 ARTICULOS = [
+    dict(slug="personas-transformacion-digital",
+         titulo="La transformación también se nota en cómo trabaja la gente",
+         seo_title="Transformación digital y personas: simplificar el trabajo del equipo | Umarti Digital",
+         descripcion="Una transformación bien pensada mejora la experiencia del cliente y la de quienes hacen posible el servicio. Señales de que el trabajo es más difícil de lo necesario y por qué empezar por el proceso, no por la herramienta.",
+         intro="Cuando una empresa decide transformarse, muchas veces la conversación empieza por una herramienta: un nuevo sistema, una plataforma, un CRM o una automatización.",
+         resumen="Por qué más herramientas no siempre significa menos problemas, las señales de que el trabajo es más difícil de lo necesario y cómo empezar por el proceso.",
+         categoria="Gestión y Operaciones",
+         industria="empresas",
+         fecha="2026-11-17",
+         imagen="personas-transformacion-digital",
+         imagen_alt="Equipo de trabajo conversando alrededor de una mesa de reuniones con laptops y documentos",
+         old="",
+         comunidad="autos",
+         relacionados=[("/servicios/evolucion-digital/", "Método Evolución Digital"),
+                       ("/soluciones/", "Ecosistema de soluciones")]),
     dict(slug="movilidad-electrica-preparacion",
          titulo="Movilidad eléctrica: ¿están preparadas las empresas automotrices para el cambio?",
          seo_title="Movilidad eléctrica: cómo preparar a una concesionaria para el cambio | Umarti Digital",
@@ -1127,7 +1148,7 @@ def articulo_html(a):
         <picture><source srcset="/assets/img/marcelo.webp" type="image/webp"><img src="/assets/img/marcelo.jpg" alt="" width="72" height="72"></picture>
         <div>
           <p class="post-author__name">Marcelo</p>
-          <p>Consultor con 20 años en la industria de la movilidad. Ayudo a empresas automotrices, de movilidad e inmobiliarias a ordenar procesos, automatizar con IA y vender mejor.</p>
+          <p>{bio_autor(a)}</p>
         </div>
       </div>
 
