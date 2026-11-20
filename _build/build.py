@@ -134,7 +134,7 @@ PAGES = [
     dict(path="/profesionales/", file="profesionales.html", nav="", form=True, faq="PROFESIONALES",
          title="Umarti Profesionales: sitio web, turnos y WhatsApp automatizado para profesionales | Umarti Digital",
          description="Digitalización para psicólogos, médicos, odontólogos, contadores y otros profesionales: sitio web, Google Business, agenda de turnos, recordatorios, WhatsApp automatizado y campañas.",
-         h1="Umarti Profesionales",
+         h1="Umarti Profesionales", head_logo="/assets/img/umarti-profesionales-dark",
          lead="Digitalización para profesionales independientes y pequeños consultorios: que te encuentren en internet, que la agenda se ordene sola y que lleguen más consultas, sin que tengas que ocuparte de la tecnología.",
          crumb="Umarti Profesionales"),
     dict(path="/diagnostico/", file="diagnostico.html", nav="",
@@ -1001,6 +1001,14 @@ def crumbs(page):
     return items
 
 
+def head_logo(page):
+    src = page.get("head_logo")
+    if not src:
+        return ""
+    return (f'      <picture class="page-head__logo"><source srcset="{src}.webp" type="image/webp">'
+            f'<img src="{src}.png" alt="Umarti Digital Profesionales" width="300" height="102"></picture>\n')
+
+
 def page_header(page):
     parts = []
     items = crumbs(page)
@@ -1018,7 +1026,7 @@ def page_header(page):
     return f"""  <section class="page-head{cls}"{style}>
     <div class="wrap">
       <nav class="crumbs" aria-label="Ruta">{trail}</nav>
-      <h1>{e(page["h1"])}</h1>
+{head_logo(page)}      <h1>{e(page["h1"])}</h1>
       <p class="page-head__lead">{e(page["lead"])}</p>
     </div>
   </section>"""
