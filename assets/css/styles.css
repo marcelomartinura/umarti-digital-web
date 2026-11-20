@@ -806,3 +806,5 @@ button.chip--on { background: var(--ink); color: var(--white); }
 .video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
 .video-frame video::cue { background: rgba(11,30,47,.82); color: #fff; font-size: 1rem; line-height: 1.35; }
 @media (max-width: 900px) { .video-split { grid-template-columns: 1fr; gap: 24px; } }
+.page-head + .section--video { padding-top: 0; }
+.video-split__text h2 { margin-bottom: 16px; }
