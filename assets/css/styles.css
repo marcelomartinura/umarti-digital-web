@@ -797,3 +797,12 @@ button.chip--on { background: var(--ink); color: var(--white); }
 .post-offer p:not(.eyebrow) { color: #C9D6DC; margin: 0; font-size: .95rem; }
 .post-offer .btn { flex-shrink: 0; }
 @media (max-width: 700px) { .post-offer { flex-direction: column; align-items: flex-start; } }
+
+/* Video Automotriz */
+.video-split { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 48px; align-items: center; }
+.video-split__text h2 { color: var(--white); }
+.video-split__text p:not(.eyebrow) { color: #C9D6DC; }
+.video-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.35); border: 1px solid rgba(23,187,189,.35); background: #000; }
+.video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.video-frame video::cue { background: rgba(11,30,47,.82); color: #fff; font-size: 1rem; line-height: 1.35; }
+@media (max-width: 900px) { .video-split { grid-template-columns: 1fr; gap: 24px; } }
