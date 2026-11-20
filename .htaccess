@@ -81,6 +81,10 @@ RedirectMatch 404 ^/README\.md$
 ErrorDocument 404 /404.html
 ErrorDocument 410 /404.html
 
+# Tipos de archivo del video
+AddType text/vtt .vtt
+AddType video/mp4 .mp4
+
 # Caché de recursos estáticos
 <IfModule mod_expires.c>
   ExpiresActive On
