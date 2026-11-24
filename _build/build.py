@@ -1125,6 +1125,7 @@ def org_ld():
         "sameAs": [
             "https://www.linkedin.com/company/umarti-digital/",
             "https://www.facebook.com/umartidigital/",
+            "https://www.instagram.com/umartidigital/",
         ],
     }
     if WHATSAPP:
